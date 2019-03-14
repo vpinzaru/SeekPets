@@ -85,3 +85,24 @@
 .loginbox .loginForm input[type = "submit"]:hover{
   background: #2ecc71;
 }
+
+@media screen and (max-width: 500px)
+{
+    .loginPage
+    {
+        background: url("images/cat_small_respnsive.png") no-repeat fixed 50% 50%;
+    }
+    .loginPage .loginbox
+    {
+        opacity: 0.8;
+        width: 220px;
+        height: 320px;
+    }
+    .loginbox .loginForm{
+      transform: translate(-50%,-30%);
+    }
+    .loginbox .loginForm input[type = "text"],.loginbox .loginForm input[type = "password"]{
+      padding: 10px 6px;
+      width: 140px;
+    }
+}
