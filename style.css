@@ -1,57 +1,87 @@
-body{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background: #34495e;
-  }
-  .loginForm{
-    width: 300px;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background: #191919;
-    text-align: center;
-  }
-  .loginForm h1{
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-  .loginForm input[type = "text"],.loginForm input[type = "password"]{
-    border:0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #3498db;
-    padding: 14px 10px;
-    width: 200px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-  }
-  .loginForm input[type = "text"]:focus,.loginForm input[type = "password"]:focus{
-    width: 280px;
-    border-color: #2ecc71;
-  }
-  .loginForm input[type = "submit"]{
-    border:0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #2ecc71;
-    padding: 14px 40px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer;
-  }
-  .loginForm input[type = "submit"]:hover{
-    background: #2ecc71;
-  }
-  
+.loginPage{
+  margin: 0;
+  padding: 0;
+  background: url("images/login_page_background.png") no-repeat fixed 50% 50%;
+  background-size: cover;
+  background-position: center;
+  font-family: sans-serif;
+}
+
+.loginbox{
+  width: 320px;
+  height: 420px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+}
+
+.loginPage .avatar{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
+.loginPage h1{
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.loginbox a{
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.loginbox .loginForm{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-40%);
+  text-align: center;
+}
+.loginbox .loginForm input[type = "text"],.loginbox .loginForm input[type = "password"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+.loginbox .loginForm input[type = "text"]:focus,.loginbox .loginForm input[type = "password"]:focus{
+  width: 280px;
+  border-color: #2ecc71;
+}
+.loginbox .loginForm input[type = "submit"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.loginbox .loginForm input[type = "submit"]:hover{
+  background: #2ecc71;
+}
