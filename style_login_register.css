@@ -1,0 +1,233 @@
+.loginPage{
+  margin: 0;
+  padding: 0;
+  background: url("images/bunny.jpg") no-repeat fixed 50% 50%;
+  background-size: cover;
+  background-position: center;
+  font-family: sans-serif;
+}
+
+.registerPage{
+  margin: 0;
+  padding: 0;
+  background: url("images/god.jpg") no-repeat fixed 50% 50%;
+  background-size: cover;
+  background-position: center;
+  font-family: sans-serif;
+}
+
+.loginbox{
+  width: 320px;
+  height: 420px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  right: 80%;
+  left: 20%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+}
+.registerbox
+{
+  width: 320px;
+  height: 490px;
+  background: #000;
+  color: #fff;
+  top: 35%;
+  left: 65%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+}
+
+.loginPage .avatar{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
+.registerPage .avatar{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
+.loginPage h1{
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.registerPage h1{
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.loginbox a{
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.registerbox a{
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.loginbox .loginForm{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-40%);
+  text-align: center;
+}
+
+.registerbox .registerForm{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-40%);
+  text-align: center;
+}
+
+.loginbox .loginForm input[type = "text"],.loginbox .loginForm input[type = "password"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #d8873bef;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+
+.registerbox .registerForm input[type = "text"],.registerbox .registerForm input[type = "password"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #db34d3;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+
+
+.loginbox .loginForm input[type = "text"]:focus,.loginbox .loginForm input[type = "password"]:focus{
+  width: 280px;
+  border-color: #2ecc71;
+}
+
+.registerbox .registerForm input[type = "text"]:focus,.registerbox .registerForm input[type = "password"]:focus{
+  width: 280px;
+  border-color: #2ecc71;
+}
+
+.loginbox .loginForm input[type = "submit"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.registerbox .registerForm input[type = "submit"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.loginbox .loginForm input[type = "submit"]:hover{
+  background: #2ecc71;
+}
+
+.registerbox .registerForm input[type = "submit"]:hover{
+  background: #2ecc71;
+}
+
+@media screen and (max-width: 500px)
+{
+    .loginPage
+    {
+        background: url("images/cat_small_respnsive.png") no-repeat fixed 50% 50%;
+    }
+    .loginPage .loginbox
+    {
+        opacity: 0.8;
+        width: 220px;
+        height: 350px;
+        top:50%;
+        left:50%;
+        right:50%;
+    }
+    .loginbox .loginForm{
+      transform: translate(-50%,-30%);
+    }
+    .loginbox .loginForm input[type = "text"],.loginbox .loginForm input[type = "password"]{
+      padding: 10px 6px;
+      width: 140px;
+    }
+
+    .registerPage
+    {
+        background: url("images/decor.jpg") no-repeat fixed 50% 50%;
+        
+    }
+    .registerPage .registerbox
+    {
+        background:lightgray;
+        width: 355px;
+        height: 480px;
+        top:50%;
+        left:50%;
+        right:50%;
+    }
+    .registerbox .registerForm{
+      transform: translate(-50%,-30%);
+      color:black;
+      opacity:1;
+    }
+    .registerbox .registerForm input[type = "text"],.loginbox .loginForm input[type = "password"]{
+      padding: 10px 6px;
+      width: 140px;
+    }
+}
