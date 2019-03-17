@@ -97,7 +97,7 @@ h1
 header
 {
     background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(cover.jpg);
-    height: 100vh;
+    height: 100%;
     background-size: cover;
     width:100%;
     background-position:center;
@@ -179,6 +179,38 @@ div.options{
   font-size: large;
 }
 
+.login
+{
+    display:inline-block;
+    position:absolute;
+    bottom: 85%;
+    left: 85%;
+}
+.login a{
+    font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-weight:bold;
+    border-radius: 24px;
+    border: 2px solid white;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    position: relative;
+    transition: 0.25s;
+}
+.login a:hover{
+    border-color: lightblue;
+}
+
+.login .buttons
+{
+    position: absolute;
+}
+.login .buttons
+{
+    height: 300px;
+    width: 200px;
+}
+
 @media screen and (max-width :768px) {
 
 	header {
@@ -236,6 +268,24 @@ div.options{
         left: 0px;
         height: 300px;
         width: 500px;
+    }
+    .login
+    {
+        bottom:80%;
+        left:75%;
+        width:100px;
+        height:50px;
+    }
+    .login .buttons
+    {
+        width:100px;
+        height:50px;
+    }
+    .login a{
+        border: 1px solid white;
+        padding: 7px 20px;
+        font-weight:normal;
+        font-size:10px;
     }
 }
 
