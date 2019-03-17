@@ -6,7 +6,8 @@ body {
     line-height:1.5;
     background-color:#171e20b0;}
 header{
-    position:relative;}
+    position:relative;
+}
 
 .row
 {
@@ -26,11 +27,15 @@ nav
     padding:20px;
 }
 nav a:hover{
-    color:rgba(37, 165, 165, 0.836)
+    color:pink;
+    border: 1px solid white;
+    transition: 0.5s;
+    border-radius:24px;
+    cursor: pointer;
 }
 ul {
 
-	list-style: none;
+    list-style: none;
 
 }
 
@@ -39,8 +44,6 @@ li {
 	display: inline-block;
 	float: left;
     padding: 10px;
-   
-
 }
  li.active a
 {
@@ -48,10 +51,6 @@ li {
     
 }
 
- a:hover
-{
-    border: 1px solid white;
-}
 #menu-icon {
 
 	display: hidden;
@@ -129,9 +128,58 @@ header
     height: auto;
 }
 
+#title h1{
+  font-size: 30px;
+  font-family: cursive;
+  text-align:left;
+  color: pink;
+  position:relative;
+}
+
+.container .options.list-group-item span i{
+  width:25px;
+  text-align:left;
+ 
+}
+section p{
+  float:right;
+}
 
 
-@media screen and (max-width :500px) {
+ul{
+  margin-bloxk-start:1em;
+  margin-block-end:1em;
+  margin-inline-start:0px;
+  margin-inline-end:0px;
+  padding-inline-start:40px;
+  display:block;
+}
+
+div.container{
+  width:50%;
+  padding-right:15px;
+  padding-left:15px;
+  margin-right:auto;
+  margin-left:auto;
+  position:relative;
+  height: 300px;
+  margin-left: 0px;
+  margin-right: 0px;
+  left: 20%;
+}
+
+div.options{
+  display:block;
+  width:40%;
+  height:auto;
+  position:absolute;
+  text-align:left;
+  color: white;
+  font-weight: bold;
+  font-size: large;
+}
+
+@media screen and (max-width :768px) {
 
 	header {
 
@@ -173,53 +221,22 @@ header
 		display: block;
 
     }
+    #title{
+        width: 500px;
+        height: 50px;
+    }
+    div.container{
+        height: 300px;
+        margin-left: 0px;
+        margin-right: 0px;
+        left: 0%;
+    }
+
+    div.container .options{
+        left: 0px;
+        height: 300px;
+        width: 500px;
+    }
 }
-
-#title h1{
-  font-size: 30px;
-  font-family: cursive;
-  text-align:left;
-  color: pink;
-  position:relative;
-}
-
-options.list-group-item span i{
-  width:25px;
-  text-align:left;
-  
- 
-}
-section p{
-  float:right;
-}
-
-
-ul{
-  margin-bloxk-start:1em;
-  margin-block-end:1em;
-  margin-inline-start:0px;
-  margin-inline-end:0px;
-  padding-inline-start:40px;
-  display:block;
-}
-
-div.container{
-  width:50%;
-  padding-right:15px;
-  padding-left:15px;
-  margin-right:auto;
-  margin-left:auto;
-  position:relative;
-}
-
-div.options{
-  display:block;
-  width:40%;
-  height:auto;
-  position:absolute;
-  text-align:left;
-}
-
-
 
 
