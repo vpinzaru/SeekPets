@@ -1,0 +1,59 @@
+.lostpet-form{
+    display:flex;
+    flex-direction:column;
+    border:2px solid rgb(189, 23, 167);
+    background:transparent;
+    box-sizing: border-box;
+    padding: 50px 20px;
+    border-radius: 24px;
+    width:30%;
+    height:40%;
+}
+.lostpet-form h2
+{
+    text-align: center;
+}
+.entryFormularInvizibil, .entryFormularInvizibilRe
+{
+    display:none;
+}
+:checked {
+    border: 1px solid blue;
+}
+.entryFormular , .entryFormularInvizibil, .entryFormularInvizibilRe
+{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    line-height: 20px;
+}
+.entryFormularCheck
+{
+    display:flex;
+    flex-direction:row;
+    line-height:20px;
+}
+.entryFormularCheck input[type="checkbox"]
+{
+    margin-left: 25px;
+}
+
+.registerForm
+{
+    justify-content:space-between;
+    display:flex;
+    flex-direction: column;
+    height:50%;
+}
+
+.registerForm input[type = "text"], textarea{
+    border:0;
+    background: none;
+    border: 2px solid #d423e4ef;
+    padding: 14px 10px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    width:50%;
+  }
