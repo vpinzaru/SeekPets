@@ -69,12 +69,15 @@ nav ul li:last-child{
 }
 nav ul li a{
     color:#1abec3;
-    border-radius:24px;
-    border:2px solid #1abec3;
     font-size:18px;
     padding: 10px 10px;
     display:inline-block; 
     transition: all 0.5s ease 0.5s;
+}
+.active
+{
+    border-radius:24px;
+    border:2px solid #1abec3;
 }
 nav ul li a:hover{
     transition: all 0.5s ease 0.5s;
