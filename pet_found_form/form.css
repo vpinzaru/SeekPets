@@ -1,4 +1,4 @@
-.lostpet-form{
+.foundpet-form, .lostpet-form{
     display:flex;
     flex-direction:column;
     border:2px solid rgb(189, 23, 167);
@@ -8,7 +8,7 @@
     border-radius: 24px;
     width:30%;
 }
-.lostpet-form h2
+.foundpet-form h2, .lostpet-form h2
 {
     text-align: center;
     font-family: 'Corben', Georgia, Times, serif;
@@ -16,7 +16,7 @@
     letter-spacing: 1.2px;
     color: #009900;
 }
-label{
+.registerForm label{
     font-family: 'Corben', Georgia, Times, serif;
 }
 .entryFormularInvizibil, .entryFormularInvizibilRe
@@ -112,7 +112,7 @@ label{
 
   @media screen and (max-width: 500px)
   {
-    .lostpet-form{
+    .foundpet-form,.lostpet-form{
 
         width:100vw;
     }
