@@ -22,6 +22,10 @@
             <div class = "entryFormularCheck">
                 <label for="inputZgarda">Collar </label>
                 <input type="checkbox" value="zgarda" id = "inputZgarda" >
+                <div class = "entryFormularInvizibil">
+                    <label for="inputZgardaDetalii">Collar description </label>
+                    <input type = "text" id = "inputZgardaDetalii" placeholder = "Give us a description of the collar (e.g: colour)">
+                </div>
             </div>
             <div class = "entryFormularInvizibil">
                 <label for="inputZgardaDetalii">Collar description </label>
@@ -34,10 +38,10 @@
             <div class = "entryFormularCheck">
                 <label for="inputReward">Reward </label>
                 <input type="checkbox" value="reward" id = "inputReward" >
-            </div>
-            <div class = "entryFormularInvizibilRe">
-                <label for="inputRewardDetalii">Reward description </label>
-                <input type = "text" id = "inputRewardDetalii" placeholder = "What is the reward?">
+                <div class = "entryFormularInvizibilRe">
+                        <label for="inputRewardDetalii">Reward description </label>
+                        <input type = "text" id = "inputRewardDetalii" placeholder = "What is the reward?">
+                </div>
             </div>
             <div class = "entryFormular">
                 <label for="inputDetalii">Pet descriptiom </label>
@@ -48,8 +52,8 @@
                 <input type = "text" id = "inputRasa" placeholder = "Your email address">
             </div>
             <div class = "entryFormular">
-                <label for="inputPhone">Email </label>
-                <input type = "text" id = "inputPhone" placeholder = "Your email phone number">
+                <label for="inputPhone">Phone number </label>
+                <input type = "tel" id = "inputPhone" pattern = "[0-9]{3} [0-9]{3} [0-9]{4}" maxlength="12" placeholder = "Your phone number">
             </div>
             <div class = "entryFormular">
                 <label for="inputPoza">Picture </label>
