@@ -106,7 +106,7 @@
   }
 
   .registerForm input[type = "text"]:focus, #inputDetalii:focus,  .registerForm input[type = "tel"]:focus{
-    width: 280px;
+    width: 380px;
     border-color: #2ecc71;
   }
 
