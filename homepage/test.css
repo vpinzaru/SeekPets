@@ -100,7 +100,7 @@ nav ul li a i{
 .toggle-menu ul li{
     width:100%; 
     height:3px; 
-    background-color:black; 
+    background-color:white; 
     margin-bottom:4px;
 }
 .toggle-menu ul li:last-child{
@@ -282,13 +282,8 @@ nav{
 }
 }
 
-@media only screen and (max-width: 320px) {
-h1 {
-    padding: 20px 0px;
-}
-}
 
-.banner{background:url(".images/cov3.jpg");
+.banner{background:url("./images/cov3.jpg");
 width:100%;
 background-size:cover;}
 .banner-text{
@@ -309,11 +304,39 @@ background-size:cover;}
 }
 .main-content{
     display:flex;
-    flex-flow:row wrap;
+    flex-direction: row;
+    flex-wrap:wrap;
     padding:5% 0;
+    align-items:flex-start;
 }
 .main1{
     flex:1;
     padding:3%;
     text-align:center;
+    display:flex;
+    flex-direction:column;
+    background:transparent;
+    box-sizing: border-box;
+    padding: 50px 20px;
+    border-radius: 60px;
+    width:33.33%; 
 }
+.main1 ul li a{
+  color:black;
+  list-style-type:none;
+  font-family: cursive;
+  
+}
+@media only screen and (max-width: 500px) {
+    h1 {
+        padding: 20px 0px;
+    }
+        .main-content
+        {
+            flex-direction: column;
+            width:100%;
+        }
+        .main1{
+            width:100%;
+        }
+    }
