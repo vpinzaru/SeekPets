@@ -523,3 +523,27 @@ opacity: 0.8;}
             width:100%;
         }
     }
+
+
+iframe{
+    border:0;
+    overflow:unset;
+    margin-top:0;
+    margin-bottom:0;
+    margin-left:0;
+    margin-right:0;
+}
+
+#pentruHTMLValid
+{
+    display:none;
+}
+
+.bare
+{
+    font-size:30px;
+    color:white;
+    position:relative;
+    bottom:80%;
+    left:80%;
+}
