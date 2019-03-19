@@ -1,0 +1,526 @@
+*{
+    text-decoration:none;
+    list-style:none; 
+    margin:0px; 
+    padding:0px; 
+    outline:none;
+}
+
+body{
+    margin:0px; 
+    padding:0px;
+    font-family: cursive, sans-serif;
+    text-rendering:optimizeLegibility;
+
+    }
+
+section{
+    width:100%;
+    max-width:1200px; 
+    margin:0px auto;
+    display:table;
+    position:relative;
+}
+
+
+
+
+
+.content{
+    width:80%;
+
+}
+
+
+h1{
+    margin:0px auto;
+    display:table;
+    font-size:26px;
+    padding:40px 0px;
+    color:white; 
+    text-align:center;
+}
+
+
+header{
+    width:100%;
+    display:table;
+    background-image:linear-gradient(rgb(0, 0, 0),rgba(163, 17, 54, 0.842));
+    margin-bottom:20px;
+    }
+
+#logo img{
+    float:left; 
+    height:100px;
+    width:auto;
+    padding:20px 0px;
+}
+
+nav{
+    width:auto;
+    float:right;
+    margin-top:50px;
+}
+nav ul{
+    display:table;
+     float:right;
+    }
+nav ul li{
+    float:left;
+}
+nav ul li:last-child{
+    padding-right:0px;
+}
+nav ul li a{
+    color:#eec1f0;
+    border-radius:24px;
+    font-size:18px;
+    padding: 10px 10px;
+    display:inline-block; 
+    transition: all 0.5s ease 0s;
+}
+nav ul li a:hover{
+    background-color:transparent;
+     color:#f076ea; 
+     transition: all 0.5s ease 0s;
+    }
+nav ul li a:hover i{
+    color:#28fdb6; 
+    transition: all 0.5s ease 0s;
+}
+nav ul li a i{
+    padding-right:10px; 
+    color:#85b3e2; 
+    transition: all 0.5s ease 0s;
+}
+
+.toggle-menu ul{
+    display:table; 
+    width:25px;
+}
+.toggle-menu ul li{
+    width:100%; 
+    height:3px; 
+    background-color:white; 
+    margin-bottom:4px;
+}
+.toggle-menu ul li:last-child{
+    margin-bottom:0px;
+}
+
+input[type=checkbox], label{
+    display:none;
+}
+.active
+{
+    border-radius:24px;
+    border:2px solid #1abec3;
+}
+.content{
+    display:table; 
+    margin-bottom:60px; 
+    width:900px;}
+.content h2{
+
+    font-size:18px; 
+    font-weight:500; 
+    color:#e01414; 
+    border-bottom:1px solid #fde428; 
+    display:table; 
+    padding-bottom:10px; 
+    margin-bottom:10px;
+
+}
+.content p{
+    font-size:14px; 
+    line-height:22px; 
+    color:#c74a4a; 
+    text-align:justify;
+    font-family: cursive}
+
+footer{
+    
+    display:table; 
+    padding-bottom:30px; 
+    width:100%; 
+    background-color: rgb(53, 189, 189);}
+.social{
+    
+    margin:0px auto; 
+    display:table;
+
+}
+.social li{
+    
+    float:left; 
+    padding:0px 10px;
+
+}
+.social li a{
+
+    color:#0a0214; 
+    transition: all 0.5s ease 0s;
+
+}
+.social li a:hover{
+    
+    color:rgb(107, 219, 172); 
+    transition: all 0.5s ease 0s;
+
+}
+
+@media only screen and (max-width: 1440px) {
+section{
+    
+    max-width:95%;
+
+}
+
+
+}
+
+@media only screen and (max-width: 980px) {
+header{
+
+    padding:20px 0px;
+
+}
+#logo{
+    
+    padding:0px;
+}
+input[type=checkbox] {
+    position: absolute; 
+    top: -9999px; 
+    left: -9999px; 
+    background:none;
+
+}
+input[type=checkbox]:focus{
+    
+    background:none;
+}
+label {
+    
+    float:right; 
+    padding:8px 0px; 
+    display:inline-block; 
+    cursor:pointer;
+ }
+ input[type=checkbox]:checked ~ nav {
+    display:block;
+}
+
+nav{
+    display:none; 
+    position:absolute; 
+    right:0px; 
+    top:53px; 
+    background-color:transparent; 
+    padding:0px; 
+    z-index:99;}
+nav ul{
+    width:auto;
+}
+nav ul li{
+    float:none; 
+    padding:0px; 
+    width:100%; 
+    display:table;
+}
+nav ul li a{
+    color:rgb(10, 10, 10); 
+    font-size:15px; 
+    padding:10px 20px; 
+    display:block; 
+    border-bottom: 1px solid rgba(225,225,225,0.1); 
+    font-style:fantasy;
+
+}
+nav ul li a i{
+    
+    color:#4fd8eb; 
+    padding-right:13px;
+
+}
+}
+
+@media only screen and (max-width: 980px) {
+.content{
+    width:90%;
+}
+}
+
+@media only screen and (max-width: 568px) {
+h1{
+    padding:25px 0px;
+}
+h1 span{
+    display:block;
+}
+}
+
+@media only screen and (max-width: 480px) {
+section {
+    max-width: 90%;
+}
+}
+
+@media only screen and (max-width: 360px) {
+h1{
+    font-size:20px;
+}
+
+label{
+    
+    padding:5px 0px;
+}
+
+
+
+nav{
+   
+    top:47px;
+}
+}
+
+
+.banner{background:url("../images/cov3.jpg");
+width:100%;
+background-size:cover;
+opacity: 0.8;}
+.banner-text{
+    display:flex;
+    padding:15% 0;
+}
+.banner-text-items{
+    color:black;
+    margin:auto;
+    text-align:center;
+    width:50%;
+    font-size:x-large;
+    
+}
+.banner-text-items h1{
+    color: black;
+    font-size:2em;
+    margin-bottom:20px;
+    text-transform:uppercase;
+    font-family: Bounce Script;
+}
+
+.main-content{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    padding:5% 0;
+    align-items:flex-start;
+    background-color: antiquewhite;
+}
+.main1{
+    flex:1;
+    padding:3%;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    box-sizing: border-box;
+    padding: 50px 20px;
+    border-radius: 60px;
+    width:33.33%; 
+}
+
+
+.foundpet-form, .lostpet-form{
+    display:flex;
+    flex-direction:column;
+    border:2px solid rgb(189, 23, 167);
+    background:transparent;
+    box-sizing: border-box;
+    padding: 50px 20px;
+    border-radius: 24px;
+    width:30%;
+}
+.main-content .main1 .foundpet-form{
+    width:auto;
+}
+.main-content .main1 .lostpet-form{
+    width:auto;
+}
+.registerForm label{
+    font-family: 'Corben', Georgia, Times, serif;
+    float:left;
+}
+.entryFormularInvizibil, .entryFormularInvizibilRe
+{
+    display:none;
+}
+
+.entryFormular
+{
+    display:flex;
+}
+
+.entryFormular , .entryFormularInvizibil, .entryFormularInvizibilRe
+{
+    flex-direction:row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.entryFormularInvizibil,.entryFormularInvizibilRe{
+    display:none;
+}
+
+.entryFormularCheck
+{
+    margin-bottom: 20px;
+}
+.entryFormularCheck input[type="checkbox"]
+{
+    margin-left: 25px;
+}
+
+.registerForm
+{
+    justify-content:space-between;
+    display:flex;
+    flex-direction: column;
+    height:50%;
+}
+
+.registerForm input[type = "text"], .registerForm input[type = "tel"]{
+    border:0;
+    background: none;
+    border: 2px solid #d423e4ef;
+    padding: 14px 10px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s;
+    width:50%;
+  }
+
+ #inputDetalii
+  {
+    border:0;
+    background: none;
+    border: 2px solid #d423e4ef;
+    padding: 14px 10px;
+    outline: none;
+    transition: 0.25s;
+    width:50%;
+  }
+ #inputZgarda:checked +div{
+
+    display:flex;
+ }
+
+ #inputReward:checked + div
+ {
+     display:flex;
+ }
+
+.registerForm input[type = "submit"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: Black;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  .registerForm input[type = "submit"]:hover{
+    background: #2ecc71;
+  }
+
+  .registerForm input[type = "text"]:focus, #inputDetalii:focus,  .registerForm input[type = "tel"]:focus{
+    width: 380px;
+    border-color: #2ecc71;
+  }
+
+  @media screen and (max-width: 500px)
+  {
+    .foundpet-form,.lostpet-form{
+
+        width:100vw;
+    }
+  }
+.LostAndFoundPets
+{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+.LostAndFoundPets .PetLost, .LostAndFoundPets .PetFound
+{
+    transition: box-shadow 0.6s linear;
+    margin: 0.5em;
+    box-sizing: border-box;
+    padding: 40px 10px;
+    text-align: center;
+    padding-bottom: 10px;
+    width: 320px;
+}
+.rasa
+{
+        color: grey;
+        font-size: 18px;
+}
+.lost{
+    margin-top:15px;
+    border:2px solid red;
+    border-radius:24px;
+    background:lightcoral
+}
+.found{
+    margin-top:15px;
+    border:2px solid green;
+    border-radius:24px;
+    background:greenyellow
+}
+.PetLost
+{
+    box-shadow: 0px 0px 0px 5px #FC5185; 
+}
+.PetFound
+{
+    box-shadow: 0px 0px 0px 5px rgb(121, 252, 81); 
+}
+.PetLost:hover
+{
+    box-shadow: 0px 0px 0px 10px #FC5185;
+}
+.PetFound:hover
+{
+    box-shadow: 0px 0px 0px 10px rgb(121, 252, 81);
+}
+.petpic
+{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
+@media only screen and (max-width: 500px) {
+    h1 {
+        padding: 20px 0px;
+    }
+        .main-content
+        {
+            flex-direction: column;
+            width:100%;
+        }
+        .main1{
+            width:100%;
+        }
+    }

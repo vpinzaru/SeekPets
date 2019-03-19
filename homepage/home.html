@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="homestyle.css">
+      <link rel="stylesheet" href="lost-found.css">
+      <link rel="stylesheet" href="../fonts/fonts1/css/all.min.css" >
+      <title>Pawtaie | Home</title>
+   </head>
+   <body>
+      <header>
+         <section>
+            <a href="home.html" id="logo" target="_blank">
+            <img src="../images/medium.png" alt="logo">
+            </a>
+            <label for="toggle-1" class="toggle-menu">
+               <ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+               </ul>
+			  
+            </label>
+             <input type="checkbox" id="toggle-1">
+            <nav>
+               <ul>
+                  <li><a href="home.html" class="active"><i class="fas fa-home"></i>Home</a></li>
+                  <li><a href=""><i class="fas fa-search"></i>Lost/Found</a></li>
+                  <li><a href="#lost-found"><i class="far fa-newspaper"></i>News</a></li>
+                  <li><a href="login-page.html"><i class="fas fa-user"></i>Login/Register</a></li>
+               </ul>
+            </nav>
+			 </section>
+      </header>
+     
+      <div class="banner">
+         <div class="banner-text">
+            <div class="banner-text-items">
+               <h1>Pawtaie. Reunite friends. </h1>
+               <p>Did you lose your pet ? Here's a few things that you can do to find him.</p>
+            </div>
+         </div>
+      </div>
+      <div class="main-content">
+         <div class="main1">
+            <div class = "foundpet-form">
+               <h2>Found pet formular</h2>
+               <form class="registerForm" action="index.html" method="post">
+                  <div class = "entryFormular">
+                     <label for="inputNume">Name* </label>
+                     <input type = "text" id = "inputNume" placeholder = "(optional)">
+                  </div>
+                  <div class = "entryFormular">
+                     <label for="inputRasa">Race </label>
+                     <input type = "text" id = "inputRasa" placeholder = "Tell us the race of the pet (cat/dog is not enough :) )">
+                  </div>
+                  <div class = "entryFormularCheck">
+                     <label for="inputZgarda">Collar </label>
+                     <input type="checkbox" value="zgarda" id = "inputZgarda" >
+                     <div class = "entryFormularInvizibil">
+                        <label for="inputZgardaDetalii">Collar description </label>
+                        <input type = "text" id = "inputZgardaDetalii" placeholder = "Give us a description of the collar (e.g: colour)">
+                     </div>
+                  </div>
+                  <div class = "entryFormular">
+                     <label for="inputZona">Address </label>
+                     <input type = "text" id = "inputZona" placeholder = "Tell us the address you found the pet at.">
+                  </div>
+                  <div class = "entryFormular">
+                     <label for="inputDetalii">Pet descriptiom </label>
+                     <textarea id = "inputDetalii" placeholder="Give us a good description of the pet, the more information the better. Is it dangerous? What does it like? "></textarea> 
+                  </div>
+                  <div class = "entryFormular">
+                     <label for="inputEmail">Email </label>
+                     <input type = "text" id = "inputRasa" placeholder = "Your email address">
+                  </div>
+                  <div class = "entryFormular">
+                     <label for="inputPhone">Phone number </label>
+                     <input type = "tel" id = "inputPhone" pattern = "[0-9]{3} [0-9]{3} [0-9]{4}" maxlength="12" placeholder = "Your phone number">
+                  </div>
+                  <div class = "entryFormular">
+                     <label for="inputPoza">Picture </label>
+                     <input type="file" name="pic" accept="image/*">
+                  </div>
+                  <input type="submit">
+               </form>
+            </div>
+         </div>
+         <div class="main1">
+            <h2>What to do</h2>
+            <p><span style="font-family: 'Montserrat Bold';font-weight:bold">Update Your Pet’s Microchip</span></p>
+            <p><span style="font-family: 'Montserrat Light';">Often times pets come into the shelter with a microchip, but the contact information is not updated or the microchip is not registered. Make sure your information is updated by calling your pet’s microchip company, or using free microchip databases such as <a href="http://www.found.org">found.org</a>.</span></p>
+            <p><span style="font-family: 'Montserrat Bold'; font-weight:bold">File a Lost Pet Report</span></p>
+            <p><span style="font-family: 'Montserrat Light';">Call 311 to report your lost pet. The dispatcher will request your pet’s microchip number, your contact information and a description of your pet to create a Lost Pet Report in our database. This will ensure we have the right information on file in the chance your pet is found by an Animal Protection Officer or a member of the community.</span></p>
+            <p><span style="font-family: 'Montserrat Bold';font-weight:bold">Hang Posters &amp; Flyers</span></p>
+            <p><span style="font-family: 'Montserrat Light';">Hang lost pet posters in your neighborhood, at local grooming shops, pet supply stores and veterinarian offices. You can also hang flyers at the Animal Services Center as well, just ask a Customer Service team member for more information.</span></p>
+         </div>
+         <div class="main1">
+            <div class = "lostpet-form">
+               <h2>Lost Pet Formular</h2>
+               <form class="registerForm" action="index.html" method="post">
+                  <div class = "entryFormular">
+                     <label for="inputNume">Name </label>
+                     <input type = "text" id = "inputNume" placeholder = "Tell us the name your pet may respond to">
+                  </div>
+                  <div class = "entryFormular">
+                     <label for="inputRasa">Race </label>
+                     <input type = "text" id = "inputRasa" placeholder = "Tell us the race of your pet (cat/dog is not enough :) )">
+                  </div>
+                  <div class = "entryFormularCheck">
+                     <label for="inputZgarda">Collar </label>
+                     <input type="checkbox" value="zgarda" id = "inputZgarda" >
+                     <div class = "entryFormularInvizibil">
+                        <label for="inputZgardaDetalii">Collar description </label>
+                        <input type = "text" id = "inputZgardaDetalii" placeholder = "Give us a description of the collar (e.g: colour)">
+                     </div>
+                  </div>
+                  <div class = "entryFormular">
+                     <label for="inputZona">Address </label>
+                     <input type = "text" id = "inputZona" placeholder = "Tell us the address your pet was last seen at">
+                  </div>
+                  <div class = "entryFormularCheck">
+                     <label for="inputReward">Reward </label>
+                     <input type="checkbox" value="reward" id = "inputReward" >
+                     <div class = "entryFormularInvizibilRe">
+                        <label for="inputRewardDetalii">Reward description </label>
+                        <input type = "text" id = "inputRewardDetalii" placeholder = "What is the reward?">
+                     </div>
+                  </div>
+                  <div class = "entryFormular">
+                     <label for="inputDetalii">Pet descriptiom </label>
+                     <textarea id = "inputDetalii" placeholder="Give us a good description of your pet, the more information the better. Is it dangerous? What does it like? "></textarea> 
+                  </div>
+                  <div class = "entryFormular">
+                     <label for="inputEmail">Email </label>
+                     <input type = "text" id = "inputRasa" placeholder = "Your email address">
+                  </div>
+                  <div class = "entryFormular">
+                     <label for="inputPhone">Phone number </label>
+                     <input type = "tel" id = "inputPhone" pattern = "[0-9]{3} [0-9]{3} [0-9]{4}" maxlength="12" placeholder = "Your phone number">
+                  </div>
+                  <div class = "entryFormular">
+                     <label for="inputPoza">Picture </label>
+                     <input type="file" name="pic" accept="image/*">
+                  </div>
+                  <input type="submit">
+               </form>
+            </div>
+         </div>
+      </div>
+      </div>
+      <h2 id="lost-found" style="text-align:center; font-size:25px ;color:navy">Lost and Found Pets</h2>
+      <div class = "LostAndFoundPets">
+         <div class = "PetLost">
+            <img class = "petpic" src="../images/pet1.jpg" alt = "pet1">
+            <h3 class = "name">Sparky</h3>
+            <p class="rasa">Dalmatian</p>
+            <p>Collar: Yes</p>
+            <p>Collar description: Around neck,black</p>
+            <p>Details: Sometimes meows.</p>
+            <p>E-mail: bill_gates@macrosoft.com</p>
+            <p>Phone: 074-122-1223</p>
+            <p>Reward: Imi dau sufletul</p>
+            <iframe width="225" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=26.800460815429688%2C46.75021206490799%2C27.947158813476566%2C47.16357498846737&amp;layer=mapnik&amp;marker=46.95729268344381%2C27.373809814453125" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">Vezi hartă mai mare</a></small>
+            <p class = "lost">LOST
+            <p>
+         </div>
+         <div class = "PetLost">
+            <img class = "petpic" src="../images/pet2.jpg" alt = "pet3">
+            <h3 class = "name">Bobica</h3>
+            <p class="rasa">Poodle</p>
+            <p>Collar: No</p>
+            <p>Details: Runs really fast,is happy to see people.</p>
+            <p>E-mail: sad_owner@goagal.com</p>
+            <p>Phone: 074-124-1223</p>
+            <p>Reward: Imi dau casa</p>
+            <iframe width="225" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=26.800460815429688%2C46.75021206490799%2C27.947158813476566%2C47.16357498846737&amp;layer=mapnik&amp;marker=46.95729268344381%2C27.373809814453125" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">Vezi hartă mai mare</a></small>
+            <p class = "lost">LOST
+            <p>
+         </div>
+         <div class = "PetFound">
+            <img class = "petpic" src="../images/pet3.jpg" alt = "pet2">
+            <h3 class = "name">Maymay</h3>
+            <p class="rasa">Doge</p>
+            <p>Collar: No</p>
+            <p>Details: Runs really slow,is sad to see people.</p>
+            <p>E-mail: happy_owner@goagal.com</p>
+            <p>Phone: 074-124-1223</p>
+            <iframe width="225" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=26.800460815429688%2C46.75021206490799%2C27.947158813476566%2C47.16357498846737&amp;layer=mapnik&amp;marker=46.95729268344381%2C27.373809814453125" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">Vezi hartă mai mare</a></small>
+            <p class = "found">FOUND
+            <p>
+         </div>
+         <div class = "PetFound">
+            <img class = "petpic" src="../images/pet4.jpg" alt = "pet2">
+            <h3 class = "name">Pi sic</h3>
+            <p class="rasa">Maidanez</p>
+            <p>Collar: No</p>
+            <p>Details: Eats alot and farts. Take it or I'll keep it!!!!!</p>
+            <p>E-mail: haoleu@goagal.com</p>
+            <p>Phone: 074-125-1323</p>
+            <iframe width="225" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=26.800460815429688%2C46.75021206490799%2C27.947158813476566%2C47.16357498846737&amp;layer=mapnik&amp;marker=46.95729268344381%2C27.373809814453125" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">Vezi hartă mai mare</a></small>
+            <p class = "found">FOUND
+            <p>
+         </div>
+      </div>
+      <footer>
+         <h3 style="text-align:center ;font-size:18px">Follow Us!</h3>
+         <ul class="social">
+            <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://plus.google.com/" target="_blank"><i class="fab fa-google-plus"></i></a></li>
+            <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+         </ul>
+      </footer>
+   </body>
+</html>
