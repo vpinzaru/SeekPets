@@ -1,0 +1,119 @@
+.foundpet-form, .lostpet-form{
+    display:flex;
+    flex-direction:column;
+    border:2px solid rgb(189, 23, 167);
+    background:transparent;
+    box-sizing: border-box;
+    padding: 50px 20px;
+    border-radius: 24px;
+    width:30%;
+}
+.foundpet-form h2, .lostpet-form h2
+{
+    text-align: center;
+    font-family: 'Corben', Georgia, Times, serif;
+    font-weight: normal;
+    letter-spacing: 1.2px;
+    color: #009900;
+}
+.registerForm label{
+    font-family: 'Corben', Georgia, Times, serif;
+}
+.entryFormularInvizibil, .entryFormularInvizibilRe
+{
+    display:none;
+}
+
+.entryFormular
+{
+    display:flex;
+}
+
+.entryFormular , .entryFormularInvizibil, .entryFormularInvizibilRe
+{
+    flex-direction:row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.entryFormularInvizibil,.entryFormularInvizibilRe{
+    display:none;
+}
+
+.entryFormularCheck
+{
+    margin-bottom: 20px;
+}
+.entryFormularCheck input[type="checkbox"]
+{
+    margin-left: 25px;
+}
+
+.registerForm
+{
+    justify-content:space-between;
+    display:flex;
+    flex-direction: column;
+    height:50%;
+}
+
+.registerForm input[type = "text"], .registerForm input[type = "tel"]{
+    border:0;
+    background: none;
+    border: 2px solid #d423e4ef;
+    padding: 14px 10px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s;
+    width:50%;
+  }
+
+ #inputDetalii
+  {
+    border:0;
+    background: none;
+    border: 2px solid #d423e4ef;
+    padding: 14px 10px;
+    outline: none;
+    transition: 0.25s;
+    width:50%;
+  }
+ #inputZgarda:checked +div{
+
+    display:flex;
+ }
+
+ #inputReward:checked + div
+ {
+     display:flex;
+ }
+
+.registerForm input[type = "submit"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: Black;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  .registerForm input[type = "submit"]:hover{
+    background: #2ecc71;
+  }
+
+  .registerForm input[type = "text"]:focus, #inputDetalii:focus,  .registerForm input[type = "tel"]:focus{
+    width: 380px;
+    border-color: #2ecc71;
+  }
+
+  @media screen and (max-width: 500px)
+  {
+    .foundpet-form,.lostpet-form{
+
+        width:100vw;
+    }
+  }

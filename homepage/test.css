@@ -22,9 +22,6 @@ section{
 }
 
 
-
-
-
 .content{
     width:80%;
 
@@ -71,17 +68,21 @@ nav ul li:last-child{
     padding-right:0px;
 }
 nav ul li a{
-    color:#171718;
-    border-radius:24px;
+    color:#1abec3;
     font-size:18px;
     padding: 10px 10px;
     display:inline-block; 
-    transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0.5s;
+}
+.active
+{
+    border-radius:24px;
+    border:2px solid #1abec3;
 }
 nav ul li a:hover{
+    transition: all 0.5s ease 0.5s;
     background-color:transparent;
-     color:#9dd1d1; 
-     transition: all 0.5s ease 0s;
+    color:#9dd1d1; 
     }
 nav ul li a:hover i{
     color:#28fdb6; 
@@ -283,7 +284,11 @@ nav{
 }
 
 
+<<<<<<< HEAD
 .banner{background:url("./images/cov3.jpg");
+=======
+.banner{background:url("../images/cov3.jpg");
+>>>>>>> 92b7e099d0655d47b3addf0af3336b4561b13d2b
 width:100%;
 background-size:cover;}
 .banner-text{
