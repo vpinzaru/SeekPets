@@ -120,6 +120,8 @@
     {
         flex-direction:column;
     }
+	.userCard{
+	width:unset;}
 	.articles{
     width:100%;
     text-align: center;
