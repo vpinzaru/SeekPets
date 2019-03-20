@@ -230,7 +230,7 @@ nav ul li a{
     padding:10px 20px; 
     display:block; 
     border-bottom: 1px solid rgba(225,225,225,0.1); 
-    font-style:fantasy;
+    font-family:fantasy;
 
 }
 nav ul li a i{

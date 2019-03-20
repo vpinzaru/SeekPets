@@ -192,7 +192,7 @@ nav ul li a{
     padding:10px 20px; 
     display:block; 
     border-bottom: 1px solid rgba(225,225,225,0.1); 
-    font-style:fantasy;
+    font-family:fantasy;
 
 }
 nav ul li a i{
@@ -326,7 +326,7 @@ article img{
 	position: relative;
 }
 #title h2{
-    font-style:bold;
+    font-weight:bold;
     text-align:center;
     font-family:'Courier New', Courier, monospace;
     color:rgba(21, 185, 109, 0.856);
@@ -337,7 +337,7 @@ article img{
 }
 article h1{
     font-size:22px;
-    font-style: bold;
+    font-weight: bold;
     color:rgb(175, 40, 17);
 }
 .articles{
