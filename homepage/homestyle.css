@@ -9,9 +9,7 @@
 body{
     margin:0px; 
     padding:0px;
-    font-family: cursive, sans-serif;
-    text-rendering:optimizeLegibility;
-
+  
     }
 
 section{
@@ -20,25 +18,6 @@ section{
     margin:0px auto;
     display:table;
     position:relative;
-}
-
-
-
-
-
-.content{
-    width:80%;
-
-}
-
-
-h1{
-    margin:0px auto;
-    display:table;
-    font-size:26px;
-    padding:40px 0px;
-    color:white; 
-    text-align:center;
 }
 
 
@@ -95,15 +74,15 @@ nav ul li a i{
 }
 
 .toggle-menu{
-    width:100%; 
+     
     height:10px; 
     color:white;
     margin-bottom:4px;
     font-size:20px;
     margin-bottom:0px;
-    position:absolute;
+   
     top:5%;
-    left:90%;
+  
 }
 
 #toggle-1,.toggle-menu{
@@ -114,27 +93,8 @@ nav ul li a i{
     border-radius:24px;
     border:2px solid #1abec3;
 }
-.content{
-    display:table; 
-    margin-bottom:60px; 
-    width:900px;}
-.content h2{
 
-    font-size:18px; 
-    font-weight:500; 
-    color:#e01414; 
-    border-bottom:1px solid #fde428; 
-    display:table; 
-    padding-bottom:10px; 
-    margin-bottom:10px;
 
-}
-.content p{
-    font-size:14px; 
-    line-height:22px; 
-    color:#c74a4a; 
-    text-align:justify;
-    font-family: cursive}
 
 footer{
     
@@ -243,20 +203,9 @@ nav ul li a i{
 }
 }
 
-@media only screen and (max-width: 980px) {
-.content{
-    width:90%;
-}
-}
 
-@media only screen and (max-width: 568px) {
-h1{
-    padding:25px 0px;
-}
-h1 span{
-    display:block;
-}
-}
+
+
 
 @media only screen and (max-width: 480px) {
 section {
@@ -265,9 +214,7 @@ section {
 }
 
 @media only screen and (max-width: 360px) {
-h1{
-    font-size:20px;
-}
+
 
 label{
     
@@ -283,10 +230,13 @@ nav{
 }
 
 
-.banner{background:url("../images/cov3.jpg");
-width:100%;
-background-size:cover;
-opacity: 0.8;}
+.banner{
+	background:url("../images/cov3.jpg");
+	width:100%;
+	background-size:cover;
+	opacity: 0.8;
+	}
+
 .banner-text{
     display:flex;
     padding:15% 0;
@@ -295,7 +245,7 @@ opacity: 0.8;}
     color:black;
     margin:auto;
     text-align:center;
-    width:50%;
+    width:100%;
     font-size:x-large;
     
 }
@@ -444,6 +394,9 @@ opacity: 0.8;}
     {
         flex-direction: column;
     }
+	.main1.middle{
+		text-align:center;
+	width:100%;}
   }
 .LostAndFoundPets
 {
@@ -509,9 +462,7 @@ opacity: 0.8;}
 }
 
 @media only screen and (max-width: 500px) {
-    h1 {
-        padding: 20px 0px;
-    }
+   
         .main-content
         {
             flex-direction: column;
