@@ -66,7 +66,51 @@
     width:100px;
     border-radius:50%;
 }
+.articles{
+    width:20%;
+    background-color: cornsilk;
+    text-align: center;
+}
 
+
+#link-list ul{
+       list-style:none;
+       width:85%;
+       margin-left:40px;
+   }
+    #link-list ul li{
+       background:#37bc9b;
+       color:#FFF;
+       counter-increment: myCounter;
+       margin:0 0 30px 0;
+       padding: 13px;
+       position: relative;
+       top:1em;
+       border-radius:0em 2px 1em 1em;
+       padding-left:2em;
+       font-size:1.2em;
+       font-family:cursive;
+   }
+   #link-list ul li:before{
+    content: counter(myCounter, decimal-leading-zero);
+    display: inline-block;
+    text-align: center;
+    font-size: 2em;
+    line-height: 1.3em;
+    background-color:  #48CFAD;
+    padding: 10px;
+    font-weight: bold;
+    position: absolute; 
+    top: 0;
+    left: -40px;
+    border-radius: 50%;
+    font-family:cursive;
+}
+
+
+#list-link ul li:nth-child(even){
+    background-color: #434A54;
+   }
 @media only screen and (max-width: 770px) {
    
     .Pet{
@@ -76,5 +120,9 @@
     {
         flex-direction:column;
     }
+	.articles{
+    width:100%;
+    text-align: center;
+}
 }
 

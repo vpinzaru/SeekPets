@@ -1,12 +1,13 @@
 .foundpet-form, .lostpet-form{
     display:flex;
     flex-direction:column;
-    border:2px solid rgb(189, 23, 167);
-    background:transparent;
+    border:2px solid black;
+    background:black;
     box-sizing: border-box;
     padding: 50px 20px;
     border-radius: 24px;
     width:30%;
+	color:white;
 }
 .foundpet-form h2, .lostpet-form h2
 {
@@ -71,7 +72,7 @@
   {
     border:0;
     background: none;
-    border: 2px solid #d423e4ef;
+    border: 2px solid white;
     padding: 14px 10px;
     outline: none;
     transition: 0.25s;

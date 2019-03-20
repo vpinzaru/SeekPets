@@ -12,12 +12,13 @@ body{
   
     }
 
-section{
+#navbar{
     width:100%;
     max-width:1200px; 
     margin:0px auto;
     display:table;
     position:relative;
+	
 }
 
 
@@ -128,7 +129,7 @@ footer{
 }
 
 @media only screen and (max-width: 1440px) {
-section{
+#navbar{
     
     max-width:95%;
 
@@ -208,7 +209,7 @@ nav ul li a i{
 
 
 @media only screen and (max-width: 480px) {
-section {
+#navbar{
     max-width: 90%;
 }
 }
@@ -216,7 +217,7 @@ section {
 @media only screen and (max-width: 360px) {
 
 
-label{
+label.toggle-menu{
     
     padding:5px 0px;
 }
@@ -281,12 +282,13 @@ nav{
 .foundpet-form, .lostpet-form{
     display:flex;
     flex-direction:column;
-    border:2px solid rgb(189, 23, 167);
-    background:transparent;
+    border:2px solid aqua;
+    background-color:black;
     box-sizing: border-box;
     padding: 50px 20px;
     border-radius: 24px;
     width:auto;
+	color:white;
 }
 
 .registerForm label{
