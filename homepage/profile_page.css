@@ -15,7 +15,7 @@
     background: #fff;
     box-shadow:0 4px 10px 0 rgba(0,0,0,0.5);
     padding:70px 30px;
-    height:500px;
+    height:500px;   
 }
 
 .image-container
@@ -66,3 +66,15 @@
     width:100px;
     border-radius:50%;
 }
+
+@media only screen and (max-width: 770px) {
+   
+    .Pet{
+        width:95%;
+    }
+    .userPage
+    {
+        flex-direction:column;
+    }
+}
+
