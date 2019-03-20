@@ -15,7 +15,8 @@
     background: #fff;
     box-shadow:0 4px 10px 0 rgba(0,0,0,0.5);
     padding:70px 30px;
-    height:500px;   
+    height:500px;
+    order:1;   
 }
 
 .image-container
@@ -39,6 +40,7 @@
 {
     padding:10px 10px;
     line-height:10px;
+    order:2;
 }
 .NewsFeed .titluNews
 {
@@ -70,6 +72,7 @@
     width:20%;
     background-color: cornsilk;
     text-align: center;
+    order:3;
 }
 
 
@@ -127,4 +130,5 @@
     text-align: center;
 }
 }
+
 
