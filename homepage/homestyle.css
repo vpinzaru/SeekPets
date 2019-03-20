@@ -278,17 +278,16 @@ nav{
     width:33.33%; 
 }
 
-
 .foundpet-form, .lostpet-form{
     display:flex;
     flex-direction:column;
     border:2px solid aqua;
-    background-color:black;
+    background-color:transparent;
     box-sizing: border-box;
     padding: 50px 20px;
     border-radius: 24px;
     width:auto;
-	color:white;
+    color:black;
 }
 
 .registerForm label{
@@ -372,7 +371,7 @@ nav{
     border: 2px solid #2ecc71;
     padding: 14px 40px;
     outline: none;
-    color: Black;
+    color: black;
     border-radius: 24px;
     transition: 0.25s;
     cursor: pointer;
