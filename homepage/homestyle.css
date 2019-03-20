@@ -302,6 +302,9 @@ nav{
 .entryFormular
 {
     display:flex;
+	font-family:cursive;
+	font-size:18px;
+	font-weight:bold;
 }
 
 .entryFormular , .entryFormularInvizibil, .entryFormularInvizibilRe
