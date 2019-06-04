@@ -1,45 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <link rel="stylesheet" href="homestyle.css">
-      <link rel="stylesheet" href="lost-found.css">
-      <link rel="stylesheet" href="../fonts/fonts1/css/all.min.css" >
-      <title>Pawtaie | Home</title>
-   </head>
-   <body>
-      <header>
-         <section id="navbar">
-            <h6 id = "pentruHTMLValid">_</h6>
-            <a href="home.html" id="logo" target="_blank">
-            <img src="../images/medium.png" alt="logo">
-            </a>
-            <label for="toggle-1" class="toggle-menu">
-              &#9776;
-            </label>
-             <input type="checkbox" id="toggle-1">
-            <nav>
-               <ul>
-                  <li><a href="home.html" class="active"><i class="fas fa-home"></i>Home</a></li>
-                  <li><a href="#lost-found"><i class="fas fa-search"></i>Lost/Found</a></li>
-                  <li><a href="news.html"><i class="far fa-newspaper"></i>News</a></li>
-                  <li><a href="../login_page/login_page.html"><i class="fas fa-user"></i>Login/Register</a></li>
-               </ul>
-            </nav>
-			 </section>
-      </header>
-     
-      <div class="banner">
-         <div class="banner-text">
-            <div class="banner-text-items">
-               <h1>Pawtaie. Reunite friends. </h1>
-               <p>Did you lose your pet ? Here's a few things that you can do to find him.</p>
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="homestyle.css">
+   <link href="https://fonts.googleapis.com/css?family=Mystery+Quest|Fredericka+the+Great|Flavors&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="../fonts/fonts1/css/all.min.css">
+   <title>Pawtaie | Home</title>
+   <style>
+   
+
+
+
+
+/*---------------------------------------------*/
+input {
+	outline: none;
+	border: none;
+}
+
+textarea {
+  outline: none;
+  border: none;
+}
+
+/*textarea:focus, input:focus {
+  border-color: transparent ;
+}
+*/
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
+input:focus::-moz-placeholder { color:transparent; }
+input:focus:-ms-input-placeholder { color:transparent; }
+
+textarea:focus::-webkit-input-placeholder { color:transparent; }
+textarea:focus:-moz-placeholder { color:transparent; }
+textarea:focus::-moz-placeholder { color:transparent; }
+textarea:focus:-ms-input-placeholder { color:transparent; }
+
+input::-webkit-input-placeholder { color: #999999; }
+input:-moz-placeholder { color: #999999; }
+input::-moz-placeholder { color: #999999; }
+input:-ms-input-placeholder { color: #999999; }
+
+textarea::-webkit-input-placeholder { color: #999999; }
+textarea:-moz-placeholder { color: #999999; }
+textarea::-moz-placeholder { color: #999999; }
+textarea:-ms-input-placeholder { color: #999999; }
+
+/*---------------------------------------------*/
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+iframe {
+	border: none !important;
+}
+
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Contact 2 ]*/
+.bg-contact2 {
+  width: 100%;  
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.container-contact2 {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+ 
+  background:#fef9e7;
+}
+
+.wrap-contact2 {
+  width: 600px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 72px 55px 90px 55px;
+}
+
+
+/*------------------------------------------------------------------
+[  ]*/
+
+.contact2-form {
+  width: 100%;
+}
+
+.contact2-form-title {
+  display: block;
+  font-family: Poppins-Bold;
+  font-size: 39px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  padding-bottom: 9px;
+}
+
+
+
+/*------------------------------------------------------------------
+[  ]*/
+
+.wrap-input2 {
+  width: 100%;
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin-bottom: 20px;
+}
+
+.input2 {
+  display: block;
+  width: 100%;
+
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.2;
+}
+
+.focus-input2 {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.focus-input2::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+  background: rgba(219,21,99,1);
+  background: -webkit-linear-gradient(45deg, #d5007d, #e53935);
+  background: -o-linear-gradient(45deg, #d5007d, #e53935);
+  background: -moz-linear-gradient(45deg, #d5007d, #e53935);
+  background: linear-gradient(45deg, #d5007d, #e53935);
+}
+
+.focus-input2::after {
+  content: attr(data-placeholder);
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0;
+
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  color: #999999;
+  line-height: 1.2;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/*---------------------------------------------*/
+input.input2 {
+  height: 45px;
+}
+
+input.input2 + .focus-input2::after {
+  top: 16px;
+  left: 0;
+}
+
+textarea.input2 {
+  min-height: 115px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+textarea.input2 + .focus-input2::after {
+  top: 16px;
+  left: 0;
+}
+
+.input2:focus + .focus-input2::after {
+  top: -13px;
+}
+
+.input2:focus + .focus-input2::before {
+  width: 100%;
+}
+
+.has-val.input2 + .focus-input2::after {
+  top: -13px;
+}
+
+.has-val.input2 + .focus-input2::before {
+  width: 100%;
+}
+
+/*------------------------------------------------------------------
+[ Button ]*/
+.container-contact2-form-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 13px;
+}
+
+.wrap-contact2-form-btn {
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: 2px;
+  width: auto;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.contact2-form-bgbtn {
+  position: absolute;
+  z-index: -1;
+  width: 300%;
+  height: 100%;
+  background: rgba(219,21,99,1);
+  background: -webkit-linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
+  background: -o-linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
+  background: -moz-linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
+  background: linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
+  top: 0;
+  left: -100%;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.contact2-form-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 244px;
+  height: 50px;
+
+ 
+
+  font-family: Poppins-Medium;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+  
+
+}
+
+.wrap-contact2-form-btn:hover .contact2-form-bgbtn {
+  left: 0;
+}
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+
+@media (max-width: 576px) {
+  .wrap-contact2 {
+    padding: 72px 15px 90px 15px;
+  }
+}
+
+
+
+/*------------------------------------------------------------------
+[ Alert validate ]*/
+
+.validate-input {
+  position: relative;
+}
+
+.alert-validate::before {
+  content: attr(data-validate);
+  position: absolute;
+  max-width: 70%;
+  background-color: white;
+  border: 1px solid #c80000;
+  border-radius: 2px;
+  padding: 4px 25px 4px 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 0px;
+  pointer-events: none;
+
+  font-family: Poppins-Regular;
+  color: #c80000;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+
+  visibility: hidden;
+  opacity: 0;
+
+  -webkit-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+
+.alert-validate::after {
+  content: "\f12a";
+  font-family: FontAwesome;
+  display: block;
+  position: absolute;
+  color: #c80000;
+  font-size: 16px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 8px;
+}
+
+.alert-validate:hover:before {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .alert-validate::before {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+   </style>
+</head>
+
+<body>
+   <header>
+      <section id="navbar">
+         <h6 id="pentruHTMLValid"></h6>
+         <a href="home.html" id="logo" target="_blank">
+            <img src="../images/logo_transparent1.png" alt="logo">
+         </a>
+         <label for="toggle-1" class="toggle-menu">
+            &#9776;
+         </label>
+         <input type="checkbox" id="toggle-1">
+         <nav>
+            <ul>
+               <li><a href="home.html" class="active"><i class="fas fa-home"></i>Home</a></li>
+               <li><a href="#howitworks"><i class="fas fa-cogs"></i>How It Works</a></li>
+               <li><a href="#news"><i class="far fa-newspaper"></i>News</a></li>
+               <li><a href="#" id="button"><i class="fas fa-user"></i>Login</a></li>
+            </ul>
+         </nav>
+      </section>
+   </header>
+       
+   <div class="bg-modal">
+         <div class="modal-contents">
+            
+            <div class="close ">+</div>
+            
+            
+            <!--<div class=" column-login">
+                  <h1>Login 😃</h1>
+       
             </div>
+           
+            <div class="column-login loginbox">
+            
+                  <form class="loginForm" action="../homepage/profile_page.html" method="post">
+                     <input type="text" name="_" placeholder="Username" id="loginIn">
+                     <input type="password" name="_" placeholder="Password" id="loginIn">
+                     <input type="submit" name="_" value="Login" id="loginIn">
+                     <a href="#" class="options  left">Lost your password?</a>
+                     <br>
+                     <a href="../register_page/register_page.html" class="options right">Don't have an account?</a>
+                     <br>
+                 
+                  </form>
+            
+            </div>-->
+            <div class="wrap-login100">
+               <form class="login100-form validate-form">
+                  <span class="login100-form-title p-b-26">
+                     Welcome
+                  </span>
+                  
+   
+                  <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                     <input class="input100" type="text" name="email">
+                     <span class="focus-input100" data-placeholder="Email"></span>
+                  </div>
+   
+                  <div class="wrap-input100 validate-input" data-validate="Enter password">
+                     
+                     <input class="input100" type="password" name="pass">
+                     <span class="focus-input100" data-placeholder="Password"></span>
+                  </div>
+   
+                  <div class="container-login100-form-btn">
+                     <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn">
+                           Login
+                        </button>
+                     </div>
+                  </div>
+   
+                  <div class="text-center p-t-115">
+                     <span class="txt1">
+                        Don’t have an account?
+                     </span>
+   
+                     <a class="txt2" href="#">
+                        Sign Up
+                     </a>
+                  </div>
+               </form>
+            </div>
+           </div>
+            </div>
+            
+        
+      
+     
+   <div class="banner">
+
+      <div class="plate">
+         <p class="script"><span>PawTaie</span></p>
+         <p class="shadow text1">Reunite</p>
+         <p class="shadow text2">With</p>
+         <p class="shadow text3">Your</p>
+         <p class="script"><span>Lost Pet</span></p>
+      </div>
+
+
+   </div>
+   <div class="big-title" id="howitworks">
+      <div class="long-shadow" style="text-shadow: 5px -2px 5px rgba(88,13,74,0.85); font-family:'Fredericka the Great',cursive;color:#720a35;">
+         HOW IT WORKS
+      </div>
+   </div>
+   <div class="wrapper">
+      <div class="our-services flex-container " id="services">
+         <div class="flex-item">
+
+            <div class="image-one row-1">
+               <img src="../images/repor.png" class="img3">
+
+            </div>
+            <div class="row-2">
+               <h2 class="title  report">
+                  REPORT A PET
+               </h2>
+            </div>
+            <div class="content-card">
+               <p>Tell us about your lost/found pet; by posting a shout out on our website. By that, you will get
+                  concerned people in your neighborhoods right on the spot to help search for your pet.</p>
+            </div>
+
+         </div>
+
+         <div class="flex-item">
+
+            <div class="image-one row-1">
+               <img class="img2" src="../images/content-prom.jpg">
+
+            </div>
+            <div class="row-2">
+               <h2 class="title promote">
+                  PROMOTE
+               </h2>
+            </div>
+            <div class="content-card">
+               <p>Pawtaie has a feature that is called Pawtaie Alert – by activating the alert you can make your search
+                  effort highly effective and reach thousands of people to the residents of the area where your pet went
+                  missing.</p>
+            </div>
+
+         </div>
+         <div class=" flex-item">
+
+            <div class="image-one row-1">
+               <img src="../images/work_img-3.png" class="img1">
+
+            </div>
+            <div class="row-2">
+               <h2 class="title reunite">
+                  REUNITE
+               </h2>
+            </div>
+            <div class="content-card">
+               <p>We are known for what we do! Every day we help distressed pet owners to find their lost, scared, and
+                  often hungry pets. And it has always been an atmosphere of cheers and happiness, every time we
+                  reunited with their beloved one.</p>
+            </div>
+
          </div>
       </div>
-      <div class="main-content">
+      <div class="buttonel">
+         <button type="text" class="myButton"> Read More</button>
+      </div>
+   </div>
+   <!-- <div class="main-content">
          <div class="main1">
                <h2>Found Pet Formular</h2>
             <div class = "foundpet-form">
@@ -84,6 +590,10 @@
                </form>
             </div>
          </div>
+      
+         
+      
+       
          <div class="main1 middle">
             <h2>What to do</h2>
             <p><span style="font-family: 'Montserrat Bold';font-weight:bold">Update Your Pet’s Microchip</span></p>
@@ -93,6 +603,7 @@
             <p><span style="font-family: 'Montserrat Bold';font-weight:bold">Hang Posters &amp; Flyers</span></p>
             <p><span style="font-family: 'Montserrat Light';">Hang lost pet posters in your neighborhood, at local grooming shops, pet supply stores and veterinarian offices. You can also hang flyers at the Animal Services Center as well, just ask a Customer Service team member for more information.</span></p>
          </div>
+     
          <div class="main1">
                <h2>Lost Pet Formular</h2>
             <div class = "lostpet-form">
@@ -145,70 +656,276 @@
                </form>
             </div>
          </div>
+      </div>-->
+
+   <div class="big-title" id="news">
+      <div class="long-shadow" style="text-shadow: 5px -2px 5px rgba(88,13,74,0.85); font-family:'Fredericka the Great',cursive;color:#720a35;">
+         ANNOUNCEMENTS
       </div>
-      <h2 id="lost-found" style="text-align:center; font-size:25px ;color:navy">Lost and Found Pets</h2>
-      <div class = "LostAndFoundPets">
-         <div class = "PetLost">
-            <img class = "petpic" src="../images/pet1.jpg" alt = "pet1">
-            <h3 class = "name">Sparky</h3>
-            <p class="rasa">Dalmatian</p>
-            <p>Collar: Yes</p>
-            <p>Collar description: Around neck,black</p>
-            <p>Details: Sometimes meows.</p>
-            <p>E-mail: bill_gates@macrosoft.com</p>
-            <p>Phone: 074-122-1223</p>
-            <p>Reward: Imi dau sufletul</p>
-            <iframe width="225" height="150" src="https://www.openstreetmap.org/export/embed.html?bbox=26.800460815429688%2C46.75021206490799%2C27.947158813476566%2C47.16357498846737&amp;layer=mapnik&amp;marker=46.95729268344381%2C27.373809814453125" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">Vezi hartă mai mare</a></small>
-            <p class = "lost">LOST
-            <p>
+   </div>
+
+   <div class="wrapper-news">
+      <div class="container nr1">
+         <div class="info">
+            <h1>USEFUL TIPS</h1>
          </div>
-         <div class = "PetLost">
-            <img class = "petpic" src="../images/pet2.jpg" alt = "pet3">
-            <h3 class = "name">Bobica</h3>
-            <p class="rasa">Poodle</p>
-            <p>Collar: No</p>
-            <p>Details: Runs really fast,is happy to see people.</p>
-            <p>E-mail: sad_owner@goagal.com</p>
-            <p>Phone: 074-124-1223</p>
-            <p>Reward: Imi dau casa</p>
-            <iframe width="225" height="150"  src="https://www.openstreetmap.org/export/embed.html?bbox=26.800460815429688%2C46.75021206490799%2C27.947158813476566%2C47.16357498846737&amp;layer=mapnik&amp;marker=46.95729268344381%2C27.373809814453125" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">Vezi hartă mai mare</a></small>
-            <p class = "lost">LOST
-            <p>
+         <div class="contents">
+           
+          <div class="first">
+               <p class="titlu tip" style="margin-bottom:15px; margin-top:20px;">We know how hard it is to lose your favourite animal, so we want to keep things as simple as
+                     we can
+                     in order to help you find your most beloved one.
+                  </p>
+               <p class="titlu tip" style="margin-bottom : 15px">Here's a list of a few things that you can do in order to find your pet as fast as possible:</p>
+               
+                    <hr></hr>
+                    <div class="flip-card" style="height:200px ;border:none">
+                        <div class="flip-card-inner">
+                          <div class="flip-card-front">
+                            <p class="titlu" style="margin-top:35px; font-size:34px">Update Your Pet’s Microchip</p>
+                            
+                          </div>
+                          <div class="flip-card-back">
+                              <p class="tips">Often times pets come into the shelter with a microchip, but the contact information is not updated or the microchip is not registered. Make sure your information is updated by calling your pet’s microchip company, or using free microchip databases such as <a href="http://www.found.org">found.org</a>.</span></p>
+                          </div>
+                        </div>
+                      </div>
+                     
+                    <hr></hr> 
+                    <div class="flip-card" style="height: 200px;border:none;" >
+                        <div class="flip-card-inner">
+                          <div class="flip-card-front" >
+                              <p class="titlu"style="margin-top:35px; font-size:34px">File a Lost Pet Report</span></p>
+                          </div>
+                          <div class="flip-card-back" >
+                              <p class="tips">Call 311 to report your lost pet. The dispatcher will request your pet’s microchip number, your contact information and a description of your pet to create a Lost Pet Report in our database. This will ensure we have the right information on file in the chance your pet is found by an Animal Protection Officer or a member of the community.</span></p>
+
+                          </div>
+                        </div>
+                      </div>
+                    
+                    <hr></hr>
+                    <div class="flip-card" style="height:200px;border:none">
+                        <div class="flip-card-inner">
+                          <div class="flip-card-front">
+                              <p class="titlu" style="margin-top:35px; font-size:34px">Hang Posters &amp; Flyers</span></p>
+                          </div>
+                          <div class="flip-card-back">
+                              <p class="tips">Hang lost pet posters in your neighborhood, at local grooming shops, pet supply stores and veterinarian offices. You can also hang flyers at the Animal Services Center as well, just ask a Customer Service team member for more information.</span></p>
+
+                          </div>
+                        </div>
+                      </div>
+                   
+                 
+            
          </div>
-         <div class = "PetFound">
-            <img class = "petpic" src="../images/pet3.jpg" alt = "pet2">
-            <h3 class = "name">Maymay</h3>
-            <p class="rasa">Doge</p>
-            <p>Collar: No</p>
-            <p>Details: Runs really slow,is sad to see people.</p>
-            <p>E-mail: happy_owner@goagal.com</p>
-            <p>Phone: 074-124-1223</p>
-            <iframe width="225" height="150"  src="https://www.openstreetmap.org/export/embed.html?bbox=26.800460815429688%2C46.75021206490799%2C27.947158813476566%2C47.16357498846737&amp;layer=mapnik&amp;marker=46.95729268344381%2C27.373809814453125" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">Vezi hartă mai mare</a></small>
-            <p class = "found">FOUND
-            <p>
-         </div>
-         <div class = "PetFound">
-            <img class = "petpic" src="../images/pet4.jpg" alt = "pet2">
-            <h3 class = "name">Pi sic</h3>
-            <p class="rasa">Maidanez</p>
-            <p>Collar: No</p>
-            <p>Details: Eats alot and farts. Take it or I'll keep it!!!!!</p>
-            <p>E-mail: haoleu@goagal.com</p>
-            <p>Phone: 074-125-1323</p>
-            <iframe width="225" height="150"  src="https://www.openstreetmap.org/export/embed.html?bbox=26.800460815429688%2C46.75021206490799%2C27.947158813476566%2C47.16357498846737&amp;layer=mapnik&amp;marker=46.95729268344381%2C27.373809814453125" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">Vezi hartă mai mare</a></small>
-            <p class = "found">FOUND
-            <p>
          </div>
       </div>
-      <footer>
-         <h3 style="text-align:center ;font-size:18px">Follow Us!</h3>
-         <ul class="social">
-            <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://plus.google.com/" target="_blank"><i class="fab fa-google-plus"></i></a></li>
-            <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-         </ul>
-		 <h3>Contact us at +(047)6357838</h3>
-      </footer>
-   </body>
+
+      <div class="container nr3">
+         <div class="info">
+            <h1>LATEST REPORTS POSTED</h1></div>
+            <div class="LostAndFoundPets">
+               <div class="PetLost flip-card">
+                  <div class="flip-card-inner">
+                     <div class="flip-card-front">
+                  <img class="petpic" src="../images/pet1.jpg" alt="pet1" >
+                  <p class="lost">LOST
+                        <p>
+  </div>            <div class="flip-card-back">    <h3 class="name">Sparky</h3>
+                  <p class="rasa">Dalmatian</p>
+                  <p>Collar: Yes</p>
+                  <p>Collar description: Around neck,black</p>
+                  <p>Details: Sometimes meows.</p>
+                  <p>E-mail: bill_gates@macrosoft.com</p>
+                  <p>Phone: 074-122-1223</p>
+                  <p>Reward: Imi dau sufletul</p>
+                  <iframe width="225" height="150"
+                     src="https://www.openstreetmap.org/export/embed.html?bbox=26.800460815429688%2C46.75021206490799%2C27.947158813476566%2C47.16357498846737&amp;layer=mapnik&amp;marker=46.95729268344381%2C27.373809814453125"
+                     style="border: 1px solid black"></iframe><br /><small><a
+                        href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">Vezi
+                        hartă mai mare</a></small>
+                  
+               </div>
+               </div>
+               
+            </div>
+               <div class="PetLost flip-card">
+                  <div class="flip-card-inner">
+                     <div class="flip-card-front">
+                  <img class="petpic" src="../images/pet2.jpg" alt="pet3" >
+                  <p class="lost">LOST
+                        <p></div>
+                  <div class="flip-card-back">
+                  <h3 class="name">Bobica</h3>
+                  <p class="rasa">Poodle</p>
+                  <p>Collar: No</p>
+                  <p>Details: Runs really fast,is happy to see people.</p>
+                  <p>E-mail: sad_owner@goagal.com</p>
+                  <p>Phone: 074-124-1223</p>
+                  <p>Reward: Imi dau casa</p>
+                  <iframe width="225" height="150"
+                     src="https://www.openstreetmap.org/export/embed.html?bbox=26.800460815429688%2C46.75021206490799%2C27.947158813476566%2C47.16357498846737&amp;layer=mapnik&amp;marker=46.95729268344381%2C27.373809814453125"
+                     style="border: 1px solid black"></iframe><br /><small><a
+                        href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">Vezi
+                        hartă mai mare</a></small>
+                
+               </div>
+                  </div>
+               </div>
+               <div class="PetFound flip-card">
+                     <div class="flip-card-inner">
+                           <div class="flip-card-front">
+                  <img class="petpic" src="../images/pet3.jpg" alt="pet2" >
+                  <p class="found">FOUND</p></div>
+                  <div class="flip-card-back">
+                  <h3 class="name">Maymay</h3>
+                  <p class="rasa">Doge</p>
+                  <p>Collar: No</p>
+                  <p>Details: Runs really slow,is sad to see people.</p>
+                  <p>E-mail: happy_owner@goagal.com</p>
+                  <p>Phone: 074-124-1223</p>
+                  <iframe width="225" height="150"
+                     src="https://www.openstreetmap.org/export/embed.html?bbox=26.800460815429688%2C46.75021206490799%2C27.947158813476566%2C47.16357498846737&amp;layer=mapnik&amp;marker=46.95729268344381%2C27.373809814453125"
+                     style="border: 1px solid black"></iframe><br /><small><a
+                        href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">Vezi
+                        hartă mai mare</a></small>
+                  
+                        </div>
+                     </div>
+               </div>
+               
+               <div class="PetFound flip-card">
+                     <div class="flip-card-inner">
+                           <div class="flip-card-front">
+                  <img class="petpic" src="../images/pet4.jpg" alt="pet2" >
+                  <p class="found">FOUND
+                        <p></div>
+                  <div class="flip-card-back">
+                  <h3 >Pi sic</h3>
+                  <p >Maidanez</p>
+                  <p>Collar: No</p>
+                  <p>Details: Eats alot and farts. Take it or I'll keep it!!!!!</p>
+                  <p>E-mail: haoleu@goagal.com</p>
+                  <p>Phone: 074-125-1323</p>
+                  <iframe width="150" height="150"
+                     src="https://www.openstreetmap.org/export/embed.html?bbox=26.800460815429688%2C46.75021206490799%2C27.947158813476566%2C47.16357498846737&amp;layer=mapnik&amp;marker=46.95729268344381%2C27.373809814453125"
+                     style="border: 1px solid black"></iframe><br /><small><a
+                        href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">Vezi
+                        hartă mai mare</a></small>
+                  
+               </div>
+                     </div>
+               </div>
+   </div>
+            </div>
+         </div>
+      
+
+   
+   <div class="big-title" id="news">
+      <div class="long-shadow" style="text-shadow: 5px -2px 5px rgba(88,13,74,0.85); font-family:'Fredericka the Great',cursive;color:#720a35;">
+      GET IN TOUCH
+      </div>
+   </div>
+   <section id="contact">
+        <div class="bg-contact2" >
+         <div class="container-contact2">
+            <div class="wrap-contact2">
+               <form class="contact2-form validate-form">
+                 <!-- <span class="contact2-form-title">
+                     Contact Us
+                  </span>
+               -->
+                  <div class="wrap-input2 validate-input" data-validate="Name is required">
+                     <input class="input2" type="text" name="name">
+                     <span class="focus-input2" data-placeholder="NAME"></span>
+                  </div>
+   
+                  <div class="wrap-input2 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                     <input class="input2" type="text" name="email">
+                     <span class="focus-input2" data-placeholder="EMAIL"></span>
+                  </div>
+   
+                  <div class="wrap-input2 validate-input" data-validate = "Message is required">
+                     <textarea class="input2" name="message"></textarea>
+                     <span class="focus-input2" data-placeholder="MESSAGE"></span>
+                  </div>
+   
+                  <div class="container-contact2-form-btn">
+                     <div class="wrap-contact2-form-btn">
+                        <div class="contact2-form-bgbtn"></div>
+                        <button class="contact2-form-btn">
+                           Send Your Message
+                        </button>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   	<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+            <h3><img src="../images/logo_transparent1.png" style="width:250px;height:150px"></h3>
+
+				
+
+				<p class="footer-company-name">Pawtaie &copy; 2019</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>21 Revolution Street</span> Paris, France</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+1 555 123456</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p>pawtaie@gmail.com</p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+				</p>
+
+				<div class="footer-icons">
+
+					<a href="#"><i class="fab fa-facebook"></i></a>
+					<a href="#"><i class="fab fa-twitter"></i></a>
+					<a href="#"><i class="fab fa-linkedin"></i></a>
+					<a href="#"><i class="fab fa-github"></i></a>
+
+				</div>
+
+			</div>
+
+		</footer>
+
+        </section>
+       
+   <script>
+      document.getElementById('button').addEventListener("click", function() {
+document.querySelector('.bg-modal').style.display = "flex";
+});
+
+document.querySelector('.close').addEventListener("click", function() {
+document.querySelector('.bg-modal').style.display = "none";
+});
+         </script> 
+</body>
+
 </html>

@@ -211,42 +211,73 @@ nav{
     top:47px;
 }
 }
-
-
-.wrapper{
-    width: 70%;
-    height: auto;
+#banner{
+    background:url("../images/found-pet-tips.jpg");
+	width:100%;
+	background-size:cover;
+    opacity: 0.7;
+    margin-top:10px;
+    height:600px;
+    display:flex;
+    justify-content: center;;
+}
+#title{
+    width:50%;
     margin-left:15%;
     margin-right:15%;
+    margin-top:150px;
+    margin-bottom: 20px;
+    height:auto;
+    font-weight: bold;
+}
+.wrapperLost{
+    width: 85%;
+    height: auto;
+    margin-left:15%;
+    margin-right:20%;
     background-color: white;
     display:flex;
     flex-direction: row;
     flex-wrap:nowrap;
 }
-.container{
-margin:2%;
-width:auto;
-height:auto;
-display:flex;
-background-color: white;
-flex-direction: column;
+.small{
+    
+    color:#720a35;
+    font-size:22px;
+    font-weight:bold;
+  
+    text-align:center;
 
 }
-#articles{
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    width:65%;
-    
+.col3{
+    width:50%;
 }
-.article{
-    background-color:rgb(192, 187, 187);
-    width:600px;
-    height: 400px;
-    margin-top:2%;
+#seen{
+    width:200px;
+    margin-left:22px;
+     height:35px;
+    
+	background-color:#720a35;
+    text-align: center;
+	border-radius:8px;
+
+	cursor:pointer;
+	color:white;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	
+	text-decoration:none;
+	
+}
+.petpic
+{
+  width: 150px;
+  height: 130px;
+  margin-top:15px;
 }
 .sidebar{
-    width:25%;
+    width:100%;
    height:auto;
 
 }
@@ -277,114 +308,35 @@ flex-direction: column;
     background-color: #C4DBF6;
   }
   
-  /* Style the tab content */
-  .tabcontent {
-    float: left;
-    padding: 0px 12px;
-    border: 1px solid #ccc;
-    width: 70%;
-    border-left: none;
-    height: 300px;
+ 
+  #cards{
+      width:70%;
+      margin-top:35px;
   }
-  .flex-item {
-    background-color: whitesmoke;
+  #sidenav{
+      width:25%;
+  }
+  .card{
+    box-shadow: 0px 0px 0px 5px #B23850; 
+      width:260px;
+      display: flex;
+      margin: 10px 10px 10px 10px;
+      background-color: whitesmoke;
     box-shadow: #222;
-  
-    
-   
-    margin-left:20px;
-    margin-right:20px;
-    margin-top:30px;
-    margin-bottom:10px;
     border-radius:25px;
-    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.25), 
-      -3px -3px 3px 3px rgba(0,0,0,0.22);
+    height:380px;
       transition: 0.4s;
-    display:flex;
-    flex-direction: column;
+      flex-direction: column;
     align-items: center;
-   
-   
-   }
-   .flex-item:hover{
-       box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    text-align: center;
+  }
+  .card:hover{
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
      
-     transform: scale(1.1, 1.1);
-   }
-   .text-center{
-       text-align:center;
-   }
-   .small{
-       width:20%;
-       color: white;
-       font-size:22px;
-       font-weight:bold;
-       background-color:#720a35;
-       text-align:center;
-
-   }
-   
-   .big{
-       width:70%;
-       font-size:20px;
-       color:#720a35;
-       font-family: cursive;
-   }
-   .title{
-       font-size:20px;
-       margin-left:20px;
-   }
-   .subtitle{
-       font-size:16px;
-       margin-left:20px;
-   }
-   .button{
-      width:100%;
-      margin-right:70px;
-
-   }
-   #read{
-     width:200px;
-     margin-left:170px;
-     height:50px;
-    
-	background-color:#720a35;
-
-	border-radius:8px;
-
-	cursor:pointer;
-	color:white;
-	font-family:Arial;
-	font-size:20px;
-	font-weight:bold;
-	
-	text-decoration:none;
-	
-   }
-   .row{
-       display:flex;
-       flex-direction: row;
-       flex-wrap: wrap;
-       width:90%;
-       margin-left:20px;
-       margin-top:25px;
-   }
-   .image{
-       width:35%;
-
-   }
-   .image img{
-       width:200px;
-       height:200px;
-   }
-   .content{
-       width:60%;
-       margin-left:20px;
-   }
-
-   .petpic
-{
-  width: 250px;
-  height: 230px;
-
-}
+    transform: scale(1.1, 1.1);
+  }
+  .card2{
+      display:flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+  }
