@@ -17,4 +17,11 @@ function close_conn($conn)
     $conn -> close();
 };
 
+
+function generic_query($field, $table, $conn)
+{
+    $sql = "select " . $field . " from ". $table;
+    $result = $conn->query($sql);
+    return $result;
+};
 ?>

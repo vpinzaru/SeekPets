@@ -14,4 +14,15 @@ function get_data()
     return $response;
 };
 
+function show_result($status, $payload, $status_code)
+{
+    $response = [
+        'status' => $status,
+        'data' => $payload
+    ];
+    http_response_code($status_code);
+    echo json_encode($response);
+};
+
+
 ?>
