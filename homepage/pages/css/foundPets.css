@@ -1,0 +1,342 @@
+*{
+    text-decoration:none;
+    list-style:none; 
+    margin:0px; 
+    padding:0px; 
+    outline:none;
+}
+
+body{
+    margin:0px; 
+    padding:0px;
+    height:100%;
+    background-color: white;
+    }
+
+#navbar{
+    width:100%;
+    max-width:1200px; 
+    margin:0px auto;
+    display:table;
+    position:relative;
+	
+}
+
+
+header{
+    width:100%;
+    display:table;
+    background:#C4DBF6;
+
+    }
+
+#logo img{
+    float:left; 
+    height:100px;
+    width:200px;
+    
+}
+
+nav{
+    width:auto;
+    float:right;
+    margin-top:35px;
+    font-family: 'Mystery Quest',cursive;
+    font-weight:bold;
+}
+nav ul{
+    display:table;
+     float:right;
+    }
+nav ul li{
+    float:left;
+}
+nav ul li:last-child{
+    padding-right:0px;
+}
+nav ul li a{
+    color:#720a35;
+    font-size:18px;
+    padding: 10px 10px;
+    display:inline-block; 
+    transition: all 0.5s ease 0s;
+}
+nav ul li a:hover{
+    background-color:transparent;
+     color:#df6071;
+     transition: all 0.5s ease 0s;
+    }
+nav ul li a:hover i{
+    color:#720a35;
+    transition: all 0.5s ease 0s;
+}
+nav ul li a i{
+    padding-right:10px; 
+    color:#720a35;
+    transition: all 0.5s ease 0s;
+}
+
+.toggle-menu{
+     
+    height:10px; 
+    color:rgb(20, 2, 2);
+    margin-bottom:4px;
+    font-size:20px;
+    margin-bottom:0px;
+   float:right;
+    top:5%;
+  
+}
+
+#toggle-1,.toggle-menu{
+    display:none;
+}
+.active
+{
+    
+    border-top:2px solid #B23850;
+}
+
+
+
+
+
+
+
+
+#title{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:40px;
+
+}
+@media only screen and (max-width: 1440px) {
+#navbar{
+    
+    max-width:95%;
+
+}
+
+
+}
+
+@media only screen and (max-width: 980px) {
+header{
+
+    padding:20px 0px;
+
+}
+#logo{
+    
+    padding:0px;
+}
+#toggle-1 {
+    position: absolute; 
+    top: -9999px; 
+    left: -9999px; 
+    background:rgb(25, 31, 32);
+    float: right;
+
+}
+#toggle-1:focus{
+    
+    background:whitesmoke;
+}
+.toggle-menu {
+    
+  
+    padding:8px 0px; 
+    display:inline-block; 
+    cursor:pointer;
+ }
+ #toggle-1:checked ~ nav {
+    display:block;
+}
+
+nav{
+    display:none; 
+    position:absolute; 
+    right:0px; 
+    top:53px; 
+    background-color:#C4DBF6;
+    padding:0px; 
+    z-index:2;}
+nav ul{
+    width:auto;
+}
+nav ul li{
+    float:none; 
+    padding:0px; 
+    width:100%; 
+    display:table;
+}
+nav ul li a{
+    color:#720a35;
+    font-size:15px; 
+    padding:10px 20px; 
+    display:block; 
+    border-bottom: 1px solid rgba(225,225,225,0.1); 
+   
+
+}
+nav ul li a i{
+    
+    color:#720a35;
+    padding-right:13px;
+
+}
+}
+
+
+
+
+
+@media only screen and (max-width: 480px) {
+#navbar{
+    max-width: 90%;
+}
+}
+
+@media only screen and (max-width: 360px) {
+
+
+label.toggle-menu{
+    
+    padding:5px 0px;
+}
+
+
+
+nav{
+   
+    top:47px;
+}
+}
+#banner{
+    background:url("../images/pet-alarm.jpg");
+	width:100%;
+	background-size:cover;
+    opacity: 0.7;
+    margin-top:10px;
+    height:600px;
+    display:flex;
+    justify-content: center;;
+}
+#title{
+    width:50%;
+    margin-left:15%;
+    margin-right:15%;
+    margin-top:150px;
+    margin-bottom: 20px;
+    height:auto;
+    font-weight: bold;
+}
+.wrapperLost{
+    width: 85%;
+    height: auto;
+    margin-left:15%;
+    margin-right:20%;
+    background-color: white;
+    display:flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+}
+.small{
+    
+    color: rgb(38, 199, 33);
+    font-size:22px;
+    font-weight:bold;
+  
+    text-align:center;
+
+}
+.col3{
+    width:50%;
+}
+#seen{
+    width:200px;
+    margin-left:22px;
+     height:35px;
+    
+	background-color: rgb(38, 199, 33);
+    text-align: center;
+	border-radius:8px;
+
+	cursor:pointer;
+	color:white;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	
+	text-decoration:none;
+	
+}
+.petpic
+{
+  width: 150px;
+  height: 130px;
+  margin-top:15px;
+}
+.sidebar{
+    width:100%;
+   height:auto;
+
+}
+.sidebar button {
+    display: block;
+    background-color:whitesmoke;
+    color: #720a35;
+    font-family: 'Amaranth',cursive;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+   
+  }
+  
+  /* Change background color of buttons on hover */
+  .sidebar button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current "tab button" class */
+  .sidebar button.tablinks.active {
+    background-color: #C4DBF6;
+  }
+  
+ 
+  #cards{
+      width:70%;
+      margin-top:35px;
+  }
+  #sidenav{
+      width:25%;
+  }
+  .card{
+    box-shadow: 0px 0px 0px 5px rgb(38, 199, 33); 
+      width:260px;
+      display: flex;
+      margin: 10px 10px 10px 10px;
+      background-color: whitesmoke;
+    box-shadow: #222;
+    border-radius:25px;
+    height:380px;
+      transition: 0.4s;
+      flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .card:hover{
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+     
+    transform: scale(1.1, 1.1);
+  }
+  .card2{
+      display:flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+  }

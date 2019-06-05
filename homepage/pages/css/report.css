@@ -1,0 +1,297 @@
+*{
+    text-decoration:none;
+    list-style:none; 
+    margin:0px; 
+    padding:0px; 
+    outline:none;
+}
+
+
+
+#navbar{
+    width:100%;
+    max-width:1200px; 
+    margin:0px auto;
+    display:table;
+    position:relative;
+	
+}
+
+
+header{
+    width:100%;
+    display:table;
+    background:#C4DBF6;
+
+    }
+
+#logo img{
+    float:left; 
+    height:100px;
+    width:200px;
+    
+}
+
+nav{
+    width:auto;
+    float:right;
+    margin-top:35px;
+    font-family: 'Mystery Quest',cursive;
+    font-weight:bold;
+}
+nav ul{
+    display:table;
+     float:right;
+    }
+nav ul li{
+    float:left;
+}
+nav ul li:last-child{
+    padding-right:0px;
+}
+nav ul li a{
+    color:#720a35;
+    font-size:18px;
+    padding: 10px 10px;
+    display:inline-block; 
+    transition: all 0.5s ease 0s;
+}
+nav ul li a:hover{
+    background-color:transparent;
+     color:#df6071;
+     transition: all 0.5s ease 0s;
+    }
+nav ul li a:hover i{
+    color:#720a35;
+    transition: all 0.5s ease 0s;
+}
+nav ul li a i{
+    padding-right:10px; 
+    color:#720a35;
+    transition: all 0.5s ease 0s;
+}
+
+.toggle-menu{
+     
+    height:10px; 
+    color:rgb(20, 2, 2);
+    margin-bottom:4px;
+    font-size:20px;
+    margin-bottom:0px;
+   float:right;
+    top:5%;
+  
+}
+
+#toggle-1,.toggle-menu{
+    display:none;
+}
+.active
+{
+    
+    border-top:2px solid #B23850;
+}
+
+
+
+
+
+
+
+
+#title{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:40px;
+
+}
+@media only screen and (max-width: 1440px) {
+#navbar{
+    
+    max-width:95%;
+
+}
+
+
+}
+
+@media only screen and (max-width: 980px) {
+header{
+
+    padding:20px 0px;
+
+}
+#logo{
+    
+    padding:0px;
+}
+#toggle-1 {
+    position: absolute; 
+    top: -9999px; 
+    left: -9999px; 
+    background:rgb(25, 31, 32);
+    float: right;
+
+}
+#toggle-1:focus{
+    
+    background:whitesmoke;
+}
+.toggle-menu {
+    
+  
+    padding:8px 0px; 
+    display:inline-block; 
+    cursor:pointer;
+ }
+ #toggle-1:checked ~ nav {
+    display:block;
+}
+
+nav{
+    display:none; 
+    position:absolute; 
+    right:0px; 
+    top:53px; 
+    background-color:#C4DBF6;
+    padding:0px; 
+    z-index:2;}
+nav ul{
+    width:auto;
+}
+nav ul li{
+    float:none; 
+    padding:0px; 
+    width:100%; 
+    display:table;
+}
+nav ul li a{
+    color:#720a35;
+    font-size:15px; 
+    padding:10px 20px; 
+    display:block; 
+    border-bottom: 1px solid rgba(225,225,225,0.1); 
+   
+
+}
+nav ul li a i{
+    
+    color:#720a35;
+    padding-right:13px;
+
+}
+}
+
+
+
+
+
+@media only screen and (max-width: 480px) {
+#navbar{
+    max-width: 90%;
+}
+}
+
+@media only screen and (max-width: 360px) {
+
+
+label.toggle-menu{
+    
+    padding:5px 0px;
+}
+
+
+
+nav{
+   
+    top:47px;
+}
+}
+.banner{
+  
+	width:100%;
+	background-size:cover;
+ 
+    margin-top:10px;
+  
+    display:flex;
+  
+}
+#myVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+   width: 98%; 
+    min-height: 80%;
+    z-index: -2;
+  }
+  
+.main1{
+    flex:-2;
+    padding:3%;
+    text-align:center;
+    display:flex;
+   
+    flex-direction:column;
+    box-sizing: border-box;
+    padding: 50px 20px;
+    border-radius: 60px;
+    width:33.33%; 
+   
+}
+
+.foundpet-form, .lostpet-form{
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    background-color: transparent;
+    color:black;
+    
+    opacity:0.3;
+    background-color:#202020;
+    box-sizing: border-box;
+    padding: 50px 20px;
+    border-radius: 24px;
+    width:auto;
+  
+}
+.lostpet-form label{
+    color:black;
+    opacity:1 !important;
+    z-index:30;
+}
+
+.registerForm label{
+    font-family: 'Corben', Georgia, Times, serif;
+}
+
+.entryFormularInvizibil, .entryFormularInvizibilRe
+{
+    display:none;
+}
+
+.entryFormular
+{
+    display:flex;
+	font-family:cursive;
+	font-size:18px;
+	font-weight:bold;
+}
+
+.entryFormular , .entryFormularInvizibil, .entryFormularInvizibilRe
+{
+    flex-direction:row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.entryFormularInvizibil,.entryFormularInvizibilRe{
+    display:none;
+}
+
+.entryFormularCheck
+{
+    margin-bottom: 20px;
+}
+.entryFormularCheck input[type="checkbox"]
+{
+    margin-left: 25px;
+}
