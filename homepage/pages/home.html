@@ -404,29 +404,10 @@ textarea.input2 + .focus-input2::after {
             <div class="close ">+</div>
             
             
-            <!--<div class=" column-login">
-                  <h1>Login 😃</h1>
-       
-            </div>
-           
-            <div class="column-login loginbox">
-            
-                  <form class="loginForm" action="../homepage/profile_page.html" method="post">
-                     <input type="text" name="_" placeholder="Username" id="loginIn">
-                     <input type="password" name="_" placeholder="Password" id="loginIn">
-                     <input type="submit" name="_" value="Login" id="loginIn">
-                     <a href="#" class="options  left">Lost your password?</a>
-                     <br>
-                     <a href="../register_page/register_page.html" class="options right">Don't have an account?</a>
-                     <br>
-                 
-                  </form>
-            
-            </div>-->
             <div class="wrap-login100">
                <form class="login100-form validate-form">
                   <span class="login100-form-title p-b-26">
-                     Welcome
+                    Login
                   </span>
                   
    
@@ -445,28 +426,82 @@ textarea.input2 + .focus-input2::after {
                      <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
                         <button class="login100-form-btn">
-                           Login
+                           Sign In
                         </button>
+                       
+                     </div>
+                     <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn" id="button2">
+                           Sign Up
+                        </button>
+                       
                      </div>
                   </div>
-   
-                  <div class="text-center p-t-115">
-                     <span class="txt1">
-                        Don’t have an account?
-                     </span>
-   
-                     <a class="txt2" href="#">
-                        Sign Up
-                     </a>
-                  </div>
+                  
+                  
                </form>
             </div>
            </div>
             </div>
             
         
-      
-     
+      <!--MODAL REGISTER-->
+      <div class="bg-modal bg-modal-reg">
+         <div class="modal-contents">
+            
+            <div class="close2 close ">+</div>
+            
+            
+            <div class="wrap-login100">
+               <form class="login100-form validate-form register" onsubmit="myFunction()">
+                  <span class="login100-form-title p-b-26">
+                     Register Here
+                  </span>
+                  
+                  <div class="wrap-input100 validate-input">
+                     <input class="input100" type="text" name="Name">
+                     <span class="focus-input100" data-placeholder="Name"></span>
+                  </div>
+                  <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                     <input class="input100" type="text" name="email">
+                     <span class="focus-input100" data-placeholder="Email"></span>
+                  </div>
+                  <div class="wrap-input100 validate-input">
+                     <input class="input100" type="text" name="Adress">
+                     <span class="focus-input100" data-placeholder="Address"></span>
+                  </div>
+                  <div class="wrap-input100 validate-input">
+                     <input class="input100" type="text" name="phone">
+                     <span class="focus-input100" data-placeholder="Phone Number"></span>
+                  </div>
+                  <div class="wrap-input100 validate-input" data-validate="Enter password">
+                     
+                     <input class="input100" type="password" name="pass">
+                     <span class="focus-input100" data-placeholder="Password"></span>
+                  </div>
+                  <div class="wrap-input100 validate-input" data-validate="Re-Enter password">
+                     
+                     <input class="input100" type="password" name="pass">
+                     <span class="focus-input100" data-placeholder="Confirm Password"></span>
+                  </div>
+   
+                  <div class="container-login100-form-btn">
+                     <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn" id ="reg">
+                           Register
+                        </button>
+                     </div>
+                  </div>
+   
+                  
+                 
+               </form>
+            </div>
+           </div>
+            </div>
+            <!--END MODAL REGISTER-->     
    <div class="banner">
 
       <div class="plate">
@@ -545,7 +580,10 @@ textarea.input2 + .focus-input2::after {
          <button type="text" class="myButton"> Read More</button>
       </div>
    </div>
-   <!-- <div class="main-content">
+   <!-- el" id = "inputPhone1" pattern = "[0-9]{3} [0-9]{3} [0-9]{4}" maxlength="12" placeholder = "Your phone number">
+                  </div>
+                  <div class = "entryFormular">
+                     <label>Picture <<div class="main-content">
          <div class="main1">
                <h2>Found Pet Formular</h2>
             <div class = "foundpet-form">
@@ -580,10 +618,7 @@ textarea.input2 + .focus-input2::after {
                   </div>
                   <div class = "entryFormular">
                      <label for="inputPhone1">Phone number </label>
-                     <input type = "tel" id = "inputPhone1" pattern = "[0-9]{3} [0-9]{3} [0-9]{4}" maxlength="12" placeholder = "Your phone number">
-                  </div>
-                  <div class = "entryFormular">
-                     <label>Picture </label>
+                     <input type = "t/label>
                      <input type="file" name="pic" accept="image/*">
                   </div>
                   <input type="submit">
@@ -594,15 +629,7 @@ textarea.input2 + .focus-input2::after {
          
       
        
-         <div class="main1 middle">
-            <h2>What to do</h2>
-            <p><span style="font-family: 'Montserrat Bold';font-weight:bold">Update Your Pet’s Microchip</span></p>
-            <p><span style="font-family: 'Montserrat Light';">Often times pets come into the shelter with a microchip, but the contact information is not updated or the microchip is not registered. Make sure your information is updated by calling your pet’s microchip company, or using free microchip databases such as <a href="http://www.found.org">found.org</a>.</span></p>
-            <p><span style="font-family: 'Montserrat Bold'; font-weight:bold">File a Lost Pet Report</span></p>
-            <p><span style="font-family: 'Montserrat Light';">Call 311 to report your lost pet. The dispatcher will request your pet’s microchip number, your contact information and a description of your pet to create a Lost Pet Report in our database. This will ensure we have the right information on file in the chance your pet is found by an Animal Protection Officer or a member of the community.</span></p>
-            <p><span style="font-family: 'Montserrat Bold';font-weight:bold">Hang Posters &amp; Flyers</span></p>
-            <p><span style="font-family: 'Montserrat Light';">Hang lost pet posters in your neighborhood, at local grooming shops, pet supply stores and veterinarian offices. You can also hang flyers at the Animal Services Center as well, just ask a Customer Service team member for more information.</span></p>
-         </div>
+        
      
          <div class="main1">
                <h2>Lost Pet Formular</h2>
@@ -834,10 +861,7 @@ textarea.input2 + .focus-input2::after {
          <div class="container-contact2">
             <div class="wrap-contact2">
                <form class="contact2-form validate-form">
-                 <!-- <span class="contact2-form-title">
-                     Contact Us
-                  </span>
-               -->
+                
                   <div class="wrap-input2 validate-input" data-validate="Name is required">
                      <input class="input2" type="text" name="name">
                      <span class="focus-input2" data-placeholder="NAME"></span>
@@ -925,6 +949,23 @@ document.querySelector('.bg-modal').style.display = "flex";
 document.querySelector('.close').addEventListener("click", function() {
 document.querySelector('.bg-modal').style.display = "none";
 });
+document.getElementById('button2').addEventListener("click", function() {
+document.querySelector('.bg-modal-reg').style.display = "flex";
+document.querySelector('.bg-modal').style.display = "none";
+});
+
+document.querySelector('.close2').addEventListener("click", function() {
+document.querySelector('.bg-modal-reg').style.display = "none";
+});
+document.addEventListener("DOMContentLoaded", function(){
+   fetch('/api/register.php')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(JSON.stringify(myJson));
+    console.log("hello");
+  })});
          </script> 
 </body>
 

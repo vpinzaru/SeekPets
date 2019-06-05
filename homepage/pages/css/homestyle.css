@@ -922,68 +922,10 @@ input#loginIn {
 		color: #666;
 	}
    
-    .loginForm input#loginIn[type = "text"]:focus,.loginbox .loginForm input#loginIn[type = "password"]:focus{
-        width:280px;
-        border-color: #2ecc71;
-      }
-       .loginForm{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-40%);
-        text-align: center;
-      }
-      .loginbox .loginForm input#loginIn[type = "text"]{
-        background: none;
-        display: block;
-        margin: 20px auto;
-        text-align: center;
-        border: 2px solid #d8873bef;
-        padding: 14px 10px;
-        width: 200px;
-        outline: none;
-        color: white;
-        border-radius: 24px;
-        transition: 0.25s;
-      } 
-      .loginbox .loginForm input#loginIn[type = "password"]{
-       
-        background: none;
-        display: block;
-        margin: 20px auto;
-        text-align: center;
-        border: 2px solid #d8873bef;
-        padding: 14px 10px;
-        width: 200px;
-        outline: none;
-        color: white;
-        border-radius: 24px;
-        transition: 0.25s;
-      }
-      .loginbox .loginForm input#loginIn[type = "submit"]{
-        border:0;
-        background: none;
-        display: block;
-        margin: 20px auto;
-        text-align: center;
-        border: 2px solid #2ecc71;
-        padding: 14px 40px;
-        outline: none;
-        color: white;
-        border-radius: 24px;
-        transition: 0.25s;
-        cursor: pointer;
-      }
-      .loginbox .loginForm input#loginIn[type = "submit"]:hover{
-        background: #2ecc71;
-      }
-      
-      .options{
-          font-size:20px;
-          color: #2ecc71;
-          font-family: cursive;
-         
-      }
+    
+   
+     
+    
      
       .flip-card {
         background-color: transparent;
@@ -1425,43 +1367,10 @@ input#loginIn {
   }
   
   /*---------------------------------------------*/
-  .btn-show-pass {
-    font-size: 15px;
-    color: #999999;
   
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    align-items: center;
-    position: absolute;
-    height: 100%;
-    top: 0;
-    right: 0;
-    padding-right: 5px;
-    cursor: pointer;
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
-  }
   
-  .btn-show-pass:hover {
-    color: #6a7dfe;
-    color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-    color: -o-linear-gradient(left, #21d4fd, #b721ff);
-    color: -moz-linear-gradient(left, #21d4fd, #b721ff);
-    color: linear-gradient(left, #21d4fd, #b721ff);
-  }
   
-  .btn-show-pass.active {
-    color: #6a7dfe;
-    color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-    color: -o-linear-gradient(left, #21d4fd, #b721ff);
-    color: -moz-linear-gradient(left, #21d4fd, #b721ff);
-    color: linear-gradient(left, #21d4fd, #b721ff);
-  }
+  
   
   
   
@@ -1537,6 +1446,9 @@ input#loginIn {
   @media (max-width: 576px) {
     .wrap-login100 {
       padding: 77px 15px 33px 15px;
+    }
+    .wrap-login100-form-btn {
+      width:auto;
     }
   }
   

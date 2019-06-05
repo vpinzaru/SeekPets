@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/report.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Mystery+Quest|Fredericka+the+Great|Flavors|Amaranth&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../fonts/fonts1/css/all.min.css">
+    <title>Pawtaie | Found Pets</title>
+    
+</head>
+
+<body>
+    <header style="background:transparent !important">
+        <section id="navbar">
+            <h6 id="pentruHTMLValid"></h6>
+            <a href="home.html" id="logo" target="_blank">
+                <img src="images/logo_transparent1.png" alt="logo">
+            </a>
+            <label for="toggle-1" class="toggle-menu">
+                &#9776;
+            </label>
+            <input type="checkbox" id="toggle-1">
+            <nav>
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="report.html" class="active"><i class="fas fa-search"></i>Report a pet</a></li>
+                    <li><a href="settings.html" ><i class="fas fa-cogs"></i>Settings</a></li>
+                    
+                    <li><a href="#" id="button"><i class="fas fa-user"></i>Log Out</a></li>
+                </ul>
+            </nav>
+        </section>
+        <div class="banner">
+        <video autoplay muted loop id="myVideo" style="opacity: 0.7">
+                <source src="images/gatos_.mp4" type="video/mp4">
+              </video>
+            </div> 
+        <div class="content" style="z-index:20">
+                <div class="main1">
+                        <h2>Lost Pet Formular</h2>
+                     <div class = "lostpet-form">
+                        <form class="registerForm" action="index.html" method="post">
+                           <div class = "entryFormular">
+                              <label for="inputNume2" style="color:black">Name </label>
+                              <input type = "text" id = "inputNume2" placeholder = "Tell us the name your pet may respond to">
+                           </div>
+                           <div class = "entryFormular">
+                              <label for="inputRasa2">Race </label>
+                              <input type = "text" id = "inputRasa2" placeholder = "Tell us the race of your pet (cat/dog is not enough :) )">
+                           </div>
+                           <div class = "entryFormularCheck">
+                              <label for="inputZgarda2">Collar </label>
+                              <input type="checkbox" value="zgarda" id = "inputZgarda2" >
+                              <div class = "entryFormularInvizibil">
+                                 <label for="inputZgardaDetalii2">Collar description </label>
+                                 <input type = "text" id = "inputZgardaDetalii2" placeholder = "Give us a description of the collar (e.g: colour)">
+                              </div>
+                           </div>
+                           <div class = "entryFormular">
+                              <label for="inputZona2">Address </label>
+                              <input type = "text" id = "inputZona2" placeholder = "Tell us the address your pet was last seen at">
+                           </div>
+                           <div class = "entryFormularCheck">
+                              <label for="inputReward2">Reward </label>
+                              <input type="checkbox" value="reward" id = "inputReward2" >
+                              <div class = "entryFormularInvizibilRe">
+                                 <label for="inputRewardDetalii2">Reward description </label>
+                                 <input type = "text" id = "inputRewardDetalii2" placeholder = "What is the reward?">
+                              </div>
+                           </div>
+                           <div class = "entryFormular">
+                              <label for="inputDetalii2">Pet descriptiom </label>
+                              <textarea id = "inputDetalii2" placeholder="Give us a good description of your pet, the more information the better. Is it dangerous? What does it like? "></textarea> 
+                           </div>
+                           <div class = "entryFormular">
+                              <label for="inputEmail2">Email </label>
+                              <input type = "text" id = "inputEmail2" placeholder = "Your email address">
+                           </div>
+                           <div class = "entryFormular">
+                              <label for="inputPhone2">Phone number </label>
+                              <input type = "tel" id = "inputPhone2" pattern = "[0-9]{3} [0-9]{3} [0-9]{4}" maxlength="12" placeholder = "Your phone number">
+                           </div>
+                           <div class = "entryFormular">
+                              <label>Picture </label>
+                              <input type="file" name="pic" accept="image/*">
+                           </div>
+                           <input type="submit">
+                        </form>
+                     </div>
+                  </div>
+               </div>
+        
+    </header>
+     
+           
+      
+  <script>
+        // Get the video
+        var video = document.getElementById("myVideo");
+        
+        // Get the button
+        var btn = document.getElementById("myBtn");
+        
+        // Pause and play the video, and change the button text
+        function myFunction() {
+          if (video.paused) {
+            video.play();
+            btn.innerHTML = "Pause";
+          } else {
+            video.pause();
+            btn.innerHTML = "Play";
+          }
+        }
+        </script>
+    </body>
+    </html>

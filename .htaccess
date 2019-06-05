@@ -93,5 +93,3 @@ RewriteRule api\/(.*) \/api\/$1\.php [L]
 RewriteCond %{REQUEST_URI} !\/homepage\/pages\/
 RewriteCond %{REQUEST_URI} !api
 RewriteRule (.?) \/homepage\/pages\/home\.html [R=302,NC]
-
-
