@@ -1,13 +1,13 @@
 <?php
 
-$method = $_SERVER['REQUEST_METHOD'];
-$requestHeaders = getallheaders();
-$requestBodyAsString = file_get_contents('php://input');
+include_once 'engine/utils.php';
+include_once 'engine/database.php';
 
-$test = [
-    'status' => 'ok'
-];
+header('Content-Type: application/json');
 
-echo json_encode($test)
+$data = get_data();
 
+$conn = get_conn();
+echo var_dump($conn);
+close_conn($conn);
 ?>
