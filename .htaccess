@@ -77,9 +77,12 @@ RewriteCond %{HTTP_USER_AGENT} ^Xaldon\ WebSpider [OR]
 RewriteCond %{HTTP_USER_AGENT} ^Zeus
 RewriteRule ^.* - [F,L]
 
-DirectoryIndex /homepage/pages/home.html
+RewriteCond %{REQUEST_URI} !homepage/pages/
+RewriteRule (.*) /homepage/pages/$1 [L]
 
 <Files .htaccess>
 order allow,deny
 deny from all
 </Files>
+
+Options All -Indexes
