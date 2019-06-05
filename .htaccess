@@ -77,12 +77,21 @@ RewriteCond %{HTTP_USER_AGENT} ^Xaldon\ WebSpider [OR]
 RewriteCond %{HTTP_USER_AGENT} ^Zeus
 RewriteRule ^.* - [F,L]
 
-RewriteCond %{REQUEST_URI} !homepage/pages/
-RewriteRule (.*) /homepage/pages/$1 [L]
-
 <Files .htaccess>
 order allow,deny
 deny from all
 </Files>
 
 Options All -Indexes
+
+
+RewriteCond %{REQUEST_URI} api\/(.*)
+RewriteCond %{REQUEST_URI} !\.
+RewriteRule api\/(.*) \/api\/$1\.php [L]
+
+
+RewriteCond %{REQUEST_URI} !\/homepage\/pages\/
+RewriteCond %{REQUEST_URI} !api
+RewriteRule (.?) \/homepage\/pages\/home\.html [R=302,NC]
+
+
