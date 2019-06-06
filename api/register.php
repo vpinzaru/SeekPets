@@ -28,13 +28,24 @@ if($new_user == NULL)
     exit();
 }
 
+$check = check_request_body($new_user);
+
+if($check != "ok")
+{
+    show_result("error", $check. " should not be empty.",406);
+    close_conn($conn);
+    exit();
+}
+
 if($new_user['password'] != $new_user['confirm_password'])
 {
     show_result("error","Password and Confirm Password are not the same",406);
     close_conn($conn);
     exit();
 }
+
 $found = generic_query($new_user['email'],'email','users',$conn);
+
 if ($found->num_rows > 0) 
 {
     show_result("error","The email has already been used",409);
