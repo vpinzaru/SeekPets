@@ -36,5 +36,12 @@ if($found->num_rows == 0)
     exit();
 }
 
-show_result("ok",'Login data is correct.',200);
+$row = $found->fetch_assoc();
+$response = [
+    'status' => 'ok',
+    'data' => 'Login credentials are correct.',
+    'id_user' => $row['id_user']
+];
+http_response_code(200);
+echo json_encode($response);
 ?>
