@@ -7,8 +7,11 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <link rel="stylesheet" href="css/homestyle.css">
    <link href="https://fonts.googleapis.com/css?family=Mystery+Quest|Fredericka+the+Great|Flavors&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="../fonts/fonts1/css/all.min.css">
+   <link 
+   href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+   rel="stylesheet"  type='text/css'>
    <title>Pawtaie | Home</title>
+</head>
    <style>
    
 
@@ -45,10 +48,9 @@ input:-moz-placeholder { color: #999999; }
 input::-moz-placeholder { color: #999999; }
 input:-ms-input-placeholder { color: #999999; }
 
-textarea::-webkit-input-placeholder { color: #999999; }
-textarea:-moz-placeholder { color: #999999; }
-textarea::-moz-placeholder { color: #999999; }
-textarea:-ms-input-placeholder { color: #999999; }
+textarea::-webkit-input-placeholder { color: #999999 }
+textarea:-moz-placeholder { color: transparent }
+
 
 /*---------------------------------------------*/
 button {
@@ -374,7 +376,7 @@ textarea.input2 + .focus-input2::after {
   }
 }
    </style>
-</head>
+
 
 <body>
    <header>
@@ -389,10 +391,10 @@ textarea.input2 + .focus-input2::after {
          <input type="checkbox" id="toggle-1">
          <nav>
             <ul>
-               <li><a href="home.html" class="active"><i class="fas fa-home"></i>Home</a></li>
-               <li><a href="#howitworks"><i class="fas fa-cogs"></i>How It Works</a></li>
-               <li><a href="#news"><i class="far fa-newspaper"></i>News</a></li>
-               <li><a href="#" id="button"><i class="fas fa-user"></i>Login</a></li>
+               <li><a href="home.html" class="active"><i class="fa fa-home"></i>Home</a></li>
+               <li><a href="#howitworks"><i class="fa fa-cogs"></i>How It Works</a></li>
+               <li><a href="#news"><i class="fas fa-newspaper"></i>News</a></li>
+               <li><a href="#" id="button"><i class="fa fa-user"></i>Login</a></li>
             </ul>
          </nav>
       </section>
@@ -412,27 +414,27 @@ textarea.input2 + .focus-input2::after {
                   
    
                   <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-                     <input class="input100" type="text" name="email">
-                     <span class="focus-input100" data-placeholder="Email"></span>
+                     <input class="input100" type="text" id="emailLog"name="email" placeholder="Email">
+                     <span class="focus-input100" ></span>
                   </div>
    
                   <div class="wrap-input100 validate-input" data-validate="Enter password">
                      
-                     <input class="input100" type="password" name="pass">
-                     <span class="focus-input100" data-placeholder="Password"></span>
+                     <input class="input100" type="password" id="passlog" name="pass" placeholder="Password">
+                     <span class="focus-input100" ></span>
                   </div>
    
                   <div class="container-login100-form-btn">
                      <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn">
+                        <button class="login100-form-btn" type="button" id="login">
                            Sign In
                         </button>
                        
                      </div>
                      <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn" id="button2">
+                        <button class="login100-form-btn" id="button2" type="button">
                            Sign Up
                         </button>
                        
@@ -445,7 +447,22 @@ textarea.input2 + .focus-input2::after {
            </div>
             </div>
             
-        
+            <div class="bg-modal bg-modal-succes" >
+                  <div class="modal-contents">
+                     
+                     <div class="close4 close ">+</div>
+                     
+                     
+                     <div class="wrap-login100">
+                        <form class="login100-form validate-form register" >
+                           <span class="login100-form-title ">
+                              Contul a fost creat cu succes! 
+                           </span>
+                           </form>
+                           </div>
+                           </div>
+                           </div>
+                           
       <!--MODAL REGISTER-->
       <div class="bg-modal bg-modal-reg">
          <div class="modal-contents">
@@ -455,41 +472,42 @@ textarea.input2 + .focus-input2::after {
             
             <div class="wrap-login100">
                <form class="login100-form validate-form register" onsubmit="myFunction()">
-                  <span class="login100-form-title p-b-26">
+                  <span class="login100-form-title ">
                      Register Here
                   </span>
                   
                   <div class="wrap-input100 validate-input">
-                     <input class="input100" type="text" name="Name">
-                     <span class="focus-input100" data-placeholder="Name"></span>
+                     <input class="input100" type="text" id="lastname" name="Name" placeholder="Last Name">
+                     <span class="focus-input100" ></span>
                   </div>
+                  <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="firstname" name="Name" placeholder="First Name">
+                        <span class="focus-input100"></span>
+                     </div>
                   <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-                     <input class="input100" type="text" name="email">
-                     <span class="focus-input100" data-placeholder="Email"></span>
+                     <input class="input100" id="email" type="text" name="email" placeholder="Email">
+                     <span class="focus-input100" ></span>
                   </div>
                   <div class="wrap-input100 validate-input">
-                     <input class="input100" type="text" name="Adress">
-                     <span class="focus-input100" data-placeholder="Address"></span>
+                     <input class="input100" type="text" id="address" name="Adress" placeholder="Address">
+                     <span class="focus-input100" ></span>
                   </div>
-                  <div class="wrap-input100 validate-input">
-                     <input class="input100" type="text" name="phone">
-                     <span class="focus-input100" data-placeholder="Phone Number"></span>
-                  </div>
+                  
                   <div class="wrap-input100 validate-input" data-validate="Enter password">
                      
-                     <input class="input100" type="password" name="pass">
-                     <span class="focus-input100" data-placeholder="Password"></span>
+                     <input class="input100" type="password" id="password" name="pass" placeholder="Password">
+                     <span class="focus-input100"></span>
                   </div>
                   <div class="wrap-input100 validate-input" data-validate="Re-Enter password">
                      
-                     <input class="input100" type="password" name="pass">
-                     <span class="focus-input100" data-placeholder="Confirm Password"></span>
+                     <input class="input100" type="password" id="confpass" name="passw" placeholder="Confirm Password">
+                     <span class="focus-input100" ></span>
                   </div>
    
                   <div class="container-login100-form-btn">
                      <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn" id ="reg">
+                        <button class="login100-form-btn" type="button"  id="reg">
                            Register
                         </button>
                      </div>
@@ -949,24 +967,91 @@ document.querySelector('.bg-modal').style.display = "flex";
 document.querySelector('.close').addEventListener("click", function() {
 document.querySelector('.bg-modal').style.display = "none";
 });
+document.querySelector('.close4').addEventListener("click", function() {
+document.querySelector('.bg-modal-succes').style.display = "none";
+});
 document.getElementById('button2').addEventListener("click", function() {
 document.querySelector('.bg-modal-reg').style.display = "flex";
 document.querySelector('.bg-modal').style.display = "none";
 });
 
 document.querySelector('.close2').addEventListener("click", function() {
-document.querySelector('.bg-modal-reg').style.display = "none";
-});
-document.addEventListener("DOMContentLoaded", function(){
-   fetch('/api/register.php')
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(myJson) {
-    console.log(JSON.stringify(myJson));
-    console.log("hello");
-  })});
+document.querySelector('.bg-modal-reg').style.display = "none";});
+document.querySelector('.bg-modal-succes').style.display="none";
+
+
          </script> 
+         <script>
+         document.getElementById('reg').addEventListener('click',function(){
+            var firstname= document.getElementById('firstname').value;
+            var lastname= document.getElementById('lastname').value;
+            var password= document.getElementById('password').value;
+            var confirm_password= document.getElementById('confpass').value;
+            var address= document.getElementById('address').value;
+            var email =document.getElementById('email').value;
+      var data={
+              
+               "firstname": firstname,
+               "lastname":lastname,
+               "password":password,
+               "confirm_password":confirm_password,
+               "address": address,
+               "email":email
+            }
+            var obj=JSON.stringify(data);
+            console.log(obj);
+           
+           fetch('/api/register',{
+              method: 'POST',
+              headers: new Headers( {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  }),
+  body: obj,
+           })
+           .then((resp) => resp.json())
+           .then((jsonResp) => {
+           if(jsonResp.status==="ok"){
+            document.querySelector('.bg-modal-reg').style.display = "none";
+            document.querySelector('.bg-modal-succes').style.display="flex";
+            
+           }
+            if(jsonResp.status==="error"){
+             alert(jsonResp.data);
+             //back-ul ma calca pe nervi si rage la mine cand defapt el nu stie nimic :)
+           }
+          
+           })
+           
+         });
+         document.getElementById('login').addEventListener('click',function(){
+         let emaillog=document.getElementById('emailLog').value;
+         let passlog=document.getElementById('passlog').value;
+         let datalog={
+            "email":emaillog,
+            "password":passlog
+         }
+         let object= JSON.stringify(datalog);
+         
+         fetch('/api/login',{
+              method: 'POST',
+              headers: new Headers( {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  }),
+  body: object,
+           })
+           .then((resp) => resp.json())
+           .then((jsonResp) => {
+              console.log(jsonResp)})
+         });
+
+         </script>
+         
+         
+
+
+         
 </body>
 
 </html>

@@ -217,7 +217,7 @@ nav{
   
 }
 #myVideo {
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
    width: 98%; 
@@ -246,24 +246,27 @@ nav{
     background-color: transparent;
     color:black;
     
-    opacity:0.3;
-    background-color:#202020;
+ 
+    background: rgba(53, 52, 52, 0.3);
     box-sizing: border-box;
     padding: 50px 20px;
     border-radius: 24px;
     width:auto;
   
 }
-.lostpet-form label{
-    color:black;
-    opacity:1 !important;
+.registerForm{
     z-index:30;
 }
 
 .registerForm label{
     font-family: 'Corben', Georgia, Times, serif;
+    color:black;
+    opacity:1 !important;
 }
-
+::placeholder{
+    color:black;
+    opacity:0.7;
+}
 .entryFormularInvizibil, .entryFormularInvizibilRe
 {
     display:none;
@@ -295,3 +298,64 @@ nav{
 {
     margin-left: 25px;
 }
+.registerForm
+{
+    justify-content:space-between;
+    display:flex;
+    flex-direction: column;
+    height:50%;
+}
+
+.registerForm input[type = "text"], .registerForm input[type = "tel"]{
+    border:0;
+    background: none;
+    border: 2px solid #720a35;
+    padding: 14px 10px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s;
+    width:50%;
+  }
+
+ #inputDetalii1, #inputDetalii2
+  {
+    border:0;
+    background: none;
+    border: 2px solid #720a35;
+    padding: 14px 10px;
+    outline: none;
+    transition: 0.25s;
+    width:50%;
+  }
+ #inputZgarda1:checked +div, #inputZgarda2:checked +div{
+
+    display:flex;
+ }
+
+ #inputReward2:checked + div
+ {
+     display:flex;
+ }
+
+.registerForm input[type = "submit"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #720a35;
+    padding: 14px 40px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  .registerForm input[type = "submit"]:hover{
+    background: #2ecc71;
+  }
+
+  .registerForm input[type = "text"]:focus, #inputDetalii2:focus,#inputDetalii1:focus,  .registerForm input[type = "tel"]:focus{
+    width: 380px;
+    border-color: #2ecc71;
+  }
