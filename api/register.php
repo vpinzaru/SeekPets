@@ -41,7 +41,8 @@ if ($found->num_rows > 0)
     exit();
 }
 
-$pass = hash('sha256',new_user['password']);
+$pass = hash('sha256',$new_user['password']);
+
 
 $add_sql = "insert into users (nume, prenume, email, parola, adresa) values ('".$new_user['lastname']."', '".$new_user['firstname']."', '".$new_user['email']."', '".$pass."', '".$new_user['address']."')";
 
