@@ -15,7 +15,7 @@ if($data['method'] != 'POST')
 
 $conn = get_conn();
 if ($conn->connect_error) {
-    show_result("error","Failed to connect to the database",304);
+    show_result("error","Failed to connect to the database",409);
     close_conn($conn);
     exit();
 }
@@ -34,9 +34,10 @@ if($new_user['password'] != $new_user['confirm_password'])
     close_conn($conn);
     exit();
 }
-$found = generic_query('email','users',$conn);
-if ($found->num_rows > 0) {
-    show_result('error','The email has already been used.',304);
+$found = generic_query($new_user['email'],'email','users',$conn);
+if ($found->num_rows > 0) 
+{
+    show_result("error","The email has already been used",409);
     close_conn($conn);
     exit();
 }

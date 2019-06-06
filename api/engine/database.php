@@ -18,9 +18,9 @@ function close_conn($conn)
 };
 
 
-function generic_query($field, $table, $conn)
+function generic_query($fieldValue, $fieldName, $table, $conn)
 {
-    $sql = "select " . $field . " from ". $table;
+    $sql = "select * from ". $table . " where ". $fieldName . " = " . " '".$fieldValue."'";
     $result = $conn->query($sql);
     return $result;
 };
