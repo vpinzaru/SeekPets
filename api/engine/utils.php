@@ -29,12 +29,35 @@ function check_request_body($body)
 {
     foreach($body as $key=>$value)
     {
-        if(strlen($value) == 0)
+        if(strlen($value) == 0 )
         {
             return $key;
         }
     };
+
     return 'ok';
+}
+
+function get_payload($body)
+{
+    $payload = json_decode($body,true);
+
+    if($payload == NULL)
+    {
+        show_result("error", 'Wrong request body.',400);
+        return 'error';
+    }
+
+    $check = check_request_body($payload);
+
+    if($check != "ok")
+    {
+        show_result("error", $check. " should not be empty.",406);
+        return 'error';
+    }
+
+    return $payload;
+
 }
 
 ?>

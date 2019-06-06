@@ -7,6 +7,12 @@ function get_conn()
  $dbpass = "";
  $db = "pawtaie";
  $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+
+ if ($conn->connect_error) {
+    show_result("error","Failed to connect to the database",409);
+    close_conn($conn);
+    exit();
+}
  
  return $conn;
  

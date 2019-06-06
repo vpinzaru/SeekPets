@@ -14,29 +14,13 @@ if($data['method'] != 'POST')
 }
 
 $conn = get_conn();
-if ($conn->connect_error) {
-    show_result("error","Failed to connect to the database",409);
-    close_conn($conn);
-    exit();
-}
 
-$new_user = json_decode($data['body'],true);
-if($new_user == NULL)
+$new_user = get_payload($data['body']);
+if($new_user == 'error')
 {
-    show_result("error", 'Wrong request body.',400);
     close_conn($conn);
     exit();
 }
-
-$check = check_request_body($new_user);
-
-if($check != "ok")
-{
-    show_result("error", $check. " should not be empty.",406);
-    close_conn($conn);
-    exit();
-}
-
 if($new_user['password'] != $new_user['confirm_password'])
 {
     show_result("error","Password and Confirm Password are not the same",406);
