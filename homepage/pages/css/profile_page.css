@@ -1,134 +1,248 @@
-.userPage
-{
-    font-family:sans-serif;
-    color:#3c3939;
-    background-color: #F1F1F1;
-    display:flex;
-    flex-direction:row;
-    flex-wrap:wrap;
-    justify-content:space-around;
+*{
+    text-decoration:none;
+    list-style:none; 
+    margin:0px; 
+    padding:0px; 
+    outline:none;
 }
 
-.userCard
-{
-    width:400px;
-    background: #fff;
-    box-shadow:0 4px 10px 0 rgba(0,0,0,0.5);
-    padding:70px 30px;
-    height:500px;
-    order:1;   
-}
+body{
+    margin:0px; 
+    padding:0px;
+    height:100%;
+   
+    }
 
-.image-container
-{
+#navbar{
+    width:100%;
+    max-width:1200px; 
+    margin:0px auto;
+    display:table;
     position:relative;
+	
 }
 
-.info
-{
-    color: #4b4fe2;
-    margin-right: 16px;
+
+header{
+    width:100%;
+    display:table;
+    background:#C4DBF6;
+
+    }
+
+#logo img{
+    float:left; 
+    height:100px;
+    width:200px;
+    
 }
 
-.main-container
-{
-    padding:20px;
-    line-height: 50px;
-}
-
-.NewsFeed
-{
-    padding:10px 10px;
-    line-height:10px;
-    order:2;
-}
-.NewsFeed .titluNews
-{
-    text-align:center;
-}
-.Pet
-{
-    border: 2px solid black;
-    border-radius:24px;
-    padding:10px 5px;
-    width:20vw;
-    text-align: left;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+nav{
+    width:auto;
+    float:right;
+    margin-top:35px;
+    font-family: 'Mystery Quest',cursive;
     font-weight:bold;
+}
+nav ul{
+    display:table;
+     float:right;
+    }
+nav ul li{
+    float:left;
+}
+nav ul li:last-child{
+    padding-right:0px;
+}
+nav ul li a{
+    color:#720a35;
+    font-size:18px;
+    padding: 10px 10px;
+    display:inline-block; 
+    transition: all 0.5s ease 0s;
+}
+nav ul li a:hover{
+    background-color:transparent;
+     color:#df6071;
+     transition: all 0.5s ease 0s;
+    }
+nav ul li a:hover i{
+    color:#720a35;
+    transition: all 0.5s ease 0s;
+}
+nav ul li a i{
+    padding-right:10px; 
+    color:#720a35;
+    transition: all 0.5s ease 0s;
+}
+
+.toggle-menu{
+     
+    height:10px; 
+    color:rgb(20, 2, 2);
+    margin-bottom:4px;
+    font-size:20px;
+    margin-bottom:0px;
+   float:right;
+    top:5%;
+  
+}
+
+#toggle-1,.toggle-menu{
+    display:none;
+}
+.active
+{
+    
+    border-top:2px solid #B23850;
+}
+
+
+
+
+
+.follow{
+    width:10%;
+    text-align: right;
+}
+.follow h3{
     font-size:20px;
 }
-.Pet ul
-{
-    text-align: center;
+.item#logo{
+    width:40%;
+}
+.item{
+    width:25%;
+}
+.icons{
+    width:27%;
+}
+.social{
+    
+
+    display:table;
+    
+
+}
+.social li{
+    
+    float:left; 
+    padding:0px 10px;
+
+}
+.social li a{
+
+    color:rgb(25, 31, 32); 
+    transition: all 0.5s ease 0s;
+
+}
+.social li a:hover{
+    
+    color:#720a35;
+    transition: all 0.5s ease 0s;
+
 }
 
-.pet-pic
-{
-    height:100px;
-    width:100px;
-    border-radius:50%;
+#title{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:40px;
+
 }
-.articles{
-    width:20%;
-    background-color: cornsilk;
-    text-align: center;
-    order:3;
+@media only screen and (max-width: 1440px) {
+#navbar{
+    
+    max-width:95%;
+
 }
 
 
-#link-list ul{
-       list-style:none;
-       width:85%;
-       margin-left:40px;
-   }
-    #link-list ul li{
-       background:#37bc9b;
-       color:#FFF;
-       counter-increment: myCounter;
-       margin:0 0 30px 0;
-       padding: 13px;
-       position: relative;
-       top:1em;
-       border-radius:0em 2px 1em 1em;
-       padding-left:2em;
-       font-size:1.2em;
-       font-family:cursive;
-   }
-   #link-list ul li:before{
-    content: counter(myCounter, decimal-leading-zero);
-    display: inline-block;
-    text-align: center;
-    font-size: 2em;
-    line-height: 1.3em;
-    background-color:  #48CFAD;
-    padding: 10px;
-    font-weight: bold;
+}
+
+@media only screen and (max-width: 980px) {
+header{
+
+    padding:20px 0px;
+
+}
+#logo{
+    
+    padding:0px;
+}
+#toggle-1 {
     position: absolute; 
-    top: 0;
-    left: -40px;
-    border-radius: 50%;
-    font-family:cursive;
+    top: -9999px; 
+    left: -9999px; 
+    background:rgb(25, 31, 32);
+    float: right;
+
+}
+#toggle-1:focus{
+    
+    background:whitesmoke;
+}
+.toggle-menu {
+    
+  
+    padding:8px 0px; 
+    display:inline-block; 
+    cursor:pointer;
+ }
+ #toggle-1:checked ~ nav {
+    display:block;
 }
 
-
-#list-link ul li:nth-child(even){
-    background-color: #434A54;
-   }
-@media only screen and (max-width: 770px) {
+nav{
+    display:none; 
+    position:absolute; 
+    right:0px; 
+    top:53px; 
+    background-color:#C4DBF6;
+    padding:0px; 
+    z-index:2;}
+nav ul{
+    width:auto;
+}
+nav ul li{
+    float:none; 
+    padding:0px; 
+    width:100%; 
+    display:table;
+}
+nav ul li a{
+    color:#720a35;
+    font-size:15px; 
+    padding:10px 20px; 
+    display:block; 
+    border-bottom: 1px solid rgba(225,225,225,0.1); 
    
-    .Pet{
-        width:95%;
-    }
-    .userPage
-    {
-        flex-direction:column;
-    }
-	.userCard{
-	width:unset;}
-	.articles{
-    width:100%;
-    text-align: center;
+
+}
+nav ul li a i{
+    
+    color:#720a35;
+    padding-right:13px;
+
 }
 }
 
-
+@media only screen and (max-width: 480px) {
+    #navbar{
+        max-width: 90%;
+    }
+    }
+    
+    @media only screen and (max-width: 360px) {
+    
+    
+    label.toggle-menu{
+        
+        padding:5px 0px;
+    }
+    
+    
+    
+    nav{
+       
+        top:47px;
+    }
+    }

@@ -6,6 +6,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <link rel="stylesheet" href="css/homestyle.css">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
    <link href="https://fonts.googleapis.com/css?family=Mystery+Quest|Fredericka+the+Great|Flavors&display=swap" rel="stylesheet">
    <link 
    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
@@ -1043,8 +1045,14 @@ document.querySelector('.bg-modal-succes').style.display="none";
            })
            .then((resp) => resp.json())
            .then((jsonResp) => {
-              console.log(jsonResp)})
+              if(jsonResp.status==="ok"){
+
+               sessionStorage.setItem("accessToken", jsonResp.id_user);
+               console.log(jsonResp.id_user);
+               window.location.href=" http://localhost:8082/homepage/pages/profile_page.html";
+              }
          });
+         })
 
          </script>
          
