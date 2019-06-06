@@ -38,7 +38,20 @@ function check_request_body($body)
     return 'ok';
 }
 
-function get_payload($body)
+
+function check_params($params,$payload)
+{
+    foreach($params as $param)
+    {
+        if (array_key_exists($param, $payload) == FALSE) {
+            show_result("error", $param. ' is missing from the request body',400);
+            return 'error';
+        }
+    }
+    return 'ok';
+}
+
+function get_payload($body, $params)
 {
     $payload = json_decode($body,true);
 
@@ -53,6 +66,12 @@ function get_payload($body)
     if($check != "ok")
     {
         show_result("error", $check. " should not be empty.",406);
+        return 'error';
+    }
+
+    $check = check_params($params,$payload);
+    if($check != "ok")
+    {
         return 'error';
     }
 
