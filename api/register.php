@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 
 $data = get_data();
 
-$params = array('lastname','firstname','password','email','address','confirm_password');
+$params = array('lastname','firstname','password','email','address','confirm_password','longitude','latitude');
 
 if($data['method'] != 'POST')
 {
@@ -44,7 +44,7 @@ if ($found->num_rows > 0)
 $pass = hash('sha256',$new_user['password']);
 
 
-$add_sql = "insert into users (nume, prenume, email, parola, adresa) values ('".$new_user['lastname']."', '".$new_user['firstname']."', '".$new_user['email']."', '".$pass."', '".$new_user['address']."')";
+$add_sql = "insert into users (nume, prenume, email, parola, adresa, latitude, longitude) values ('".$new_user['lastname']."', '".$new_user['firstname']."', '".$new_user['email']."', '".$pass."', '".$new_user['address']."', " .$new_user['latitude'].", " .$new_user['longitude'].")";
 
 if ($conn->query($add_sql)) {
     show_result('ok','User has been added.',200);
