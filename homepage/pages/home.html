@@ -492,7 +492,7 @@ textarea.input2 + .focus-input2::after {
                      <span class="focus-input100" ></span>
                   </div>
                   <div class="wrap-input100 validate-input">
-                     <input class="input100" type="text" id="address" name="Adress" placeholder="Address">
+                     <input class="input100" type="text" id="autocomplete" name="Adress" placeholder="Address">
                      <span class="focus-input100" ></span>
                   </div>
                   
@@ -981,19 +981,31 @@ document.querySelector('.bg-modal').style.display = "none";
 document.querySelector('.close2').addEventListener("click", function() {
 document.querySelector('.bg-modal-reg').style.display = "none";});
 document.querySelector('.bg-modal-succes').style.display="none";
-
-
-         </script> 
-         <script>
+</script>
+<script>
+var lat;
+var lng;
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    console.log(position.coords);
+                    lat = position.coords.latitude;
+                     lng = position.coords.longitude;
+                });
+            } else {
+                console.error("Geolocation is not supported by this browser!");
+            }
+        
+            
          document.getElementById('reg').addEventListener('click',function(){
             var firstname= document.getElementById('firstname').value;
             var lastname= document.getElementById('lastname').value;
             var password= document.getElementById('password').value;
             var confirm_password= document.getElementById('confpass').value;
-            var address= document.getElementById('address').value;
+            var address= document.getElementById('autocomplete').value;
             var email =document.getElementById('email').value;
       var data={
-              
+                "latitude": lat,
+                "longitude":lng,
                "firstname": firstname,
                "lastname":lastname,
                "password":password,
@@ -1051,6 +1063,9 @@ document.querySelector('.bg-modal-succes').style.display="none";
                sessionStorage.setItem("accessToken", jsonResp.id_user);
                console.log(jsonResp.id_user);
                window.location.href=" http://localhost:8082/homepage/pages/profile_page.html";
+              }
+              else {
+                 alert(jsonResp.status);
               }
          });
          })
