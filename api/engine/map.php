@@ -1,6 +1,6 @@
 <?php
 
-$apiKey = eb2924c332e34d06af31306e39ff092b;
+$apiKey = 'eb2924c332e34d06af31306e39ff092b';
 
 //https://api.ipgeolocation.io/ipgeo?apiKey=API_KEY&ip=1.1.1.1
 
@@ -20,6 +20,12 @@ function get_addr($lat,$long)
       return 'error';
     }
 };
+
+
+function get_long_lat($ip)
+{
+
+}
 
 
 
