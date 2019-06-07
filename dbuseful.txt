@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS pets (
     contact VARCHAR(255) NOT NULL,
     species VARCHAR(255),
     description VARCHAR(255) NOT NULL,
+    collar VARCHAR(255),
+    reward VARCHAR(255),
     status INT,
     PRIMARY KEY (id_pet)
 )  ENGINE=INNODB;
