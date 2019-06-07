@@ -28,6 +28,17 @@ if($ann == 'error')
     exit();
 }
 
+$id = $data['headers']['Bearer'];
+
+$found = generic_query($id,'id_user','users',$conn);
+
+if($found->num_rows == 0)
+{
+    show_result("error",'Invalid Bearer ID',400);
+    close_conn($conn);
+    exit();
+}
+
 if($ann['status'] != 1 && $ann['status'] != 2)
 {
     show_result("error",'Invalid pet status.',400);
