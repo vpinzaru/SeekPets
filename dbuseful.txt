@@ -5,6 +5,8 @@ CREATE TABLE IF NOT EXISTS users (
     email VARCHAR(255) NOT NULL,
     parola VARCHAR(255) NOT NULL,
     adresa VARCHAR(255) NOT NULL,
+    latitude DOUBLE(20,17) NOT NULL,
+    longitude DOUBLE(20,17) NOT NULL,
     PRIMARY KEY (id_user)
 )  ENGINE=INNODB;
 
@@ -12,7 +14,8 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS pets (
     id_pet INT AUTO_INCREMENT,
     nume VARCHAR(255),
-    area VARCHAR(255) NOT NULL,
+    latitude DOUBLE(20,17) NOT NULL,
+    longitude DOUBLE(20,17) NOT NULL,
     contact VARCHAR(255) NOT NULL,
     species VARCHAR(255),
     description VARCHAR(255) NOT NULL,

@@ -22,11 +22,4 @@ function get_addr($lat,$long)
 };
 
 
-function get_long_lat($ip)
-{
-
-}
-
-
-
 ?>
