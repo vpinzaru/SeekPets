@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS pets (
     id_pet INT AUTO_INCREMENT,
+    id_user INT NOT NULL,
     nume VARCHAR(255),
     latitude DOUBLE(20,17) NOT NULL,
     longitude DOUBLE(20,17) NOT NULL,
