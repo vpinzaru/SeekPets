@@ -45,8 +45,8 @@ if($ann['status'] != 1 && $ann['status'] != 2)
     close_conn($conn);
     exit();
 }
-
-$add_sql = "insert into pets (id_user, nume, latitude, longitude, contact, species, description, collar, reward, status) values(".$id." ,'".$ann['name']."', ".$ann['latitude'].", ".$ann['longitude'].", '".$ann['contact']."', '".$ann['race']."', '".$ann['description']."', '".$ann['collar']."', '".$ann['reward']."', ".$ann['status'].")";
+$time = time();
+$add_sql = "insert into pets (id_user, nume, latitude, longitude, contact, species, description, collar, reward, status, timestamp) values(".$id." ,'".$ann['name']."', ".$ann['latitude'].", ".$ann['longitude'].", '".$ann['contact']."', '".$ann['race']."', '".$ann['description']."', '".$ann['collar']."', '".$ann['reward']."', ".$ann['status'].", ".$time.")";
 
 if ($conn->query($add_sql)) {
     show_result('ok','Announcement has been added.',200);
