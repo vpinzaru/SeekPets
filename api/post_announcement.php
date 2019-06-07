@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 
 $data = get_data();
 
-$params = array('name', 'race', 'collar', 'reward', 'description', 'contact', 'latitude', 'longitude', 'status');
+$params = array('name', 'race', 'collar', 'reward', 'description', 'contact', 'latitude', 'longitude', 'status','address');
 /*
     status = 1 - FOUND
              2 - LOST
@@ -46,7 +46,7 @@ if($ann['status'] != 1 && $ann['status'] != 2)
     exit();
 }
 $time = time();
-$add_sql = "insert into pets (id_user, nume, latitude, longitude, contact, species, description, collar, reward, status, timestamp) values(".$id." ,'".$ann['name']."', ".$ann['latitude'].", ".$ann['longitude'].", '".$ann['contact']."', '".$ann['race']."', '".$ann['description']."', '".$ann['collar']."', '".$ann['reward']."', ".$ann['status'].", ".$time.")";
+$add_sql = "insert into pets (id_user, nume, latitude, longitude, contact, species, description, collar, reward, status, timestamp, address) values(".$id." ,'".$ann['name']."', ".$ann['latitude'].", ".$ann['longitude'].", '".$ann['contact']."', '".$ann['race']."', '".$ann['description']."', '".$ann['collar']."', '".$ann['reward']."', ".$ann['status'].", ".$time.", '".$ann['address']."')";
 
 if ($conn->query($add_sql)) {
     show_result('ok','Announcement has been added.',200);
