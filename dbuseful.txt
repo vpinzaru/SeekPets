@@ -13,12 +13,16 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS pets (
     id_pet INT AUTO_INCREMENT,
+    id_user INT NOT NULL,
     nume VARCHAR(255),
     latitude DOUBLE(20,17) NOT NULL,
     longitude DOUBLE(20,17) NOT NULL,
     contact VARCHAR(255) NOT NULL,
     species VARCHAR(255),
     description VARCHAR(255) NOT NULL,
+    collar VARCHAR(255),
+    reward VARCHAR(255),
+    timestamp BIGINT NOT NULL,
     status INT,
     PRIMARY KEY (id_pet)
 )  ENGINE=INNODB;

@@ -79,4 +79,27 @@ function get_payload($body, $params)
 
 }
 
+
+function generic_request($headers,$body,$method,$link)
+{
+    $req = curl_init($link);
+
+    curl_setopt($req, CURLOPT_CUSTOMREQUEST, $method);
+    if($headers != "null")
+    {
+        curl_setopt($req, CURLOPT_HTTPHEADER, $headers);
+    }
+    if($body != "null")
+    {
+        curl_setopt($req, CURLOPT_POSTFIELDS, json_encode($body));
+    }
+    curl_setopt($req, CURLOPT_RETURNTRANSFER, 1);
+
+    $respAsJson = json_decode(curl_exec($req), true);
+
+    curl_close($req);
+    return $respAsJson;
+
+}
+
 ?>
