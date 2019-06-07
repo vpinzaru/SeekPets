@@ -217,14 +217,20 @@ nav{
   
 }
 #myVideo {
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
-   width: 98%; 
+   width:100%; 
     min-height: 80%;
     z-index: -2;
   }
   
+  .content{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 .main1{
     flex:-2;
     padding:3%;
@@ -244,26 +250,33 @@ nav{
     flex-direction:column;
     position:relative;
     background-color: transparent;
-    color:black;
+    color:white;
     
-    opacity:0.3;
-    background-color:#202020;
+ 
+    background: rgba(20, 20, 20, 0.6);
     box-sizing: border-box;
     padding: 50px 20px;
     border-radius: 24px;
     width:auto;
   
 }
-.lostpet-form label{
-    color:black;
-    opacity:1 !important;
+.registerForm{
     z-index:30;
 }
 
 .registerForm label{
     font-family: 'Corben', Georgia, Times, serif;
+    color:white;
+    opacity:1 !important;
+    margin-top:15px;
 }
-
+.entryFormulat input[type="file"]{
+    margin-top:15px;
+}
+::placeholder{
+    color: white;
+    opacity:0.7;
+}
 .entryFormularInvizibil, .entryFormularInvizibilRe
 {
     display:none;
@@ -277,11 +290,16 @@ nav{
 	font-weight:bold;
 }
 
+
+
 .entryFormular , .entryFormularInvizibil, .entryFormularInvizibilRe
 {
     flex-direction:row;
     justify-content: space-between;
     margin-bottom: 20px;
+}
+.entryFormular input[type="text"]{
+    border-radius:20px;
 }
 .entryFormularInvizibil,.entryFormularInvizibilRe{
     display:none;
@@ -295,3 +313,119 @@ nav{
 {
     margin-left: 25px;
 }
+.registerForm
+{
+    justify-content:space-between;
+    display:flex;
+    flex-direction: column;
+    height:50%;
+}
+
+.registerForm input[type = "text"], .registerForm input[type = "tel"]{
+    border:0;
+    background: #720a35;
+    
+    padding: 14px 10px;
+    outline: none;
+
+    transition: 0.25s;
+    width:50%;
+  }
+
+ #inputDetalii1, #inputDetalii2
+  {
+    border:0;
+    background: #720a35;
+    border-radius:20px;
+   
+    padding: 14px 10px;
+    outline: none;
+    transition: 0.25s;
+    width:50%;
+  }
+ #inputZgarda1:checked +div, #inputZgarda2:checked +div{
+
+    display:flex;
+ }
+
+ #inputReward2:checked  + div
+ {
+     display:flex;
+ }
+
+.registerForm input[type = "submit"]{
+    border:0;
+    background: #720a35;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #720a35;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  .registerForm input[type = "submit"]:hover{
+    background: #720a35;
+  }
+
+  .registerForm input[type = "text"]:focus, #inputDetalii2:focus,#inputDetalii1:focus,  .registerForm input[type = "tel"]:focus{
+    width: 380px;
+    border-color: white;
+  }
+
+
+  .form-radio
+  {
+       -webkit-appearance: none;
+       -moz-appearance: none;
+       appearance: none;
+       display: inline-block;
+       position: relative;
+       background-color: #f1f1f1;
+       color: brown;
+       top: 10px;
+       height: 30px;
+       width: 30px;
+       border: 0;
+       border-radius: 50px;
+       cursor: pointer;     
+       margin-right: 7px;
+       outline: none;
+  }
+  .form-radio:checked::before
+  {
+       position: absolute;
+       font: 13px/1 'Open Sans', sans-serif;
+       left: 11px;
+       top: 7px;
+       content: '\02143';
+       transform: rotate(40deg);
+  }
+  .form-radio:hover
+  {
+       background-color: #f7f7f7;
+  }
+  .form-radio:checked
+  {
+       background-color: #f1f1f1;
+  }
+  ::placeholder{
+      color:white;
+      opacity: 0.8;;
+  }
+  #labels
+  {
+       font: 24px "Merienda", sans-serif;
+       color:white;
+       text-align: left;
+       -webkit-font-smoothing: antialiased;
+       -moz-osx-font-smoothing: grayscale;
+       cursor: pointer;
+       margin-top:17px;
+       font-weight:bold;
+  } 
+  
