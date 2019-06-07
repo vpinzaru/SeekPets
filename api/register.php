@@ -49,7 +49,7 @@ $add_sql = "insert into users (nume, prenume, email, parola, adresa, latitude, l
 if ($conn->query($add_sql)) {
     show_result('ok','User has been added.',200);
 } else {
-    show_result('error',$conn->error,304);
+    show_result('error',$conn->error,300);
 }
 
 close_conn($conn);
