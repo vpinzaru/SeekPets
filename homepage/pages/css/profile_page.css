@@ -27,6 +27,8 @@ header{
     width:100%;
     display:table;
     background:#C4DBF6;
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.25), 
+      -3px -3px 3px 3px rgba(0,0,0,0.22);
 
     }
 
@@ -97,57 +99,6 @@ nav ul li a i{
     border-top:2px solid #B23850;
 }
 
-
-
-
-
-.follow{
-    width:10%;
-    text-align: right;
-}
-.follow h3{
-    font-size:20px;
-}
-.item#logo{
-    width:40%;
-}
-.item{
-    width:25%;
-}
-.icons{
-    width:27%;
-}
-.social{
-    
-
-    display:table;
-    
-
-}
-.social li{
-    
-    float:left; 
-    padding:0px 10px;
-
-}
-.social li a{
-
-    color:rgb(25, 31, 32); 
-    transition: all 0.5s ease 0s;
-
-}
-.social li a:hover{
-    
-    color:#720a35;
-    transition: all 0.5s ease 0s;
-
-}
-
-#title{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size:40px;
-
-}
 @media only screen and (max-width: 1440px) {
 #navbar{
     
@@ -246,3 +197,101 @@ nav ul li a i{
         top:47px;
     }
     }
+
+.wrapper{
+    width:80%;
+    display:flex;
+    flex-direction:row;
+    margin-left:10%;
+    margin-right:10%;
+    background-color:white;
+    height:auto;
+    z-index:30;
+   
+    margin-top:50px;
+}
+.wrapper-sidenav{
+    width:30%;
+    background-color:rgba(115, 119, 118, 0.836);
+    border :  2px rgba(225,225,225,0.7);
+    border-radius:10px;
+    height:auto;
+   
+}
+.sidenav{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height:auto;
+    border-radius:10px;
+	vertical-align: top;
+    background-color: rgba(115, 119, 118, 0.836);
+    text-align: center;
+    
+}
+.sidenav a{
+    color: #720a35;
+}
+.sidenav button {
+    display: block;
+    background-color:whitesmoke;
+    color: #720a35;
+    font-family: "Flavor",cursive;
+    font-size: 18px;
+    border:none;
+    margin-bottom:10px;
+    padding: 22px 16px;
+    width: 100%;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+   
+  }
+  .title{
+    text-align: center;
+      font-size: 24px;
+      font-family : "Fredericka the Great", cursive;
+      margin-top:100px;
+      margin-bottom:50px;
+      width:70%;
+      height:auto;
+      border-bottom: 2px black;
+      margin-left:15%;
+      margin-right:15%;
+      color:white;
+  }
+  /* Change background color of buttons on hover */
+  .sidenav button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current "tab button" class */
+  .sidenav button.tablinks.active {
+    background-color: whitesmoke;
+    font-weight:bold;
+  }
+  .continut{
+ width:65%;
+ display:flex;
+ margin-left:2%;
+ margin-right:2%;
+ text-align: center;
+  }
+  .myArticle{
+      width:100%;
+  }
+  .titlu-under{
+      width : 100%;
+      text-align: center;
+      height: 60px;
+      border-bottom: 5px solid #720a35;
+  }
+  #titlu{
+      font-size:40px;
+      color: #720a35;
+      font-family: "Fredericka the Great",cursive;
+      font-weight:bold;
+    
+   
+  }

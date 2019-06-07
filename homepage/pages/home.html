@@ -397,6 +397,7 @@ textarea.input2 + .focus-input2::after {
                <li><a href="#howitworks"><i class="fa fa-cogs"></i>How It Works</a></li>
                <li><a href="#news"><i class="fas fa-newspaper"></i>News</a></li>
                <li><a href="#" id="button"><i class="fa fa-user"></i>Login</a></li>
+               <li><a href="#" id="buttonlogged" ><i class="fa fa-user"></i>Logout</a></li>
             </ul>
          </nav>
       </section>
@@ -965,7 +966,7 @@ textarea.input2 + .focus-input2::after {
       document.getElementById('button').addEventListener("click", function() {
 document.querySelector('.bg-modal').style.display = "flex";
 });
-
+document.getElementById('buttonlogged').style.display="none";
 document.querySelector('.close').addEventListener("click", function() {
 document.querySelector('.bg-modal').style.display = "none";
 });
@@ -1053,10 +1054,18 @@ document.querySelector('.bg-modal-succes').style.display="none";
               }
          });
          })
-
+ 
          </script>
          
-         
+         <script>
+          document.addEventListener("DOMContentLoaded", function(event) {
+    if(sessionStorage.getItem("accessToken")!=null){
+      console.log(sessionStorage.getItem("accessToken"));
+    document.getElementById('button').style.display="none";
+    document.getElementById('buttonlogged').style.display="flex";
+    }
+});
+         </script>
 
 
          
