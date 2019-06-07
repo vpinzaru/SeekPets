@@ -12,8 +12,8 @@
    <link 
    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
    rel="stylesheet"  type='text/css'>
-   
     <title>Pawtaie | Report</title>
+    
     
 </head>
 
@@ -75,8 +75,10 @@
                            </div>
                            <div class = "entryFormular">
                               <label for="inputZona2">Address </label>
-                              <input type = "text" id = "inputZona2" placeholder = "Tell us the address your pet was last seen at">
+                              <input type = "text" name="address" onfocus="initAutocomplete();" autocomplete="off" id = "pac-input" placeholder = "Tell us the address your pet was last seen at">
                            </div>
+                           
+                              
                            <div class = "entryFormularCheck">
                                
                                 
@@ -148,5 +150,7 @@
     reader.readAsDataURL(event.target.files[0]);
   };
         </script>
+       
+  
     </body>
     </html>
