@@ -12,6 +12,7 @@
    <link 
    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
    rel="stylesheet"  type='text/css'>
+
    <title>Pawtaie | Home</title>
 </head>
    <style>
@@ -985,17 +986,20 @@ document.querySelector('.bg-modal-succes').style.display="none";
 <script>
 var lat;
 var lng;
+
             if(navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(position => {
                     console.log(position.coords);
                     lat = position.coords.latitude;
                      lng = position.coords.longitude;
+                     
                 });
             } else {
                 console.error("Geolocation is not supported by this browser!");
             }
-        
-            
+         
+
+
          document.getElementById('reg').addEventListener('click',function(){
             var firstname= document.getElementById('firstname').value;
             var lastname= document.getElementById('lastname').value;
@@ -1065,7 +1069,7 @@ var lng;
                window.location.href=" http://localhost:8082/homepage/pages/profile_page.html";
               }
               else {
-                 alert(jsonResp.status);
+                 alert(jsonResp.data);
               }
          });
          })
