@@ -353,7 +353,7 @@ nav{
      display:flex;
  }
 
-.registerForm input[type = "submit"]{
+.registerForm input[type = "button"]{
     border:0;
     background: #720a35;
     display: block;
@@ -368,7 +368,7 @@ nav{
     transition: 0.25s;
     cursor: pointer;
   }
-  .registerForm input[type = "submit"]:hover{
+  .registerForm input[type = "button"]:hover{
     background: #720a35;
   }
 

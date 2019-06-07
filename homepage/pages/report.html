@@ -55,7 +55,7 @@
                                     <input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><label for="radio-one" id="labels">Found Pet</label>
 
                             </div>
-                        <form class="registerForm" action="index.html" method="post">
+                        <form class="registerForm"  method="post">
                              
                             <div class = "entryFormular">
                               <label for="inputNume2" >Name </label>
@@ -75,7 +75,7 @@
                            </div>
                            <div class = "entryFormular">
                               <label for="inputZona2">Address </label>
-                              <input type = "text" name="address" onfocus="initAutocomplete();" autocomplete="off" id = "pac-input" placeholder = "Tell us the address your pet was last seen at">
+                              <input type = "text" name="address"  id = "pac-input" placeholder = "Tell us the address your pet was last seen at">
                            </div>
                            
                               
@@ -104,7 +104,7 @@
                               <img id="output" style="position:absolute;width:140px;height:110px;" />
                              
                            </div>
-                           <input type="submit">
+                           <input type="button" value="Submit" id="submitform">
                         </form>
                      </div>
                   </div>
@@ -151,6 +151,23 @@
   };
         </script>
        
-  
+  <script>
+     var address;
+ document.getElementById('submitform').addEventListener('click',function(){
+
+ 
+     var PLACENAME= document.getElementById('pac-input').value;
+  const url = "https://api.opencagedata.com/geocode/v1/json?q="+PLACENAME+"&key=756a6e9ea1f44169814599241a777aac";
+  fetch( url
+)
+   .then((result) => result.json())
+
+   .then((jsonResp) => {
+      
+      console.log(jsonResp.results[0].formatted);
+      address=jsonResp.results[0].formatted;
+   })
+ });
+  </script>
     </body>
     </html>
