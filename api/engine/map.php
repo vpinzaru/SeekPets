@@ -39,10 +39,10 @@ function create_new_changeset($description)
 function get_box($lat, $long)
 {
   $link = 'https://master.apis.dev.openstreetmap.org/api/0.6/map?bbox=';
-  $left = $long - 0.002;
-  $bottom = $lat - 0.002;
-  $right = $long + 0.002;
-  $top = $lat + 0.002;
+  $left = $long - 0.005;
+  $bottom = $lat - 0.005;
+  $right = $long + 0.005;
+  $top = $lat + 0.005;
   $link = $link.$left.",".$bottom.",".$right.",".$top;
 
   $call = more_generic_request("GET",$link,false,array('Authorization: Basic dnBpbnphcnUxOEBnbWFpbC5jb206U3VudFZlbm9tOTk'));
