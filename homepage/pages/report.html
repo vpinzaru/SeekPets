@@ -12,8 +12,8 @@
    <link 
    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
    rel="stylesheet"  type='text/css'>
-   
     <title>Pawtaie | Report</title>
+    
     
 </head>
 
@@ -49,13 +49,13 @@
                        
                      <div class = "lostpet-form">
                             <div class="entryFormular ">   
-                                    <input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><label for="radio-one" id="labels">Lost Pet</label>
+                                    <input type="radio" name="demo" value="one" id="radio-one" class="form-radio" ><label for="radio-one" id="labels">Lost Pet</label>
                             </div>
                             <div class="entryFormular">
-                                    <input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><label for="radio-one" id="labels">Found Pet</label>
+                                    <input type="radio" name="demo" value="two" id="radio-two" class="form-radio" ><label for="radio-one" id="labels">Found Pet</label>
 
                             </div>
-                        <form class="registerForm" action="index.html" method="post">
+                        <form class="registerForm"  method="post">
                              
                             <div class = "entryFormular">
                               <label for="inputNume2" >Name </label>
@@ -75,8 +75,10 @@
                            </div>
                            <div class = "entryFormular">
                               <label for="inputZona2">Address </label>
-                              <input type = "text" id = "inputZona2" placeholder = "Tell us the address your pet was last seen at">
+                              <input type = "text" name="address"  id = "pac-input" placeholder = "Tell us the address your pet was last seen at">
                            </div>
+                           
+                              
                            <div class = "entryFormularCheck">
                                
                                 
@@ -98,11 +100,11 @@
                            
                            <div class = "entryFormular">
                                 <label for="file">Picture </label>
-                              <input type="file" name="file" class="inputfile" accept="image/*" onchange="loadFile(event);" />
+                              <input type="file" name="file" class="inputfile" accept="image/*" onchange="loadFile(event);" id="filechooser" />
                               <img id="output" style="position:absolute;width:140px;height:110px;" />
                              
                            </div>
-                           <input type="submit">
+                           <input type="button" value="Submit" id="submitform">
                         </form>
                      </div>
                   </div>
@@ -143,10 +145,106 @@
       var output = document.getElementById('output');
       document.getElementById("output").style.display="block";
       output.src = reader.result;
-     
+    
     };
-    reader.readAsDataURL(event.target.files[0]);
-  };
+ var red=reader.readAsDataURL(event.target.files[0]);
+  
+     var formData = new FormData();
+     formData.append('fileToUpload',red);
+     for (var key of formData.entries()) {
+			console.log(key[0] + ', ' + key[1])
+		}
+  }
+  
+        
+ 
+
+ 
+  
+ 
+
         </script>
+       
+  <script>
+   
+ document.getElementById('submitform').addEventListener('click',function(){
+  var status;
+    var checkboxFound= document.getElementById('radio-two');
+        if(checkboxFound.checked==true){
+   
+               status='1';
+         
+        }
+   var checkboxLost= document.getElementById('radio-one');
+        if(checkboxLost.checked==true){
+         status='2';
+      }
+     
+  
+     let  pet_description,contact,  name,race,collar,reward;
+     name= document.getElementById('inputNume2').value;
+     race=document.getElementById('inputRasa2').value;
+     contact=document.getElementById('inputEmail2').value;
+     pet_description=document.getElementById('inputDetalii2').value;
+     collar=document.getElementById('inputZgardaDetalii2').value;
+     if(collar==="")
+     {
+        collar="null";
+     }
+     reward=document.getElementById('inputRewardDetalii2').value;
+      if(reward===""){
+         reward="null";
+      }
+        
+        
+     
+     var PLACENAME= document.getElementById('pac-input').value;
+     var address, lat, long;
+  const url = "https://api.opencagedata.com/geocode/v1/json?q="+PLACENAME+"&key=756a6e9ea1f44169814599241a777aac";
+  fetch( url
+)
+   .then((result) => result.json())
+
+   .then((jsonResp) => {
+
+      console.log(jsonResp.results[0].formatted);
+     var address=jsonResp.results[0].formatted;
+    var lat=jsonResp.results[0].geometry.lat;
+      var long=jsonResp.results[0].geometry.lng;
+
+
+  
+ 
+ let data={
+    "name":name,
+    "race":race,
+    "collar":collar,
+    "reward":reward,
+    "description":pet_description,
+    "contact":contact,
+    "latitude":lat,
+    "longitude":long,
+    "status":status,
+    "address":address
+ }
+ console.log(data);
+ let object=JSON.stringify(data);
+ fetch('/api/post_announcement',{
+    method: "POST",
+    headers: {
+                'Accept': 'application/json',
+                'Bearer': sessionStorage.getItem("accessToken")
+                // 'Content-Type': 'application/json'
+            },
+    body: object
+ })
+ .then(response=>response.json())
+ .then(jsonResp =>{
+    alert(jsonResp.data);
+ })
+ });
+ });
+ console.log(sessionStorage.getItem("accessToken"));
+  </script>
     </body>
     </html>
