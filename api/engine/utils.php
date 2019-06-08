@@ -119,7 +119,7 @@ function more_generic_request($method, $url, $data = false, $headers = false)
         echo 'Curl error: ' . curl_error($curl);
     }
     curl_close($curl);
-    return $result;
+    return ['result' => $result, 'code' => $http_status];
 }
 
 

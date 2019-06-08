@@ -17,22 +17,6 @@ include_once 'database.php';
 $basic = 'Authorization:Basic dnBpbnphcnUxOEBnbWFpbC5jb206U3VudFZlbm9tOTk=';
 $header = array($basic);
 
-function update_ids($content)
-{
-    file_put_contents('changeset_ids.json', json_encode($content));
-}
-
-function get_ids()
-{
-  $fileContent = file_get_contents('changeset_ids.json');
-  return json_decode($fileContent);
-}
-
-function get_new_changeset($type)
-{
-  return True;
-}
-
 function create_new_changeset($description)
 {
   // PUT /api/0.6/changeset/create
@@ -50,6 +34,48 @@ function create_new_changeset($description)
 
   return more_generic_request("PUT",$link,$root->asXML(),array('Authorization: Basic dnBpbnphcnUxOEBnbWFpbC5jb206U3VudFZlbm9tOTk'));
 }
+
+
+function get_box($lat, $long)
+{
+  $link = 'https://master.apis.dev.openstreetmap.org/api/0.6/map?bbox=';
+  $left = $long - 0.002;
+  $bottom = $lat - 0.002;
+  $right = $long + 0.002;
+  $top = $lat + 0.002;
+  $link = $link.$left.",".$bottom.",".$right.",".$top;
+
+  $call = more_generic_request("GET",$link,false,array('Authorization: Basic dnBpbnphcnUxOEBnbWFpbC5jb206U3VudFZlbm9tOTk'));
+  switch($call['code'])
+  {
+    case '200':
+      break;
+    case '0':
+      break;
+    default:
+      show_result('error',$call['result'],400);
+      exit();
+  };
+
+  $xml=simplexml_load_string($call['result']) or die("Error: Cannot create object");
+  foreach($xml->children() as $child)
+  {
+    if($child->getName() == "bounds")
+    {
+      $response = [];
+      foreach($child->attributes() as $key => $value)
+      {
+        $response[$key] = $value;
+      }
+      return $response;
+    }
+  }
+
+  return 'error';
+  
+
+}
+
 
 
 

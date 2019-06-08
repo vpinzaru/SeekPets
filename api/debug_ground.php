@@ -1,6 +1,6 @@
 <?php
 include_once 'engine/map.php';
 
-echo create_new_changeset("test changeshet");
+echo get_box(47.159809,27.587200)['minlat'];
 
 ?>
