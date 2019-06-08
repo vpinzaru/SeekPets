@@ -37,6 +37,7 @@ if($found->num_rows == 0)
 }
 
 $row = $found->fetch_assoc();
+update_persistence($row['id_user']);
 $response = [
     'status' => 'ok',
     'data' => 'Login credentials are correct.',
@@ -44,5 +45,4 @@ $response = [
 ];
 http_response_code(200);
 echo json_encode($response);
-update_persistence($row['id_user']);
 ?>

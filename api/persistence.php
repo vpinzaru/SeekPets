@@ -1,6 +1,7 @@
 <?php
 
 include_once 'engine/database.php';
+include_once 'engine/utils.php';
 
 header('Content-Type: application/json');
 
@@ -17,7 +18,6 @@ if($data['method'] != 'POST')
 $pers = get_payload($data['body'], $params);
 if($pers == 'error')
 {
-    close_conn($conn);
     exit();
 }
 
@@ -26,11 +26,9 @@ $res = check_persistence($pers['id_user']);
 if($res == 'ok')
 {
     show_result("ok",'logged',200);
-    close_conn($conn);
     exit();
 }
 
 show_result("ok",'not logged',200);
-close_conn($conn);
 
 ?>

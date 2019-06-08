@@ -48,7 +48,7 @@ function update_persistence($id)
     }
 
     $id_pers = $result->fetch_assoc();
-    $sql = "update persistence set timestamp=".time()." where id_pers = ".$id_pers;
+    $sql = "update persistence set timestamp=".time()." where id_pers = ".$id_pers['id_pers'];
     $conn->query($sql);
     close_conn($conn);
     return 'updated';
@@ -56,7 +56,7 @@ function update_persistence($id)
 
 function check_persistence($id)
 {
-    $timeframe = 30; // 1 sec for tests
+    $timeframe = 60; // 1 min for tests
     $ip = $_SERVER['REMOTE_ADDR'];
     $conn = get_conn();
     $sql = "select timestamp from persistence where ip='".$ip."' and id_user=".$id;
@@ -69,13 +69,13 @@ function check_persistence($id)
     }
 
     $time = $result->fetch_assoc();
-    if(time() - $time > $timeframe)
+    if(time() - $time['timestamp'] > $timeframe)
     {
         $sql = "delete from persistence where ip='".$ip."'";
+        $conn->query($sql);
         close_conn($conn);
         return 'not ok';
     }
-
     close_conn($conn);
     return 'ok';
 

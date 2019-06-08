@@ -73,6 +73,7 @@ while($row = $result->fetch_assoc()) {
     $anunt['collar'] = $row['collar'];
     $anunt['reward'] = $row['reward'];
     $anunt['description'] = $row['description'];
+    $anunt['image'] = $row['image'];
     array_push($notifications,$anunt);
 };
 
