@@ -1,25 +1,56 @@
 <?php
 
-$apiKey = 'eb2924c332e34d06af31306e39ff092b';
+include_once 'utils.php';
+include_once 'database.php';
 
-//https://api.ipgeolocation.io/ipgeo?apiKey=API_KEY&ip=1.1.1.1
+/*
+<osm>
+  <changeset>
+    <tag k="created_by" v="JOSM 1.61"/>
+    <tag k="comment" v="Just adding some streetnames"/>
+    ...
+  </changeset>
+  ...
+</osm>
+*/
 
-function get_addr($lat,$long)
+$basic = 'Authorization:Basic dnBpbnphcnUxOEBnbWFpbC5jb206U3VudFZlbm9tOTk=';
+$header = array($basic);
+
+function update_ids($content)
 {
-      
-    $url  = "http://maps.googleapis.com/maps/api/geocode/json?latlng=".$lat.",".$long."&sensor=false";
-    $json = @file_get_contents($url);
-    $data = json_decode($json);
-    $status = $data->status;
-    if($status == "OK")
-    {
-      return $data->results[0]->formatted_address;
-    }
-    else
-    {
-      return 'error';
-    }
-};
+    file_put_contents('changeset_ids.json', json_encode($content));
+}
+
+function get_ids()
+{
+  $fileContent = file_get_contents('changeset_ids.json');
+  return json_decode($fileContent);
+}
+
+function get_new_changeset($type)
+{
+  return True;
+}
+
+function create_new_changeset($description)
+{
+  // PUT /api/0.6/changeset/create
+  $link = 'https://master.apis.dev.openstreetmap.org/api/0.6/changeset/create';
+
+  $root = new SimpleXMLElement('<osm></osm>');
+  $changeset = $root->addChild('changeset');
+  $tag = $changeset->addChild('tag');
+  $tag->addAttribute('k','created_by');
+  $tag->addAttribute('v','vpinzaru for Pawtaie');
+
+  $tag = $changeset->addChild('tag');
+  $tag->addAttribute('k','comment');
+  $tag->addAttribute('v',$description);
+  $result = more_generic_request("PUT",$link,$root->asXML(),array('Authorization: Basic dnBpbnphcnUxOEBnbWFpbC5jb206U3VudFZlbm9tOTk'));
+  echo $result;
+}
+
 
 
 ?>

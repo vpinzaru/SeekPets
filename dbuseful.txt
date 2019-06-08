@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS pets (
     contact VARCHAR(255) NOT NULL,
     species VARCHAR(255),
     description VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
     collar VARCHAR(255),
     reward VARCHAR(255),
     timestamp BIGINT NOT NULL,

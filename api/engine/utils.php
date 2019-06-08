@@ -79,7 +79,6 @@ function get_payload($body, $params)
 
 }
 
-
 function generic_request($headers,$body,$method,$link)
 {
     $req = curl_init($link);
@@ -95,11 +94,47 @@ function generic_request($headers,$body,$method,$link)
     }
     curl_setopt($req, CURLOPT_RETURNTRANSFER, 1);
 
-    $respAsJson = json_decode(curl_exec($req), true);
+    $respAsJson = json_decode(curl_exec($req),true);
 
     curl_close($req);
     return $respAsJson;
 
 }
+
+function more_generic_request($method, $url, $data = false, $headers = false)
+{
+
+    $curl = curl_init();
+    if($headers)
+    {
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    }
+
+    switch ($method)
+    {
+        case "POST":
+            curl_setopt($curl, CURLOPT_POST, 1);
+
+            if ($data)
+                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+            break;
+        case "PUT":
+            curl_setopt($curl, CURLOPT_PUT, 1);
+            if ($data)
+                curl_setopt($curl, CURLOPT_POSTFIELDS,$data);
+            break;
+        default:
+            if ($data)
+                $url = sprintf("%s?%s", $url, http_build_query($data));
+    }
+
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    $http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    $result = curl_exec($curl);
+    curl_close($curl);
+    return $result;
+}
+
 
 ?>
