@@ -100,7 +100,7 @@
                            
                            <div class = "entryFormular">
                                 <label for="file">Picture </label>
-                              <input type="file" name="file" class="inputfile" accept="image/*" onchange="loadFile(event);" />
+                              <input type="file" name="file" class="inputfile" accept="image/*" onchange="loadFile(event);" id="filechooser" />
                               <img id="output" style="position:absolute;width:140px;height:110px;" />
                              
                            </div>
@@ -145,10 +145,24 @@
       var output = document.getElementById('output');
       document.getElementById("output").style.display="block";
       output.src = reader.result;
-     
+    
     };
-    reader.readAsDataURL(event.target.files[0]);
-  };
+ var red=reader.readAsDataURL(event.target.files[0]);
+  
+     var formData = new FormData();
+     formData.append('fileToUpload',red);
+     for (var key of formData.entries()) {
+			console.log(key[0] + ', ' + key[1])
+		}
+  }
+  
+        
+ 
+
+ 
+  
+ 
+
         </script>
        
   <script>
