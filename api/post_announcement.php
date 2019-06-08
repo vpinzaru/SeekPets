@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 
 $data = get_data();
 
-$params = array('name', 'race', 'collar', 'reward', 'description', 'contact', 'latitude', 'longitude', 'status','address');
+$params = array('name', 'race', 'collar', 'reward', 'description', 'contact', 'latitude', 'longitude', 'status','address','image');
 /*
     status = 1 - FOUND
              2 - LOST
@@ -53,6 +53,14 @@ if ($conn->query($add_sql)) {
 } else {
     show_result('error',$conn->error,400);
 }
+
+$sql = "select max(id_user) from pets";
+
+$id_pic = $conn->query($sql);
+$id_pic = $id_pic->fetch_assoc()['id_user'];
+
+$file_name = 'img_'.$id_pic.'.txt';
+file_put_contents('engine/ann_images/'.$file_name,$ann['image']);
 
 close_conn($conn);
 
