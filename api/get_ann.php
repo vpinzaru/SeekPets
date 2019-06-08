@@ -49,6 +49,12 @@ if($box == 'error')
 
 $results = [];
 
+echo 'minlat: '.$box['minlat'];
+echo 'maxlat: '.$box['maxlat'];
+echo 'minlong: '.$box['minlong'];
+echo 'maxlong: '.$box['maxlong'];
+
+
 $sql = 'select * from pets where latitude > '.$box['minlat'].' and latitude < '.$box['maxlat'].' and longitude > '.$box['minlong'].' and longitude < '.$box['maxlong'].' order by timestamp desc';
 
 $result = $conn->query($sql);
