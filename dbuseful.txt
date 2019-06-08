@@ -28,3 +28,12 @@ CREATE TABLE IF NOT EXISTS pets (
     image VARCHAR(255) NOT NULL,
     PRIMARY KEY (id_pet)
 )  ENGINE=INNODB;
+
+
+CREATE TABLE IF NOT EXISTS persistence (
+    id_pers INT AUTO_INCREMENT,
+    id_user INT NOT NULL,
+    timestamp BIGINT NOT NULL,
+    ip VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id_pers)
+)  ENGINE=INNODB;
