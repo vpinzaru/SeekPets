@@ -33,6 +33,7 @@ $found = $conn->query($sql);
 if($found->num_rows == 0)
 {
     show_result("error",'Wrong login credentials.',401);
+    close_conn($conn);
     exit();
 }
 
