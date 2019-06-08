@@ -44,6 +44,7 @@ $response = [
     'data' => 'Login credentials are correct.',
     'id_user' => $row['id_user']
 ];
+close_conn($conn);
 http_response_code(200);
 echo json_encode($response);
 ?>
