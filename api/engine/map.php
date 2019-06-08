@@ -47,8 +47,8 @@ function create_new_changeset($description)
   $tag = $changeset->addChild('tag');
   $tag->addAttribute('k','comment');
   $tag->addAttribute('v',$description);
-  $result = more_generic_request("PUT",$link,$root->asXML(),array('Authorization: Basic dnBpbnphcnUxOEBnbWFpbC5jb206U3VudFZlbm9tOTk'));
-  echo $result;
+
+  return more_generic_request("PUT",$link,$root->asXML(),array('Authorization: Basic dnBpbnphcnUxOEBnbWFpbC5jb206U3VudFZlbm9tOTk'));
 }
 
 

@@ -1,6 +1,6 @@
 <?php
 include_once 'engine/map.php';
 
-create_new_changeset("made with php");
+echo create_new_changeset("test changeshet");
 
 ?>
