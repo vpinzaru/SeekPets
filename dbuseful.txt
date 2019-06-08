@@ -25,5 +25,6 @@ CREATE TABLE IF NOT EXISTS pets (
     reward VARCHAR(255),
     timestamp BIGINT NOT NULL,
     status INT,
+    image VARCHAR(255) NOT NULL,
     PRIMARY KEY (id_pet)
 )  ENGINE=INNODB;

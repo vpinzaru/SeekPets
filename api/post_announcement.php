@@ -46,21 +46,13 @@ if($ann['status'] != 1 && $ann['status'] != 2)
     exit();
 }
 $time = time();
-$add_sql = "insert into pets (id_user, nume, latitude, longitude, contact, species, description, collar, reward, status, timestamp, address) values(".$id." ,'".$ann['name']."', ".$ann['latitude'].", ".$ann['longitude'].", '".$ann['contact']."', '".$ann['race']."', '".$ann['description']."', '".$ann['collar']."', '".$ann['reward']."', ".$ann['status'].", ".$time.", '".$ann['address']."')";
+$add_sql = "insert into pets (id_user, nume, latitude, longitude, contact, species, description, collar, reward, status, timestamp, address, image) values(".$id." ,'".$ann['name']."', ".$ann['latitude'].", ".$ann['longitude'].", '".$ann['contact']."', '".$ann['race']."', '".$ann['description']."', '".$ann['collar']."', '".$ann['reward']."', ".$ann['status'].", ".$time.", '".$ann['address']."', '".$ann['image']."')";
 
 if ($conn->query($add_sql)) {
     show_result('ok','Announcement has been added.',200);
 } else {
     show_result('error',$conn->error,400);
 }
-
-$sql = "select max(id_user) from pets";
-
-$id_pic = $conn->query($sql);
-$id_pic = $id_pic->fetch_assoc()['id_user'];
-
-$file_name = 'img_'.$id_pic.'.txt';
-file_put_contents('engine/ann_images/'.$file_name,$ann['image']);
 
 close_conn($conn);
 
