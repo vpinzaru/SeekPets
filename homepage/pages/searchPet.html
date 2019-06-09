@@ -48,16 +48,16 @@
         <div class="row1">
  <div class="inputs">
 
-     <input type="text" name="search" placeholder="Species">
+     <input type="text" name="search" id="rasa" placeholder="Species">
  </div>
  <div class="inputs">
-        <input type="text" name="search" placeholder="Area">
+        <input type="text" name="search" id="zona" placeholder="Area">
  </div>
  <div class="inputs">
-        <input type="text" name="search" placeholder="Lost/Found/Both">
+        <input type="text" name="search" id="status" placeholder="Lost/Found/Both">
  </div>
  <div class=" submit">
-     <input type="button" name="submit" style="color: black" value="Search">
+     <input type="button" name="submit" id="read" style="color: black" value="Search">
  </div>
 </div>
  
@@ -149,5 +149,29 @@ function closeAllSelect(elmnt) {
 then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
 </script>
+<script>
+document.getElementById('read').addEventListener('click',function(){
+  var rasa= document.getElementById('rasa').value;
+  var zona= document.getElementById('zona').value;
+ var status= document.getElementById('status').value;
+  const url = "https://api.opencagedata.com/geocode/v1/json?q="+zona+"&key=756a6e9ea1f44169814599241a777aac";
+
+    fetch( url)
+   .then((result) => result.json())
+
+   .then((jsonResp) => {
+
+     
+     var address=jsonResp.results[0].formatted;
+    var lat=jsonResp.results[0].geometry.lat;
+      var long=jsonResp.results[0].geometry.lng;
+      console.log(lat);
+      console.log(long);
+    var data ={
+
+    }
+})});
+</script>
+
  </body>
  </html>
