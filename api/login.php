@@ -33,6 +33,7 @@ $found = $conn->query($sql);
 if($found->num_rows == 0)
 {
     show_result("error",'Wrong login credentials.',401);
+    close_conn($conn);
     exit();
 }
 
@@ -43,6 +44,7 @@ $response = [
     'data' => 'Login credentials are correct.',
     'id_user' => $row['id_user']
 ];
+close_conn($conn);
 http_response_code(200);
 echo json_encode($response);
 ?>

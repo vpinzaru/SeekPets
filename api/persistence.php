@@ -7,28 +7,20 @@ header('Content-Type: application/json');
 
 $data = get_data();
 
-$params = array('id_user');
-
-if($data['method'] != 'POST')
+if($data['method'] != 'GET')
 {
     show_result("error",'Wrong request method.',400);
     exit();
 }
 
-$pers = get_payload($data['body'], $params);
-if($pers == 'error')
+$res = check_persistence();
+
+if($res == 'not ok')
 {
+    show_result("ok",'not logged',200);
     exit();
 }
 
-$res = check_persistence($pers['id_user']);
-
-if($res == 'ok')
-{
-    show_result("ok",'logged',200);
-    exit();
-}
-
-show_result("ok",'not logged',200);
+show_result("ok",$res,200);
 
 ?>

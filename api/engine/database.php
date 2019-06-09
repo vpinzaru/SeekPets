@@ -54,12 +54,12 @@ function update_persistence($id)
     return 'updated';
 }
 
-function check_persistence($id)
+function check_persistence()
 {
     $timeframe = 60; // 1 min for tests
     $ip = $_SERVER['REMOTE_ADDR'];
     $conn = get_conn();
-    $sql = "select timestamp from persistence where ip='".$ip."' and id_user=".$id;
+    $sql = "select timestamp, id_user from persistence where ip='".$ip."'";
 
     $result = $conn->query($sql);
     if($result->num_rows == 0)
@@ -77,7 +77,7 @@ function check_persistence($id)
         return 'not ok';
     }
     close_conn($conn);
-    return 'ok';
+    return $time['id_user'];
 
 }
 
