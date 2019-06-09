@@ -49,7 +49,7 @@ if($box == 'error')
 
 $results = [];
 
-$sql = 'select * from pets where latitude > '.$box['minlat'].' and latitude < '.$box['maxlat'].' and longitude > '.$box['minlon'].' and longitude < '.$box['maxlon'].' order by timestamp desc';
+$sql = 'select * from pets where latitude > '.$box['minlat'].' and latitude < '.$box['maxlat'].' and longitude > '.$box['minlon'].' and longitude < '.$box['maxlon'].' and id_user != '.$id.' order by timestamp desc';
 
 $result = $conn->query($sql);
 
@@ -64,6 +64,7 @@ $notifications = [];
 
 while($row = $result->fetch_assoc()) {
     $anunt = [];
+    $anunt['id_pet'] = $row['id_pet'];
     $anunt['name'] = $row['nume'];
     $anunt['contact'] = $row['contact'];
     $anunt['race'] = $row['species'];
