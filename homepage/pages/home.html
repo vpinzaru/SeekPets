@@ -381,7 +381,7 @@ textarea.input2 + .focus-input2::after {
    </style>
 
 
-<body>
+<body onload="persistence();">
    <header>
       <section id="navbar">
          <h6 id="pentruHTMLValid"></h6>
@@ -858,7 +858,20 @@ textarea.input2 + .focus-input2::after {
 		</footer>
 
         </section>
-       
+       <script>
+      fetch('/api/persistence')
+         .then(resp=>resp.json())
+         .then(respJson=>{
+            if(respJson.data==="not logged"){
+               document.getElementById('button').style.display="flex";
+               document.getElementById('buttonlogged').style.display="none";
+            }
+            else{
+               document.getElementById('button').style.display="none";
+               document.getElementById('buttonlogged').style.display="flex";
+            }
+         })
+       </script>
    <script>
       document.getElementById('button').addEventListener("click", function() {
 document.querySelector('.bg-modal').style.display = "flex";
@@ -880,41 +893,56 @@ document.querySelector('.bg-modal-reg').style.display = "none";});
 document.querySelector('.bg-modal-succes').style.display="none";
 </script>
 <script>
-var lat;
-var lng;
-
-            if(navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(position => {
-                    console.log(position.coords);
-                    lat = position.coords.latitude;
-                     lng = position.coords.longitude;
-                     
-                });
-            } else {
-                console.error("Geolocation is not supported by this browser!");
-            }
+  document.getElementById('login').addEventListener('click',function(){
+         let emaillog=document.getElementById('emailLog').value;
+         let passlog=document.getElementById('passlog').value;
+         let datalog={
+            "email":emaillog,
+            "password":passlog
+         }
+         let object= JSON.stringify(datalog);
          
+         fetch('/api/login',{
+              method: 'POST',
+              headers: new Headers( {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  }),
+  body: object
+           })
+           .then((resp) => resp.json())
+           .then((jsonResp) => {
+              if(jsonResp.status==="ok"){
 
-
-         document.getElementById('reg').addEventListener('click',function(){
-            var firstname= document.getElementById('firstname').value;
-            var lastname= document.getElementById('lastname').value;
-            var password= document.getElementById('password').value;
-            var confirm_password= document.getElementById('confpass').value;
-            
-            var email =document.getElementById('email').value;
-            var PLACENAME= document.getElementById('autocomplete').value;
+               sessionStorage.setItem("accessToken", jsonResp.id_user);
+               console.log(jsonResp.id_user);
+               window.location.href="profile_page.html";
+              }
+              else {
+                 alert(jsonResp.data);
+              }
+         });
+         })
+         
+</script>
+<script>
+ document.getElementById('reg').addEventListener('click',function(){
+    var firstname= document.getElementById('firstname').value;
+    var lastname= document.getElementById('lastname').value;
+    var password= document.getElementById('password').value;
+    var confirm_password= document.getElementById('confpass').value;
+   var email =document.getElementById('email').value;
+   var PLACENAME= document.getElementById('autocomplete').value;
     
   const url = "https://api.opencagedata.com/geocode/v1/json?q="+PLACENAME+"&key=756a6e9ea1f44169814599241a777aac";
-  fetch( url
-)
+  fetch( url)
    .then((result) => result.json())
 
    .then((jsonResp) => {
 
       console.log(jsonResp.results[0].formatted);
      var address=jsonResp.results[0].formatted;
-    var lat=jsonResp.results[0].geometry.lat;
+     var lat=jsonResp.results[0].geometry.lat;
       var long=jsonResp.results[0].geometry.lng;
 
 
@@ -925,7 +953,7 @@ var lng;
                "lastname":lastname,
                "password":password,
                "confirm_password":confirm_password,
-               "address": address,
+               "address": PLACENAME,
                "email":email,
                
 
@@ -948,7 +976,7 @@ var lng;
             document.querySelector('.bg-modal-succes').style.display="flex";
             
            }
-            if(jsonResp.status==="error"){
+         if(jsonResp.status==="error"){
              alert(jsonResp.data);
              //back-ul ma calca pe nervi si rage la mine cand defapt el nu stie nimic :)
            }
@@ -956,37 +984,8 @@ var lng;
            })
            
          });
-         document.getElementById('login').addEventListener('click',function(){
-         let emaillog=document.getElementById('emailLog').value;
-         let passlog=document.getElementById('passlog').value;
-         let datalog={
-            "email":emaillog,
-            "password":passlog
-         }
-         let object= JSON.stringify(datalog);
-         
-         fetch('/api/login',{
-              method: 'POST',
-              headers: new Headers( {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-  }),
-  body: object,
-           })
-           .then((resp) => resp.json())
-           .then((jsonResp) => {
-              if(jsonResp.status==="ok"){
-
-               sessionStorage.setItem("accessToken", jsonResp.id_user);
-               console.log(jsonResp.id_user);
-               window.location.href=" http://localhost:8082/homepage/pages/profile_page.html";
-              }
-              else {
-                 alert(jsonResp.data);
-              }
-         });
-         })
-         })
+ })
+       
          </script>
          
          <script>
@@ -996,7 +995,12 @@ var lng;
     document.getElementById('button').style.display="none";
     document.getElementById('buttonlogged').style.display="flex";
     }
+ 
+
+
+    
 });
+
          </script>
 
 

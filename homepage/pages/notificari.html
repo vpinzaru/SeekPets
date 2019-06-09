@@ -47,17 +47,17 @@
                <div class="sidenav">
                
             
-                 <button class="tablinks active" id="entries"> <a href="#">My Reports</a></button>
-                  <button class="tablinks" id="notif"><a href="notificari.html">Notifications</a></button>
-                  <button class="tablinks" id="reportprob"><a href="#">Report a Problem</a>
- </button><button class="tablinks">                 <a href="#">Log Out</a>
+                 <button class="tablinks " id="entries"> <a href="profile_page.html">My Reports</a></button>
+                  <button class="tablinks active" id="notif"><a href="notificari.html">Notifications</a></button>
+                  <button class="tablinks" id="reportprob"><a href="reportprob.html">Report a Problem</a>
+ </button><button class="tablinks">                 <a href="home.html">Log Out</a>
                   </button>
           </div>
             </div>
             <div class="continut">
                <div class="myArticle" id="article">
                   <div class="titlu-under">
-                  <h3 id="titlu">My posted entries</h3></div>
+                  <h3 id="titlu">What happened recently ?</h3></div>
                   <div class="corp" id="corp">
 
                   </div>
@@ -65,28 +65,12 @@
             </div>
 
         </div>
-       <!-- <div class="card">
-            <div class="col1">
-                <img src="images/bunny.jpg" class="petpic">
-            </div>
-            <div class="col2">
-                <p class="rasa" style="font-weight:bold;">Dalmatian</p>
-                <p><strong>Collar:</strong> Yes</p>
-                <p><strong>Collar description:</strong> Around neck,black</p>
-                <p><strong>Details:</strong> Sometimes meows.</p>
-                <p><strong>E-mail:</strong> bill_gates@macrosoft.com</p>
-                <p><strong>Phone:</strong> 074-122-1223</p>
-                <a href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">See Location
-                </a>
-                <h4 class="small">25 May 2019 </h4>
-                <div class="col3">
-                    <button type="submit" id="seen">It's my pet!</button>
-                </div>
-            </div>
-        </div>-->
+
 
      <script>
-        var corp=document.getElementById('corp');
+   console.log(sessionStorage.getItem("accessToken"));
+ 
+   var corp=document.getElementById('corp');
          document.addEventListener("DOMContentLoaded", function() {
    console.log(sessionStorage.getItem("accessToken"));
        var id=sessionStorage.getItem("accessToken")
@@ -94,7 +78,7 @@
           "id_user":id
        }
        var obj= JSON.stringify(data)
-;       fetch("/api/get_user_ann",{
+;       fetch("/api/get_ann",{
           method:"POST",
           headers: {
              'Accept': "application/json"
@@ -168,7 +152,6 @@
           col2.appendChild(pname);
           col2.appendChild(pcollar);
           if(jsonResp.data[i].status==='2')
-          
           {if(jsonResp.data[i].reward!=='null')
              {col2.append(reward);}
           }
@@ -186,6 +169,9 @@
    
          });
          });
+
+
+  
 
     </script>
    </body>

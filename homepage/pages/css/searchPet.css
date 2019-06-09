@@ -1,0 +1,329 @@
+*{
+    text-decoration:none;
+    list-style:none; 
+    margin:0px; 
+    padding:0px; 
+    outline:none;
+}
+
+body{
+    margin:0px; 
+    padding:0px;
+    height:100%;
+   
+    }
+
+#navbar{
+    width:100%;
+    max-width:1200px; 
+    margin:0px auto;
+    display:table;
+    position:relative;
+	
+}
+
+
+header{
+    width:100%;
+    display:table;
+    background:#C4DBF6;
+
+    }
+
+#logo img{
+    float:left; 
+    height:100px;
+    width:200px;
+    
+}
+
+nav{
+    width:auto;
+    float:right;
+    margin-top:35px;
+    font-family: 'Mystery Quest',cursive;
+    font-weight:bold;
+}
+nav ul{
+    display:table;
+     float:right;
+    }
+nav ul li{
+    float:left;
+}
+nav ul li:last-child{
+    padding-right:0px;
+}
+nav ul li a{
+    color:#720a35;
+    font-size:18px;
+    padding: 10px 10px;
+    display:inline-block; 
+    transition: all 0.5s ease 0s;
+}
+nav ul li a:hover{
+    background-color:transparent;
+     color:#df6071;
+     transition: all 0.5s ease 0s;
+    }
+nav ul li a:hover i{
+    color:#720a35;
+    transition: all 0.5s ease 0s;
+}
+nav ul li a i{
+    padding-right:10px; 
+    color:#720a35;
+    transition: all 0.5s ease 0s;
+}
+
+.toggle-menu{
+     
+    height:10px; 
+    color:rgb(20, 2, 2);
+    margin-bottom:4px;
+    font-size:20px;
+    margin-bottom:0px;
+   float:right;
+    top:5%;
+  
+}
+
+#toggle-1,.toggle-menu{
+    display:none;
+}
+.active
+{
+    
+    border-top:2px solid #B23850;
+}
+
+
+
+
+
+
+
+
+#title{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:40px;
+
+}
+@media only screen and (max-width: 1440px) {
+#navbar{
+    
+    max-width:95%;
+
+}
+
+
+}
+
+@media only screen and (max-width: 980px) {
+header{
+
+    padding:20px 0px;
+
+}
+#logo{
+    
+    padding:0px;
+}
+#toggle-1 {
+    position: absolute; 
+    top: -9999px; 
+    left: -9999px; 
+    background:rgb(25, 31, 32);
+    float: right;
+
+}
+#toggle-1:focus{
+    
+    background:whitesmoke;
+}
+.toggle-menu {
+    
+  
+    padding:8px 0px; 
+    display:inline-block; 
+    cursor:pointer;
+ }
+ #toggle-1:checked ~ nav {
+    display:block;
+}
+
+nav{
+    display:none; 
+    position:absolute; 
+    right:0px; 
+    top:53px; 
+    background-color:#C4DBF6;
+    padding:0px; 
+    z-index:2;}
+nav ul{
+    width:auto;
+}
+nav ul li{
+    float:none; 
+    padding:0px; 
+    width:100%; 
+    display:table;
+}
+nav ul li a{
+    color:#720a35;
+    font-size:15px; 
+    padding:10px 20px; 
+    display:block; 
+    border-bottom: 1px solid rgba(225,225,225,0.1); 
+   
+
+}
+nav ul li a i{
+    
+    color:#720a35;
+    padding-right:13px;
+
+}
+}
+
+
+
+
+
+@media only screen and (max-width: 480px) {
+#navbar{
+    max-width: 90%;
+}
+}
+
+@media only screen and (max-width: 360px) {
+
+
+label.toggle-menu{
+    
+    padding:5px 0px;
+}
+
+
+
+nav{
+   
+    top:47px;
+}
+}
+.wrapper2{
+    width: 70%;
+    height: auto;
+    margin-left:15%;
+    margin-right:15%;
+    background-color: white;
+    display:flex;
+    flex-direction: column;
+    flex-wrap:nowrap;
+}
+.wrapper{
+    width: 70%;
+    height: auto;
+   margin-left:15%;
+   margin-right:50%;
+    background-color: white;
+    display:flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+}
+.row1{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+}
+.inputs{
+    margin-top:30px;
+    margin-bottom:20px;
+}
+
+.container{
+margin:2%;
+width:30%;
+height:auto;
+display:flex;
+background-color: white;
+flex-direction: column;
+
+}
+.sidebar{
+   
+   height:auto;
+
+}
+#details{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+
+}
+.sidebar button {
+    display: block;
+    background-color:whitesmoke;
+    color: #720a35;
+    font-family: 'Amaranth',cursive;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+   
+  }
+  
+  /* Change background color of buttons on hover */
+  .sidebar button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current "tab button" class */
+  .sidebar button.tablinks.active {
+    background-color: #C4DBF6;
+  }
+ 
+input[type=text] {
+    width: 70%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  input[type=text]:focus {
+    width: 100%;
+  }
+ 
+  .submit input[type = "button"]{
+    border:0;
+    width:150px;
+    background: #C4DBF6;
+    display: block;
+    margin-left:200px;
+
+    text-align: center;
+    border: 2px solid #720a35;
+    padding: 14px 40px;
+    outline: none;
+    color: black;
+    font-weight: bold;
+    border-radius:10px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  
+  
+  

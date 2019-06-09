@@ -100,10 +100,12 @@
                            
                            <div class = "entryFormular">
                                 <label for="file">Picture </label>
-                              <input type="file" name="file" class="inputfile" accept="image/*" onchange="loadFile(event);" id="filechooser" />
+                              <input type="file" name="file" class="inputfile" accept="image/*"  id="filechooser" />
+
                               <img id="output" style="position:absolute;width:140px;height:110px;" />
                              
                            </div>
+                           
                            <input type="button" value="Submit" id="submitform">
                         </form>
                      </div>
@@ -139,34 +141,34 @@
         }
        };
         document.getElementById("output").style.display="none";
-        var loadFile = function(event) {
-    var reader = new FileReader();
-    reader.onload = function(){
-      var output = document.getElementById('output');
-      document.getElementById("output").style.display="block";
-      output.src = reader.result;
     
-    };
- var red=reader.readAsDataURL(event.target.files[0]);
-  
-     var formData = new FormData();
-     formData.append('fileToUpload',red);
-     for (var key of formData.entries()) {
-			console.log(key[0] + ', ' + key[1])
-		}
-  }
-  
-        
- 
-
- 
-  
- 
-
-        </script>
+      </script>
        
   <script>
-   
+  document.getElementById('filechooser').addEventListener('change',function(){
+
+  
+   const input = document.getElementById('filechooser');
+   var fr= new FileReader();
+    fr.readAsDataURL(input.files[0]);
+    fr.onload = () => {
+      var  encoded = fr.result.replace(/^data:(.*;base64,)?/, '');
+     
+      var formdata= new FormData();
+      formdata.append('image',encoded);
+      fetch("https://api.imgbb.com/1/upload?key=0e8bd904000c67f37512bbb5c3ccf762",{
+         method: 'POST',
+         body:formdata
+         
+      }).then(response=>response.json())
+      .then(jsonResp =>{
+         console.log(jsonResp);
+         document.getElementById('output').style.display="block";
+         document.getElementById('output').src=jsonResp.data.display_url;
+      })
+    };
+    
+    });
  document.getElementById('submitform').addEventListener('click',function(){
   var status;
     var checkboxFound= document.getElementById('radio-two');
@@ -179,14 +181,14 @@
         if(checkboxLost.checked==true){
          status='2';
       }
-     
-  
-     let  pet_description,contact,  name,race,collar,reward;
+    
+     let  pet_description,contact,  name,race,collar,reward,image;
      name= document.getElementById('inputNume2').value;
      race=document.getElementById('inputRasa2').value;
      contact=document.getElementById('inputEmail2').value;
      pet_description=document.getElementById('inputDetalii2').value;
      collar=document.getElementById('inputZgardaDetalii2').value;
+     image=document.getElementById('output').src;
      if(collar==="")
      {
         collar="null";
@@ -201,8 +203,8 @@
      var PLACENAME= document.getElementById('pac-input').value;
      var address, lat, long;
   const url = "https://api.opencagedata.com/geocode/v1/json?q="+PLACENAME+"&key=756a6e9ea1f44169814599241a777aac";
-  fetch( url
-)
+
+    fetch( url)
    .then((result) => result.json())
 
    .then((jsonResp) => {
@@ -213,7 +215,7 @@
       var long=jsonResp.results[0].geometry.lng;
 
 
-  
+ 
  
  let data={
     "name":name,
@@ -225,7 +227,8 @@
     "latitude":lat,
     "longitude":long,
     "status":status,
-    "address":address
+    "address":address,
+    "image": image
  }
  console.log(data);
  let object=JSON.stringify(data);
@@ -242,9 +245,9 @@
  .then(jsonResp =>{
     alert(jsonResp.data);
  })
+ })
  });
- });
- console.log(sessionStorage.getItem("accessToken"));
+
   </script>
     </body>
     </html>
