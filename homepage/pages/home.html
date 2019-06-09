@@ -920,7 +920,7 @@ document.querySelector('.bg-modal-succes').style.display="none";
            .then((resp) => resp.json())
            .then((jsonResp) => {
               if(jsonResp.status==="ok"){
-               sessionStorage.setItem('accessToken',respJson.id_user);
+               sessionStorage.setItem('accessToken',jsonResp.id_user);
            
                window.location.href="profile_page.html";
               }
