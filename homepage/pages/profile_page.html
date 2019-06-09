@@ -159,10 +159,10 @@
           status.append(lostfound);
           var adresa= document.createElement('p');
           adresa.className=('bold');
-          adresa.innerText=jsonResp.data[i].address;
+          adresa.innerText="Address : "+jsonResp.data[i].address;
           var reward= document.createElement('p');
           reward.className=('bold');
-          reward.innerText=jsonResp.data[i].reward;
+          reward.innerText="Reward : "+jsonResp.data[i].reward;
             button.appendChild(buttonel);
           col2.appendChild(ptitle);
           col2.appendChild(pname);
