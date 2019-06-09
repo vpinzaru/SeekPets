@@ -8,7 +8,7 @@ header('Content-Type: application/json');
 
 $data = get_data();
 
-$params = array('latitude','longitude','race','status');
+$params = array('id_user');
 
 if($data['method'] != 'POST')
 {
@@ -18,47 +18,37 @@ if($data['method'] != 'POST')
 
 $conn = get_conn();
 
-$info = get_payload($data['body'], $params);
-if($info == 'error')
+$id = get_payload($data['body'], $params);
+if($id == 'error')
 {
     close_conn($conn);
     exit();
 }
+$id = $id['id_user'];
 
-$lat = $info['latitude'];
-$long = $info['longitude'];
+$user = generic_query($id,'id_user','users',$conn);
 
-$box = get_box($lat,$long);
-if($box == 'error')
+if($user->num_rows === 0)
 {
-    show_result('error','Failed to get box borders',400);
+    show_result('error','Invalid user id.',400);
     close_conn($conn);
     exit();
 }
 
-$results = [];
+$sql = "select * from pets where id_user = ".$id." order by timestamp desc";
+$anns = $conn->query($sql);
 
-if($info['status'] != 0)
+if($anns->num_rows === 0)
 {
-    $sql = 'select * from pets where latitude > '.$box['minlat'].' and latitude < '.$box['maxlat'].' and longitude > '.$box['minlon'].' and longitude < '.$box['maxlon'].' and status = '.$info['status'].' order by timestamp desc';
-}
-else
-{
-    $sql = 'select * from pets where latitude > '.$box['minlat'].' and latitude < '.$box['maxlat'].' and longitude > '.$box['minlon'].' and longitude < '.$box['maxlon'].' order by timestamp desc';
-}
-
-$result = $conn->query($sql);
-
-if($result -> num_rows == 0)
-{
-    show_result('ok','No notifications available.',200);
+    show_result('ok','No announcements available.',200);
     close_conn($conn);
     exit();
 }
 
 $notifications = [];
 
-while($row = $result->fetch_assoc()) {
+while($row = $anns->fetch_assoc())
+{
     $anunt = [];
     $anunt['name'] = $row['nume'];
     $anunt['contact'] = $row['contact'];
@@ -72,10 +62,9 @@ while($row = $result->fetch_assoc()) {
     $anunt['image'] = $row['image'];
     $anunt['status'] = $row['status'];
     array_push($notifications,$anunt);
-};
+}
 
 show_result('ok',$notifications,200);
 close_conn($conn);
-
 
 ?>
