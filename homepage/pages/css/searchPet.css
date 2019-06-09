@@ -249,6 +249,10 @@ flex-direction: column;
     width:100%;
 
 }
+.row1{
+  width:100%;
+  justify-content:center;
+}
 .sidebar button {
     display: block;
     background-color:whitesmoke;

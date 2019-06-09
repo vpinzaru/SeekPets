@@ -127,6 +127,13 @@ document.getElementById('read').addEventListener('click',function(){
      body: obj
     }).then(resp=>resp.json())
     .then(jsonResp=>{
+      if(jsonResp.data==='No notifications available.'){
+      alert("No results found");
+      corp.style.display="none";
+    
+    
+   }
+   else{
       for(var i=0;i<jsonResp.data.length;i++){
       
           var card= document.createElement('div');
@@ -206,16 +213,9 @@ document.getElementById('read').addEventListener('click',function(){
           corp.appendChild(card);
 
        
-       }
-       if(jsonResp.data==='No notifications available.'){
+       }}
       
-             corp.style.display="none";
-             var p= document.createElement('h3');
-             p.innerText="No results found!";
-             corp.append(p);
-           
-          }
-
+        
     
     })
 })});
