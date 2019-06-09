@@ -102,8 +102,9 @@
           body:obj
        }).then(resp=>resp.json())
        .then(jsonResp =>{
+          console.log(jsonResp.data);
           for(var i=0;i<jsonResp.data.length;i++){
-          console.log(jsonResp.data[i]);
+        
           var card= document.createElement('div');
           card.className=('card');
           var image=document.createElement('div');
@@ -183,7 +184,9 @@
 
        
        }
-   
+       if(jsonResp.data==='No announcements available.'){
+             corp.style.display="none";
+          }
          });
          });
 
