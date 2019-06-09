@@ -55,85 +55,8 @@
     <div class="wrapperLost">
 
         <div class="row" id="cards">
-            <div class="card2">
-                <div class="card">
-                    <div class="col1">
-                        <img src="images/bunny.jpg" class="petpic">
-                    </div>
-                    <div class="col2">
-                        <p class="rasa" style="font-weight:bold;">Dalmatian</p>
-                        <p><strong>Collar:</strong> Yes</p>
-                        <p><strong>Collar description:</strong> Around neck,black</p>
-                        <p><strong>Details:</strong> Sometimes meows.</p>
-                        <p><strong>E-mail:</strong> bill_gates@macrosoft.com</p>
-                        <p><strong>Phone:</strong> 074-122-1223</p>
-                        <a href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">See
-                            Location
-                        </a>
-                        <h4 class="small">25 May 2019 </h4>
-                        <div class="col3">
-                            <button type="submit" id="seen">It's my pet!</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="col1">
-                        <img src="images/bunny.jpg" class="petpic">
-                    </div>
-                    <div class="col2">
-                        <p class="rasa" style="font-weight:bold;">Dalmatian</p>
-                        <p><strong>Collar:</strong> Yes</p>
-                        <p><strong>Collar description:</strong> Around neck,black</p>
-                        <p><strong>Details:</strong> Sometimes meows.</p>
-                        <p><strong>E-mail:</strong> bill_gates@macrosoft.com</p>
-                        <p><strong>Phone:</strong> 074-122-1223</p>
-                        <a href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">See Location</a>
-                        <h4 class="small">25 May 2019 </h4>
-                        <div class="col3">
-                            <button type="submit" id="seen">It's my pet!</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="col1">
-                        <img src="images/bunny.jpg" class="petpic">
-                    </div>
-                    <div class="col2">
-                        <p class="rasa" style="font-weight:bold;">Dalmatian</p>
-                        <p><strong>Collar:</strong> Yes</p>
-                        <p><strong>Collar description:</strong> Around neck,black</p>
-                        <p><strong>Details:</strong> Sometimes meows.</p>
-                        <p><strong>E-mail:</strong> bill_gates@macrosoft.com</p>
-                        <p><strong>Phone:</strong> 074-122-1223</p>
-                        <a href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">See Location
-                        </a>
-                        <h4 class="small">25 May 2019 </h4>
-                        <div class="col3">
-                            <button type="submit" id="seen">It's my pet!</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="col1">
-                        <img src="images/bunny.jpg" class="petpic">
-                    </div>
-                    <div class="col2">
-                        <p class="rasa" style="font-weight:bold;">Dalmatian</p>
-                        <p><strong>Collar:</strong> Yes</p>
-                        <p><strong>Collar description:</strong> Around neck,black</p>
-                        <p><strong>Details:</strong> Sometimes meows.</p>
-                        <p><strong>E-mail:</strong> bill_gates@macrosoft.com</p>
-                        <p><strong>Phone:</strong> 074-122-1223</p>
-                        <a href="https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738">See
-                            Location
-                        </a>
+            <div class="card2" id="ann">
 
-                        <h4 class="small">25 May 2019 </h4>
-                        <div class="col3">
-                            <button type="submit" id="seen">It's my pet!</button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <!--START SIDENAV-->
@@ -149,6 +72,85 @@
         <!--END SIDENAV-->
     </div>
     <!--END WRAPPER-->
-</body>
+    <script>
+    var corp=document.getElementById('ann');
+        document.addEventListener("DOMContentLoaded", function() {
+    fetch('/api/get_all_ann',{
+        method:'POST',
+       headers:{ 'Accept': 'application/json',
+    'Content-Type': 'application/json'},
+    body: JSON.stringify({
+        "status":"1"
+    })
+    }).then(resp=>resp.json())
+    .then(jsonResp =>{
+        for(var i=0;i<jsonResp.data.length;i++){
+          console.log(jsonResp.data[i]);
+          var card= document.createElement('div');
+          card.className=('card');
+          var image=document.createElement('div');
+          image.className=('col1');
+          var poza=document.createElement('img');
+         
+          poza.src= jsonResp.data[i].image;
+          poza.classList.add('petpic')
+          image.appendChild(poza);
+          card.appendChild(image);
+          
+          var col2=document.createElement('div');
+          col2.className=('col2');
+          var ptitle= document.createElement('p');
+          ptitle.className=('bold');
+          ptitle.innerText="Race : " +jsonResp.data[i].race;
+         var pname=document.createElement('p');
+         pname.className=("bold");
+         pname.innerText="Name : "+jsonResp.data[i].name;
+          var pcollar= document.createElement('p');
+          var pdetails= document.createElement('p');
+          var pcontact= document.createElement('p');
+          pcollar.className=('bold');
+          pcollar.innerText="Collar : "+jsonResp.data[i].collar;
+          pdetails.className=("bold");
+          pdetails.innerText="Description : "+jsonResp.data[i].description;
+          pcontact.className=('bold');
+          pcontact.innerText= "Contact : " +jsonResp.data[i].contact;
+          var map= document.createElement('iframe');
+          map.className=("map");
+          map.src=("https://www.openstreetmap.org/export/embed.html?bbox=27.56349563598633%2C47.15517092451596%2C27.599329948425297%2C47.16803910676896&amp%3Blayer=mapnik&amp%3Bmarker=47.16160540524534%2C27.58141279220581");
+          map.frameBorder='0';
+          var button= document.createElement("div");
+          button.className=("col3");
+          var buttonel=document.createElement('button');
+          buttonel.type="submit";
+          buttonel.id="seen";
+          buttonel.innerText="Update position";
+          var status= document.createElement('div');
+          
+          
+          var adresa= document.createElement('p');
+          adresa.className=('bold');
+          adresa.innerText="Address : "+jsonResp.data[i].address;
+          var reward= document.createElement('p');
+          reward.className=('bold');
+          reward.innerText="Reward : "+jsonResp.data[i].reward;
+            button.appendChild(buttonel);
+          col2.appendChild(ptitle);
+          col2.appendChild(pname);
+          col2.appendChild(pcollar);
+          if(jsonResp.data[i].status==='2')
+          {if(jsonResp.data[i].reward!=='null')
+             {col2.append(reward);}
+          }
+          col2.append(adresa);
+          col2.appendChild(pdetails);
+          col2.appendChild(pcontact);
+          col2.appendChild(map);
+          col2.append(status);
+          col2.append(button);
+          card.appendChild(col2);
+          corp.appendChild(card);
+    }});
+        });
+    </script>
 
 </html>

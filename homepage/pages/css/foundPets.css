@@ -240,18 +240,27 @@ nav{
     flex-direction: row;
     flex-wrap:nowrap;
 }
-.small{
-    
-    color: rgb(38, 199, 33);
-    font-size:22px;
-    font-weight:bold;
-  
-    text-align:center;
 
-}
 .col3{
-    width:50%;
+ 
+    margin-bottom:15px;
+    width:100%;
 }
+.card{
+    box-shadow: 0px 0px 0px 5px rgb(38, 199, 33);
+      width:350px;
+      height:auto;
+      display: flex;
+      margin: 10px 10px 10px 10px;
+      background-color: whitesmoke;
+    box-shadow: #222;
+    border-radius:25px;
+    
+      transition: 0.4s;
+      flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 #seen{
     width:200px;
     margin-left:22px;
@@ -270,12 +279,7 @@ nav{
 	text-decoration:none;
 	
 }
-.petpic
-{
-  width: 150px;
-  height: 130px;
-  margin-top:15px;
-}
+
 .sidebar{
     width:100%;
    height:auto;
@@ -316,20 +320,7 @@ nav{
   #sidenav{
       width:25%;
   }
-  .card{
-    box-shadow: 0px 0px 0px 5px rgb(38, 199, 33); 
-      width:260px;
-      display: flex;
-      margin: 10px 10px 10px 10px;
-      background-color: whitesmoke;
-    box-shadow: #222;
-    border-radius:25px;
-    height:380px;
-      transition: 0.4s;
-      flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+  
   .card:hover{
     box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
      
@@ -339,4 +330,22 @@ nav{
       display:flex;
       flex-direction: row;
       flex-wrap: wrap;
+  }
+  .bold{
+    font-weight: bold;
+  }
+  .petpic
+  {
+  width: 210px;
+  height: 170px;
+  margin-top:15px;
+  }
+  
+  .map{
+    width:150px;
+    height:140px;
+  
+  }
+  .col2{
+    justify-content: center;
   }
