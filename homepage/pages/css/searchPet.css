@@ -211,22 +211,119 @@ nav{
     top:47px;
 }
 }
-.wrapper{
+.wrapper2{
     width: 70%;
     height: auto;
     margin-left:15%;
     margin-right:15%;
     background-color: white;
     display:flex;
+    flex-direction: column;
+    flex-wrap:nowrap;
+}
+.wrapper{
+    width: 70%;
+    height: auto;
+   margin-left:15%;
+   margin-right:50%;
+    background-color: white;
+    display:flex;
     flex-direction: row;
     flex-wrap:nowrap;
 }
+.row1{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+}
+.inputs{
+    margin-top:30px;
+    margin-bottom:20px;
+}
+
 .container{
 margin:2%;
-width:auto;
+width:30%;
 height:auto;
 display:flex;
 background-color: white;
 flex-direction: column;
 
 }
+.sidebar{
+   
+   height:auto;
+
+}
+#details{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+
+}
+.sidebar button {
+    display: block;
+    background-color:whitesmoke;
+    color: #720a35;
+    font-family: 'Amaranth',cursive;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+   
+  }
+  
+  /* Change background color of buttons on hover */
+  .sidebar button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current "tab button" class */
+  .sidebar button.tablinks.active {
+    background-color: #C4DBF6;
+  }
+ 
+input[type=text] {
+    width: 70%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  input[type=text]:focus {
+    width: 100%;
+  }
+ 
+  .submit input[type = "button"]{
+    border:0;
+    width:150px;
+    background: #C4DBF6;
+    display: block;
+    margin-left:200px;
+
+    text-align: center;
+    border: 2px solid #720a35;
+    padding: 14px 40px;
+    outline: none;
+    color: black;
+    font-weight: bold;
+    border-radius:10px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  
+  
+  

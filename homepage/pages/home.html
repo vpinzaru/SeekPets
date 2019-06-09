@@ -880,6 +880,39 @@ document.querySelector('.bg-modal-reg').style.display = "none";});
 document.querySelector('.bg-modal-succes').style.display="none";
 </script>
 <script>
+  document.getElementById('login').addEventListener('click',function(){
+         let emaillog=document.getElementById('emailLog').value;
+         let passlog=document.getElementById('passlog').value;
+         let datalog={
+            "email":emaillog,
+            "password":passlog
+         }
+         let object= JSON.stringify(datalog);
+         
+         fetch('/api/login',{
+              method: 'POST',
+              headers: new Headers( {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  }),
+  body: object
+           })
+           .then((resp) => resp.json())
+           .then((jsonResp) => {
+              if(jsonResp.status==="ok"){
+
+               sessionStorage.setItem("accessToken", jsonResp.id_user);
+               console.log(jsonResp.id_user);
+               window.location.href=" http://localhost:8082/homepage/pages/profile_page.html";
+              }
+              else {
+                 alert(jsonResp.data);
+              }
+         });
+         })
+         
+</script>
+<script>
  document.getElementById('reg').addEventListener('click',function(){
     var firstname= document.getElementById('firstname').value;
     var lastname= document.getElementById('lastname').value;
@@ -938,38 +971,8 @@ document.querySelector('.bg-modal-succes').style.display="none";
            })
            
          });
-    
-         document.getElementById('login').addEventListener('click',function(){
-         let emaillog=document.getElementById('emailLog').value;
-         let passlog=document.getElementById('passlog').value;
-         let datalog={
-            "email":emaillog,
-            "password":passlog
-         }
-         let object= JSON.stringify(datalog);
-         
-         fetch('/api/login',{
-              method: 'POST',
-              headers: new Headers( {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-  }),
-  body: object
-           })
-           .then((resp) => resp.json())
-           .then((jsonResp) => {
-              if(jsonResp.status==="ok"){
-
-               sessionStorage.setItem("accessToken", jsonResp.id_user);
-               console.log(jsonResp.id_user);
-               window.location.href=" http://localhost:8082/homepage/pages/profile_page.html";
-              }
-              else {
-                 alert(jsonResp.data);
-              }
-         });
-         })
-         })
+ })
+       
          </script>
          
          <script>
@@ -984,6 +987,7 @@ document.querySelector('.bg-modal-succes').style.display="none";
 
     
 });
+
          </script>
 
 
