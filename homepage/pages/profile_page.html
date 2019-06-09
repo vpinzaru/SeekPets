@@ -89,11 +89,11 @@
         var corp=document.getElementById('corp');
          document.addEventListener("DOMContentLoaded", function() {
    console.log(sessionStorage.getItem("accessToken"));
-       var id=sessionStorage.getItem("accessToken")
+       var id=sessionStorage.getItem("accessToken");
        var data={
           "id_user":id
        }
-       var obj= JSON.stringify(data)
+       var obj= JSON.stringify(data);
 ;       fetch("/api/get_user_ann",{
           method:"POST",
           headers: {

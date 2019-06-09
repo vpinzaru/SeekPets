@@ -398,7 +398,8 @@ textarea.input2 + .focus-input2::after {
                <li><a href="#howitworks"><i class="fa fa-cogs"></i>How It Works</a></li>
                <li><a href="#news"><i class="fas fa-newspaper"></i>News</a></li>
                <li><a href="#" id="button"><i class="fa fa-user"></i>Login</a></li>
-               <li><a href="#" id="buttonlogged" ><i class="fa fa-user"></i>Logout</a></li>
+               <li><a href="#" id="buttonlogged"><i class="fa fa-user"></i>Account</a></li>
+            
             </ul>
          </nav>
       </section>
@@ -859,20 +860,26 @@ textarea.input2 + .focus-input2::after {
 
         </section>
        <script>
+      function persistence(){
       fetch('/api/persistence')
          .then(resp=>resp.json())
          .then(respJson=>{
             if(respJson.data==="not logged"){
                document.getElementById('button').style.display="flex";
                document.getElementById('buttonlogged').style.display="none";
+
             }
-            else{
+            else{sessionStorage.setItem('accessToken',respJson.data);
+            console.log(sessionStorage.getItem('accessToken'));
                document.getElementById('button').style.display="none";
                document.getElementById('buttonlogged').style.display="flex";
             }
-         })
+         })}
        </script>
    <script>
+      document.getElementById('buttonlogged').addEventListener('click',function(){
+         window.location.href='profile_page.html';
+      })
       document.getElementById('button').addEventListener("click", function() {
 document.querySelector('.bg-modal').style.display = "flex";
 });
@@ -913,9 +920,8 @@ document.querySelector('.bg-modal-succes').style.display="none";
            .then((resp) => resp.json())
            .then((jsonResp) => {
               if(jsonResp.status==="ok"){
-
-               sessionStorage.setItem("accessToken", jsonResp.id_user);
-               console.log(jsonResp.id_user);
+               sessionStorage.setItem('accessToken',respJson.id_user);
+           
                window.location.href="profile_page.html";
               }
               else {
@@ -988,21 +994,7 @@ document.querySelector('.bg-modal-succes').style.display="none";
        
          </script>
          
-         <script>
-          document.addEventListener("DOMContentLoaded", function(event) {
-    if(sessionStorage.getItem("accessToken")!=null){
-      console.log(sessionStorage.getItem("accessToken"));
-    document.getElementById('button').style.display="none";
-    document.getElementById('buttonlogged').style.display="flex";
-    }
- 
-
-
-    
-});
-
-         </script>
-
+       
 
          
 </body>
