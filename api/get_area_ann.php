@@ -60,6 +60,7 @@ $notifications = [];
 
 while($row = $result->fetch_assoc()) {
     $anunt = [];
+    $anunt['id_pet'] = $row['id_pet'];
     $anunt['name'] = $row['nume'];
     $anunt['contact'] = $row['contact'];
     $anunt['race'] = $row['species'];

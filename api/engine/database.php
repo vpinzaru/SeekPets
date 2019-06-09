@@ -56,7 +56,7 @@ function update_persistence($id)
 
 function check_persistence()
 {
-    $timeframe = 60; // 1 min for tests
+    $timeframe = 3600; // 1h
     $ip = $_SERVER['REMOTE_ADDR'];
     $conn = get_conn();
     $sql = "select timestamp, id_user from persistence where ip='".$ip."'";
@@ -79,6 +79,14 @@ function check_persistence()
     close_conn($conn);
     return $time['id_user'];
 
+}
+
+function delete_persistence($id)
+{
+    $conn = get_conn();
+    $sql = "delete from persistence where id_user = ".$id;
+    $conn->query($sql);
+    close_conn($conn);
 }
 
 ?>
