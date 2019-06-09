@@ -381,7 +381,7 @@ textarea.input2 + .focus-input2::after {
    </style>
 
 
-<body>
+<body onload="persistence();">
    <header>
       <section id="navbar">
          <h6 id="pentruHTMLValid"></h6>
@@ -858,7 +858,20 @@ textarea.input2 + .focus-input2::after {
 		</footer>
 
         </section>
-       
+       <script>
+      fetch('/api/persistence')
+         .then(resp=>resp.json())
+         .then(respJson=>{
+            if(respJson.data==="not logged"){
+               document.getElementById('button').style.display="flex";
+               document.getElementById('buttonlogged').style.display="none";
+            }
+            else{
+               document.getElementById('button').style.display="none";
+               document.getElementById('buttonlogged').style.display="flex";
+            }
+         })
+       </script>
    <script>
       document.getElementById('button').addEventListener("click", function() {
 document.querySelector('.bg-modal').style.display = "flex";
