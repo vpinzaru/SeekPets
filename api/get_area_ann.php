@@ -40,13 +40,12 @@ $results = [];
 
 if($info['status'] != 0)
 {
-    $sql = "select * from pets where latitude > ".$box['minlat']." and latitude < ".$box['maxlat']."and longitude > ".$box['minlon']." and longitude < ".$box['maxlon']." and status = ".$info['status']." and species like %".$info['race']."% order by timestamp desc";
+    $sql = "select * from pets where latitude > ".$box['minlat']." and latitude < ".$box['maxlat']."and longitude > ".$box['minlon']." and longitude < ".$box['maxlon']." and status = ".$info['status']." and species like '%".$info['race']."%' order by timestamp desc";
 }
 else
 {
-    $sql = 'select * from pets where latitude > '.$box['minlat'].' and latitude < '.$box['maxlat'].' and longitude > '.$box['minlon'].' and longitude < '.$box['maxlon']." and species like %".$info['race']."% order by timestamp desc";
+    $sql = 'select * from pets where latitude > '.$box['minlat'].' and latitude < '.$box['maxlat'].' and longitude > '.$box['minlon'].' and longitude < '.$box['maxlon']." and species like '%".$info['race']."%' order by timestamp desc";
 }
-
 $result = $conn->query($sql);
 
 if($result -> num_rows == 0)
