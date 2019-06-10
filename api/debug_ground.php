@@ -1,6 +1,9 @@
 <?php
 include_once 'engine/map.php';
+include_once 'engine/files.php';
 
-echo $_SERVER['REMOTE_ADDR'];
+$test = array('Rata: line1','Rata: line2');
+
+make_csv_stats($test);
 
 ?>
