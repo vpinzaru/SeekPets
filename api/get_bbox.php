@@ -14,7 +14,7 @@ if ($data['method'] != 'POST') {
 }
 
 $info = get_payload($data['body'], $params);
-if ($login == 'error') {
+if ($$info == 'error') {
     close_conn($conn);
     exit();
 }
