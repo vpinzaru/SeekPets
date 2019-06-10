@@ -676,17 +676,17 @@ textarea.input2 + .focus-input2::after {
                <div class="PetLost flip-card">
                   <div class="flip-card-inner">
                      <div class="flip-card-front">
-                  <img class="petpic" src="images/pet1.jpg" alt="pet1" >
+                  <img class="petpic" src="images/pet-alarm.jpg" alt="pet1" >
                   <p class="lost">LOST
                         <p>
-  </div>            <div class="flip-card-back">    <h3 class="name">Sparky</h3>
-                  <p class="rasa">Dalmatian</p>
-                  <p>Collar: Yes</p>
-                  <p>Collar description: Around neck,black</p>
-                  <p>Details: Sometimes meows.</p>
-                  <p>E-mail: bill_gates@macrosoft.com</p>
-                  <p>Phone: 074-122-1223</p>
-                  <p>Reward: Imi dau sufletul</p>
+  </div>            <div class="flip-card-back">
+   <h3 class="name">Bobica</h3>
+   <p class="rasa">Poodle</p>
+   <p>Collar: No</p>
+   <p>Details: Runs really fast,is happy to see people.</p>
+   <p>E-mail: sad_owner@goagal.com</p>
+   <p>Phone: 074-124-1223</p>
+   <p>Reward: Imi dau casa</p>
                   <iframe width="225" height="150"
                      src="https://www.openstreetmap.org/export/embed.html?bbox=26.800460815429688%2C46.75021206490799%2C27.947158813476566%2C47.16357498846737&amp;layer=mapnik&amp;marker=46.95729268344381%2C27.373809814453125"
                      style="border: 1px solid black"></iframe><br /><small><a
@@ -770,44 +770,8 @@ textarea.input2 + .focus-input2::after {
       
 
    
-   <div class="big-title" id="news">
-      <div class="long-shadow" style="text-shadow: 5px -2px 5px rgba(88,13,74,0.85); font-family:'Fredericka the Great',cursive;color:#720a35;">
-      GET IN TOUCH
-      </div>
-   </div>
-   <section id="contact">
-        <div class="bg-contact2" >
-         <div class="container-contact2">
-            <div class="wrap-contact2">
-               <form class="contact2-form validate-form">
-                
-                  <div class="wrap-input2 validate-input" data-validate="Name is required">
-                     <input class="input2" type="text" name="name">
-                     <span class="focus-input2" data-placeholder="NAME"></span>
-                  </div>
    
-                  <div class="wrap-input2 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                     <input class="input2" type="text" name="email">
-                     <span class="focus-input2" data-placeholder="EMAIL"></span>
-                  </div>
    
-                  <div class="wrap-input2 validate-input" data-validate = "Message is required">
-                     <textarea class="input2" name="message"></textarea>
-                     <span class="focus-input2" data-placeholder="MESSAGE"></span>
-                  </div>
-   
-                  <div class="container-contact2-form-btn">
-                     <div class="wrap-contact2-form-btn">
-                        <div class="contact2-form-bgbtn"></div>
-                        <button class="contact2-form-btn">
-                           Send Your Message
-                        </button>
-                     </div>
-                  </div>
-               </form>
-            </div>
-         </div>
-      </div>
    	<footer class="footer-distributed">
 
 			<div class="footer-left">
@@ -858,7 +822,7 @@ textarea.input2 + .focus-input2::after {
 
 		</footer>
 
-        </section>
+      
        <script>
       function persistence(){
       fetch('/api/persistence')
@@ -984,7 +948,7 @@ document.querySelector('.bg-modal-succes').style.display="none";
            }
          if(jsonResp.status==="error"){
              alert(jsonResp.data);
-             //back-ul ma calca pe nervi si rage la mine cand defapt el nu stie nimic :)
+             
            }
           
            })
@@ -993,10 +957,7 @@ document.querySelector('.bg-modal-succes').style.display="none";
  })
        
          </script>
-         
-       
-
-         
+      
 </body>
 
 </html>
