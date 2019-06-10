@@ -7,20 +7,16 @@ header('Content-Type: application/json');
 
 $data = get_data();
 
-if($data['method'] != 'GET')
-{
-    show_result("error",'Wrong request method.',400);
+if ($data['method'] != 'GET') {
+    show_result("error", 'Wrong request method.', 400);
     exit();
 }
 
 $res = check_persistence();
 
-if($res == 'not ok')
-{
-    show_result("ok",'not logged',200);
+if ($res == 'not ok') {
+    show_result("ok", 'not logged', 200);
     exit();
 }
 
-show_result("ok",$res,200);
-
-?>
+show_result("ok", $res, 200);

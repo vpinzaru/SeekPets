@@ -8,9 +8,8 @@ header('Content-Type: application/json');
 $data = get_data();
 
 
-if($data['method'] != 'GET')
-{
-    show_result("error",'Wrong request method.',400);
+if ($data['method'] != 'GET') {
+    show_result("error", 'Wrong request method.', 400);
     exit();
 }
 
@@ -27,26 +26,23 @@ $result = $conn->query($sql);
 
 $address_ap = [];
 
-while($row = $result->fetch_assoc())
-{
-    $street = explode(",",$row['address'])[0];
-    if(isset($address_ap[$street]))
+while ($row = $result->fetch_assoc()) {
+    $street = explode(",", $row['address'])[0];
+    if ($row['status'] == 2) // lost
     {
-        $address_ap[$street] += 1;
-    }
-    else
-    {
-        $address_ap[$street] = 1;
+        if (isset($address_ap[$street])) {
+            $address_ap[$street] += 1;
+        } else {
+            $address_ap[$street] = 1;
+        }
     }
 
-    switch($row['status'])
-    {
+    switch ($row['status']) {
         case 1:
-            $found +=1;
+            $found += 1;
             break;
         case 2:
-            $lost +=1;
-
+            $lost += 1;
     }
 }
 close_conn($conn);
@@ -54,10 +50,8 @@ close_conn($conn);
 $max = 0;
 $street = "";
 
-foreach($address_ap as $key => $value)
-{
-    if($value > $max)
-    {
+foreach ($address_ap as $key => $value) {
+    if ($value > $max) {
         $max = $value;
         $street = $key;
     }
@@ -67,6 +61,4 @@ $statistics['nr_found'] = $found;
 $statistics['nr_lost'] = $lost;
 $statistics['vuln_address'] = $street;
 
-show_result("ok",$statistics,200);
-
-?>
+show_result("ok", $statistics, 200);

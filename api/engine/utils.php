@@ -27,10 +27,8 @@ function show_result($status, $payload, $status_code)
 
 function check_request_body($body)
 {
-    foreach($body as $key=>$value)
-    {
-        if(strlen($value) == 0 )
-        {
+    foreach ($body as $key => $value) {
+        if (strlen($value) == 0) {
             return $key;
         }
     };
@@ -39,12 +37,11 @@ function check_request_body($body)
 }
 
 
-function check_params($params,$payload)
+function check_params($params, $payload)
 {
-    foreach($params as $param)
-    {
+    foreach ($params as $param) {
         if (array_key_exists($param, $payload) == FALSE) {
-            show_result("error", $param. ' is missing from the request body',400);
+            show_result("error", $param . ' is missing from the request body', 400);
             return 'error';
         }
     }
@@ -53,74 +50,63 @@ function check_params($params,$payload)
 
 function get_payload($body, $params)
 {
-    $payload = json_decode($body,true);
+    $payload = json_decode($body, true);
 
-    if($payload == NULL)
-    {
-        show_result("error", 'Wrong request body.',400);
+    if ($payload == NULL) {
+        show_result("error", 'Wrong request body.', 400);
         return 'error';
     }
 
     $check = check_request_body($payload);
 
-    if($check != "ok")
-    {
-        show_result("error", $check. " should not be empty.",406);
+    if ($check != "ok") {
+        show_result("error", $check . " should not be empty.", 406);
         return 'error';
     }
 
-    $check = check_params($params,$payload);
-    if($check != "ok")
-    {
+    $check = check_params($params, $payload);
+    if ($check != "ok") {
         return 'error';
     }
 
     return $payload;
-
 }
 
-function generic_request($headers,$body,$method,$link)
+function generic_request($headers, $body, $method, $link)
 {
     $req = curl_init($link);
 
-    curl_setopt($curl, CURLOPT_POSTFIELDS,$data);
-    if($headers != "null")
-    {
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+    if ($headers != "null") {
         curl_setopt($req, CURLOPT_HTTPHEADER, $headers);
     }
-    if($body != "null")
-    {
+    if ($body != "null") {
         curl_setopt($req, CURLOPT_POSTFIELDS, json_encode($body));
     }
     curl_setopt($req, CURLOPT_RETURNTRANSFER, 1);
 
-    $respAsJson = json_decode(curl_exec($req),true);
+    $respAsJson = json_decode(curl_exec($req), true);
 
     curl_close($req);
     return $respAsJson;
-
 }
 
 function more_generic_request($method, $url, $data = false, $headers = false)
 {
 
     $curl = curl_init();
-    if($headers)
-    {
+    if ($headers) {
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
     }
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
-    curl_setopt($curl, CURLOPT_POSTFIELDS,$data);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     $http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
     $result = curl_exec($curl);
-    if(curl_errno($curl)){
+    if (curl_errno($curl)) {
         echo 'Curl error: ' . curl_error($curl);
     }
     curl_close($curl);
     return ['result' => $result, 'code' => $http_status];
 }
-
-
-?>

@@ -53,7 +53,7 @@ function make_csv_stats($lines)
     fputcsv($file, $columns);
     for ($i = 0; $i < count($lines); $i++) {
         $pieces = explode(":", $lines[$i]);
-        fputcsv($file, array($pieces[0],$pieces[1]));
+        fputcsv($file, array($pieces[0], $pieces[1]));
     }
     exit();
 }
