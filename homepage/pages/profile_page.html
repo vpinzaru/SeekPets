@@ -49,8 +49,7 @@
             
                  <button class="tablinks active" id="entries"> <a href="#">My Reports</a></button>
                   <button class="tablinks" id="notif"><a href="notificari.html">Notifications</a></button>
-                  <button class="tablinks" id="reportprob"><a href="#">Report a Problem</a>
- </button><button class="tablinks">                 <a href="#">Log Out</a>
+               <button class="tablinks" id="logout"><a>Log Out</a>
                   </button>
           </div>
             </div>
@@ -107,6 +106,7 @@
         
           var card= document.createElement('div');
           card.className=('card');
+         
           var image=document.createElement('div');
           image.className=('col1');
           var poza=document.createElement('img');
@@ -139,10 +139,12 @@
           map.frameBorder='0';
           var button= document.createElement("div");
           button.className=("col3");
+          button.id=jsonResp.data[i].id_pet
           var buttonel=document.createElement('button');
           buttonel.type="submit";
-          buttonel.id="seen";
+          buttonel.id="delete";
           buttonel.innerText="Delete post";
+          
           var status= document.createElement('div');
           status.className=('col3');
           var lostfound= document.createElement('button');
@@ -189,7 +191,52 @@
           }
          });
          });
+   var logg= document.getElementById('logout').addEventListener('click',function(){
+    var id=sessionStorage.getItem('accessToken');
+    var data={
+       "id_user":id
+    }
+    var obj= JSON.stringify(data);
+     fetch('/api/logout',{
+        method:"post",
+        headers: {
+           "Accept":"application/json"
+        },
+        body: obj
+     })
+        .then(resp=>resp.json())
+        .then(jsonResp=>{
+           sessionStorage.clear();
+           window.location.href="home.html";
+        })
+     
 
+
+   
+
+      
+   })
+   document.addEventListener('click',function(e){
+    if(e.target && e.target.id== 'delete'){
+      var id= e.target.parentNode.getAttribute('id');
+     var data={
+        "id_pet":id
+     }
+     var obj= JSON.stringify(data);
+     fetch('/api/delete_ann',{
+        method:"post",
+        headers:{
+           "Accept":"application/json"
+        },
+        body: obj
+     }).then(resp=>resp.json())
+     .then(respJson=>{
+        alert(respJson.data);
+        window.location.href="profile_page.html"
+     })
+     }
+ });
+     
     </script>
    </body>
 </html>
