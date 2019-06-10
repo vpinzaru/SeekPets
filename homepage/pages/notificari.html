@@ -49,8 +49,7 @@
             
                  <button class="tablinks " id="entries"> <a href="profile_page.html">My Reports</a></button>
                   <button class="tablinks active" id="notif"><a href="notificari.html">Notifications</a></button>
-                  <button class="tablinks" id="reportprob"><a href="reportprob.html">Report a Problem</a>
- </button><button class="tablinks">                 <a href="home.html">Log Out</a>
+                  <button class="tablinks" id="logout">                 <a>Log Out</a>
                   </button>
           </div>
             </div>
@@ -120,12 +119,8 @@
           map.className=("map");
           map.src=("https://www.openstreetmap.org/export/embed.html?bbox=27.56349563598633%2C47.15517092451596%2C27.599329948425297%2C47.16803910676896&amp%3Blayer=mapnik&amp%3Bmarker=47.16160540524534%2C27.58141279220581");
           map.frameBorder='0';
-          var button= document.createElement("div");
-          button.className=("col3");
-          var buttonel=document.createElement('button');
-          buttonel.type="submit";
-          buttonel.id="seen";
-          buttonel.innerText="Delete post";
+         
+          
           var status= document.createElement('div');
           status.className=('col3');
           var lostfound= document.createElement('button');
@@ -147,7 +142,7 @@
           var reward= document.createElement('p');
           reward.className=('bold');
           reward.innerText="Reward : "+jsonResp.data[i].reward;
-            button.appendChild(buttonel);
+ 
           col2.appendChild(ptitle);
           col2.appendChild(pname);
           col2.appendChild(pcollar);
@@ -160,7 +155,7 @@
           col2.appendChild(pcontact);
           col2.appendChild(map);
           col2.append(status);
-          col2.append(button);
+       
           card.appendChild(col2);
           corp.appendChild(card);
 
@@ -174,7 +169,26 @@
          });
 
 
-  
+         var logg= document.getElementById('logout').addEventListener('click',function(){
+    var id=sessionStorage.getItem('accessToken');
+    var data={
+       "id_user":id
+    }
+    var obj= JSON.stringify(data);
+     fetch('/api/logout',{
+        method:"post",
+        headers: {
+           "Accept":"application/json"
+        },
+        body: obj
+     })
+        .then(resp=>resp.json())
+        .then(jsonResp=>{
+           sessionStorage.clear();
+           window.location.href="home.html";
+        })
+         })
+     
 
     </script>
    </body>
