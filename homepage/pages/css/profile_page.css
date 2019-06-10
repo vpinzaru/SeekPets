@@ -397,11 +397,17 @@ nav ul li a i{
   margin-top:15px;
 }
 
-.map{
-    width:150px;
-    height:140px;
-  
-}
+
 .col2{
     justify-content: center;
+}
+iframe{
+    border:0;
+    overflow:unset;
+    margin-top:0;
+    margin-bottom:0;
+    margin-left:0;
+    margin-right:0;
+    width:150px;
+    height:150px;
 }

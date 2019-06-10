@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <link rel="stylesheet" href="./css/profile_page.css" type="text/css">
-      
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" >
      
       <link href="https://fonts.googleapis.com/css?family=Mystery+Quest|Fredericka+the+Great|Flavors&display=swap" rel="stylesheet">
@@ -116,10 +116,31 @@
           pcontact.className=('bold');
           pcontact.innerText= "Contact : " +jsonResp.data[i].contact;
           var map= document.createElement('iframe');
-          map.className=("map");
-          map.src=("https://www.openstreetmap.org/export/embed.html?bbox=27.56349563598633%2C47.15517092451596%2C27.599329948425297%2C47.16803910676896&amp%3Blayer=mapnik&amp%3Bmarker=47.16160540524534%2C27.58141279220581");
-          map.frameBorder='0';
+          map.width="225";
+          map.height="150";
+          var data={
+             "latitude": jsonResp.data[i].latitude,
+             "longitude":jsonResp.data[i].longitude
+          }
+          var lat=jsonResp.data[i].latitude;
+          var long=jsonResp.data[i].longitude;
+          var locate= JSON.stringify(data);
+          fetch("/api/get_bbox",{
+            method: 'post',
+            headers: {
+               "Accept":"application/json"
+            },
+            body: locate
+          }).then(resp=>resp.json())
+          .then(response=>{
+
+          
          
+          map.src=("https://www.openstreetmap.org/export/embed.html?bbox="+response.data.primul[0]+"%2C6.90329331805479%2C79.85746264457703%2C6.908917042549519&marker=6.906105188659279%2C79.85339641571045&layers=ND");
+          })
+         var a=document.createElement('a');
+         a.href=('https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738');
+        a.innerText="See map";
           
           var status= document.createElement('div');
           status.className=('col3');
@@ -155,7 +176,7 @@
           col2.appendChild(pcontact);
           col2.appendChild(map);
           col2.append(status);
-       
+          col2.append(a);
           card.appendChild(col2);
           corp.appendChild(card);
 
