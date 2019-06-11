@@ -41,9 +41,9 @@
       <div class="stats">
          <div class="text">
          <p id="animalef"></p>
-         <p id="animalep">Total number of lost animals:</p>
-         <p id="vuln">Most vulnerable zone :</p>
-         <p id="vulnf">Area where most pets were found:</p>
+         <p id="animalep"></p>
+         <p id="vuln"></p>
+         <p id="vulnf"></p>
          <p> Download: </p>
          </div>
       <div class="buttons">
@@ -68,7 +68,109 @@
         .then(jsonResp=>{
          var animalef=  document.getElementById('animalef');
          animalef.innerText="Total number of found animals: "+"  "+ jsonResp.data.nr_found;
+         var animalep=  document.getElementById('animalep');
+         animalep.innerText="Total number of lost animals: "+"  "+ jsonResp.data.nr_lost;
+         var vuln=  document.getElementById('vuln');
+         vuln.innerText="Most vulnerable area : "+"  "+ jsonResp.data.vuln_address;
+         var vulnf=  document.getElementById('vulnf');
+         vulnf.innerText="Area where most pets were found : "+"  "+ jsonResp.data.fp_address;
+        document.getElementById('csv').addEventListener('click',function(){
+           var animalf= jsonResp.data.nr_found;
+           var animall= jsonResp.data.nr_lost;
+           var animalfa= jsonResp.data.fp_address;
+           var animalva= jsonResp.data.vuln_address;
+         var file="csv";
+         data={
+            "nr_lost":animall,
+            "nr_found":animalf,
+            "fp_address":animalfa,
+            "vuln_address": animalva,
+            "file_type":file
+         }
+         var obj=JSON.stringify(data);
+         fetch("/api/download_statistics",{
+            method:"post",
+            body:obj
+         })
+         .then(response=>response.text())
+         .then(responsehtml=>{
+            console.log(responsehtml)
+           
+            var blob=new Blob([responsehtml]);
+    var link=document.createElement('a');
+    link.href=window.URL.createObjectURL(blob);
+    link.download="stats.csv";
+    link.click();
+        
+        
+          
         })
+      })
+      document.getElementById('pdf').addEventListener('click',function(){
+           var animalf= jsonResp.data.nr_found;
+           var animall= jsonResp.data.nr_lost;
+           var animalfa= jsonResp.data.fp_address;
+           var animalva= jsonResp.data.vuln_address;
+         var file="pdf";
+         data={
+            "nr_lost":animall,
+            "nr_found":animalf,
+            "fp_address":animalfa,
+            "vuln_address": animalva,
+            "file_type":file
+         }
+         var obj=JSON.stringify(data);
+         fetch("/api/download_statistics",{
+            method:"post",
+            body:obj
+         })
+         .then(response=>response.blob())
+         .then(responsehtml=>{
+            console.log(responsehtml)
+           
+            var blob=new Blob([responsehtml]);
+    var link=document.createElement('a');
+    link.href=window.URL.createObjectURL(blob);
+    link.download="stats.pdf";
+    link.click();
+        
+        
+          
+        })
+      })
+      document.getElementById('html').addEventListener('click',function(){
+           var animalf= jsonResp.data.nr_found;
+           var animall= jsonResp.data.nr_lost;
+           var animalfa= jsonResp.data.fp_address;
+           var animalva= jsonResp.data.vuln_address;
+         var file="html";
+         data={
+            "nr_lost":animall,
+            "nr_found":animalf,
+            "fp_address":animalfa,
+            "vuln_address": animalva,
+            "file_type":file
+         }
+         var obj=JSON.stringify(data);
+         fetch("/api/download_statistics",{
+            method:"post",
+            body:obj
+         })
+         .then(response=>response.text())
+         .then(responsehtml=>{
+            console.log(responsehtml)
+           
+            var blob=new Blob([responsehtml]);
+    var link=document.createElement('a');
+    link.href=window.URL.createObjectURL(blob);
+    link.download="stats.html";
+    link.click();
+        
+        
+          
+        })
+      })
+      })
       })
      </script>
 </body>

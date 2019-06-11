@@ -161,6 +161,9 @@
                   reward.className = ('bold');
                   reward.innerText = "Reward : " + jsonResp.data[i].reward;
                   button.appendChild(buttonel);
+                  if(jsonResp.data[i].collar==='null'){
+             pcollar.style.display='none';
+          }
                   col2.appendChild(ptitle);
                   col2.appendChild(pname);
                   col2.appendChild(pcollar);
