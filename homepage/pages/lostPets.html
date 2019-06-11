@@ -35,7 +35,7 @@
                     <li><a href="news.html" class="active"><i class="far fa-newspaper"></i>News</a></li>
                      <li><a href="profile_page.html" ><i class="fas fa-cogs"></i>Account</a></li>
 
-                    <li><a href="#" id="button"><i class="fas fa-user"></i>Log Out</a></li>
+                    <li><a href="#" id="logout"><i class="fas fa-user"></i>Log Out</a></li>
                 </ul>
             </nav>
         </section>
@@ -160,6 +160,7 @@
          var el=document.getElementById('id'+ii);
          console.log(el);
          var data={
+             
              "latitude": jsonResp.data[ii].latitude,
              "longitude":jsonResp.data[ii].longitude
           }
@@ -228,7 +229,8 @@
     var data = {
                "id_pet": id,
                "latitude":lat,
-               "longitude":long
+               "longitude":long,
+               "address":area
             }
             var obj = JSON.stringify(data);
             fetch('/api/update_location', {
@@ -242,7 +244,7 @@
                   
                   alert(respJson.data);
                
-                  window.location.href ="notificari.html";
+                  window.location.href ="lostPets.html";
                })
          })
       }});
