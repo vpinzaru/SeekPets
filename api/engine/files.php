@@ -32,14 +32,14 @@ function make_html_stats($lines)
     }
     $buffer = $buffer . "</body>
     </html>";
-    /*
+    
     header('Content-Description: File Transfer');
     header('Content-Type: application/octet-stream');
     header('Content-Disposition: attachment; filename="doc.html"');
     header('Expires: 0');
     header('Cache-Control: must-revalidate');
     header('Pragma: public');
-    header('Content-Length: ' . strlen($buffer));*/
+    header('Content-Length: ' . strlen($buffer));
     echo $buffer;
     exit();
 }
