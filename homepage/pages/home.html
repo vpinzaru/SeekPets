@@ -319,66 +319,8 @@ textarea.input2 + .focus-input2::after {
   position: relative;
 }
 
-.alert-validate::before {
-  content: attr(data-validate);
-  position: absolute;
-  max-width: 70%;
-  background-color: white;
-  border: 1px solid #c80000;
-  border-radius: 2px;
-  padding: 4px 25px 4px 10px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 0px;
-  pointer-events: none;
 
-  font-family: Poppins-Regular;
-  color: #c80000;
-  font-size: 13px;
-  line-height: 1.4;
-  text-align: left;
-
-  visibility: hidden;
-  opacity: 0;
-
-  -webkit-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  transition: opacity 0.4s;
-}
-
-.alert-validate::after {
-  content: "\f12a";
-  font-family: FontAwesome;
-  display: block;
-  position: absolute;
-  color: #c80000;
-  font-size: 16px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 8px;
-}
-
-.alert-validate:hover:before {
-  visibility: visible;
-  opacity: 1;
-}
-
-@media (max-width: 992px) {
-  .alert-validate::before {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-   </style>
+  </style>
 
 
 <body onload="persistence();">
@@ -669,27 +611,27 @@ textarea.input2 + .focus-input2::after {
          </div>
       </div>
 
-      <div class="container nr3">
+      <div class="container nr3" id="container3">
          <div class="info">
             <h1>LATEST REPORTS POSTED</h1></div>
-            <div class="LostAndFoundPets">
-               <div class="PetLost flip-card">
-                  <div class="flip-card-inner">
-                     <div class="flip-card-front">
+            <div class="LostAndFoundPets" id="lostfound">
+               <div class="PetLost flip-card" id="flipcard">
+                  <div class="flip-card-inner" id="flipcardinner">
+                     <div class="flip-card-front" id="flipcardfront">
                   <img class="petpic" src="images/pet-alarm.jpg" alt="pet1" >
                   <p class="lost">LOST
                         <p>
-  </div>            <div class="flip-card-back">
-   <h3 class="name">Bobica</h3>
-   <p class="rasa">Poodle</p>
-   <p>Collar: No</p>
-   <p>Details: Runs really fast,is happy to see people.</p>
-   <p>E-mail: sad_owner@goagal.com</p>
-   <p>Phone: 074-124-1223</p>
-   <p>Reward: Imi dau casa</p>
+  </div>            <div class="flip-card-back" id="flipcardback">
+   <h3 class="name" id="name">Bobica</h3>
+   <p class="rasa" id="race">Poodle</p>
+   <p id="collar">Collar: No</p>
+   <p id="description">Details: Runs really fast,is happy to see people.</p>
+   <p id="contact">E-mail: sad_owner@goagal.com</p>
+  
+   <p id="reward">Reward: Imi dau casa</p>
                   <iframe width="225" height="150"
                      src="https://www.openstreetmap.org/export/embed.html?bbox=26.800460815429688%2C46.75021206490799%2C27.947158813476566%2C47.16357498846737&amp;layer=mapnik&amp;marker=46.95729268344381%2C27.373809814453125"
-                     style="border: 1px solid black"></iframe><br /><small>
+                     style="border: 1px solid black"></iframe><br />
                   
                </div>
                </div>
@@ -819,7 +761,10 @@ textarea.input2 + .focus-input2::after {
 			</div>
 
 		</footer>
+<script>
 
+
+</script>
       
        <script>
       function persistence(){

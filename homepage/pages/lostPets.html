@@ -104,21 +104,31 @@
           var pcontact= document.createElement('p');
           pcollar.className=('bold');
           pcollar.innerText="Collar : "+jsonResp.data[i].collar;
+          if(jsonResp.data[i].collar==='null'){
+              pcollar.style.display="none";
+          }
           pdetails.className=("bold");
           pdetails.innerText="Description : "+jsonResp.data[i].description;
           pcontact.className=('bold');
           pcontact.innerText= "Contact : " +jsonResp.data[i].contact;
           var map= document.createElement('iframe');
           map.className=("map");
-          map.src=("https://www.openstreetmap.org/export/embed.html?bbox=27.56349563598633%2C47.15517092451596%2C27.599329948425297%2C47.16803910676896&amp%3Blayer=mapnik&amp%3Bmarker=47.16160540524534%2C27.58141279220581");
           map.frameBorder='0';
-          var button= document.createElement("div");
-          button.className=("col3");
-          var buttonel=document.createElement('button');
-          buttonel.type="submit";
-          buttonel.id="seen";
-          buttonel.innerText="Update position";
-          var status= document.createElement('div');
+          map.id="id"+i;
+          var button = document.createElement("div");
+                  button.className = ("col3");
+                  button.id = jsonResp.data[i].id_pet;
+         var  updatetext=document.createElement('input');
+       
+          updatetext.type='text';
+         updatetext.placeholder="Update location";
+         updatetext.id="area";
+          var  update=document.createElement('button');
+          update.type='text';
+         update.innerText="Update!";
+          update.id="blue";
+          button.appendChild(updatetext);
+         button.appendChild(update);
           
           
           var adresa= document.createElement('p');
@@ -127,7 +137,7 @@
           var reward= document.createElement('p');
           reward.className=('bold');
           reward.innerText="Reward : "+jsonResp.data[i].reward;
-            button.appendChild(buttonel);
+       
           col2.appendChild(ptitle);
           col2.appendChild(pname);
           col2.appendChild(pcollar);
@@ -143,8 +153,99 @@
           col2.append(button);
           card.appendChild(col2);
           corp.appendChild(card);
-    }});
+    }
+    for(var j=0;j<jsonResp.data.length;j++){
+        (function(closure){
+         let ii=j;
+         var el=document.getElementById('id'+ii);
+         console.log(el);
+         var data={
+             "latitude": jsonResp.data[ii].latitude,
+             "longitude":jsonResp.data[ii].longitude
+          }
+          var lat=jsonResp.data[ii].latitude;
+          var long=jsonResp.data[ii].longitude;
+        
+          var locate= JSON.stringify(data);
+          fetch("/api/get_bbox",{
+            method: 'post',
+            headers: {
+               "Accept":"application/json"
+            },
+            body: locate
+          }).then(resp=>resp.json())
+          .then(response=>{
+            
+          console.log(response);
+         
+         src=("https://www.openstreetmap.org/export/embed.html?bbox="+response.data.primul[0]+"%2C"+response.data.aldoilea[0]+"%2C"+response.data.altreilea[0]+"%2C"+response.data.alpatrulea[0]+"&marker="+lat+"%2C"+long+"&layers=ND");
+          setSRC(el,src);
+          })
+          function setSRC(el,src){
+             el.src=src;
+          }
+      })(j);
+         }
+    });
         });
+
+        var logg= document.getElementById('logout').addEventListener('click',function(){
+    var id=sessionStorage.getItem('accessToken');
+    var data={
+       "id_user":id
+    }
+    var obj= JSON.stringify(data);
+     fetch('/api/logout',{
+        method:"post",
+        headers: {
+           "Accept":"application/json"
+        },
+        body: obj
+     })
+        .then(resp=>resp.json())
+        .then(jsonResp=>{
+           sessionStorage.clear();
+           window.location.href="home.html";
+        })
+         })
+      
+         document.addEventListener('click', function (e) {
+         if (e.target && e.target.id == 'blue') {
+            var id = e.target.parentNode.getAttribute('id');
+            console.log(id);
+            var area=document.getElementById('area').value;
+            const url = "https://api.opencagedata.com/geocode/v1/json?q="+area+"&key=756a6e9ea1f44169814599241a777aac";
+
+         fetch( url)
+         .then((result) => result.json())
+
+          .then((jsonResp) => {
+
+ 
+      var address=jsonResp.results[0].formatted;
+      var lat=jsonResp.results[0].geometry.lat;
+     var long=jsonResp.results[0].geometry.lng;
+    var data = {
+               "id_pet": id,
+               "latitude":lat,
+               "longitude":long
+            }
+            var obj = JSON.stringify(data);
+            fetch('/api/update_location', {
+               method: "post",
+               headers: {
+                  "Accept": "application/json"
+               },
+               body: obj
+            }).then(resp => resp.json())
+               .then(respJson => {
+                  
+                  alert(respJson.data);
+               
+                  window.location.href ="notificari.html";
+               })
+         })
+      }});
     </script>
     </body>
     </html>

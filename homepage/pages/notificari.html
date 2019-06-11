@@ -130,7 +130,7 @@
           lostfound.type="submit";
           var button = document.createElement("div");
                   button.className = ("col3");
-                  button.id = "p"+jsonResp.data[i].id_pet;
+                  button.id = jsonResp.data[i].id_pet;
          var  updatetext=document.createElement('input');
        
           updatetext.type='text';
@@ -269,7 +269,7 @@
                .then(respJson => {
                   
                   alert(respJson.data);
-                  document.getElementById('address'+id).innerText=area;
+               
                   window.location.href ="notificari.html";
                })
          })
