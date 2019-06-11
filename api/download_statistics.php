@@ -17,7 +17,6 @@ if($data['method'] != 'POST')
 $down = get_payload($data['body'], $params);
 if($down == 'error')
 {
-    close_conn($conn);
     exit();
 }
 

@@ -59,6 +59,13 @@ foreach ($address_ap as $key => $value) {
 
 $statistics['nr_found'] = $found;
 $statistics['nr_lost'] = $lost;
-$statistics['vuln_address'] = $street;
+if($street != "")
+{
+    $statistics['vuln_address'] = $street;
+}
+else
+{
+    $statistics['vuln_address'] = "Nu exista o adresa vulnerabila";
+}
 
 show_result("ok", $statistics, 200);
