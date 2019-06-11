@@ -33,12 +33,14 @@ function make_html_stats($lines)
     $buffer = $buffer . "</body>
     </html>";
 
-    header('Content-Type: application/x-download');
-    header('Content-Disposition: attachment; filename=doc.html');
-    header('Cache-Control: private, max-age=0, must-revalidate');
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename="doc.html"');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
     header('Pragma: public');
+    header('Content-Length: ' . strlen($buffer));
     echo $buffer;
-    exit();
 }
 
 function make_csv_stats($lines)
