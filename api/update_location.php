@@ -23,7 +23,7 @@ if ($up == 'error') {
     exit();
 }
 
-$sql = "update pets set latitude = " . $up['latitude'] . ", longitude = " . $up['longitude'] . "and address = '".$up['address']."' where id_pet = " . $up['id_pet'];
+$sql = "update pets set latitude = " . $up['latitude'] . ", longitude = " . $up['longitude'] . ", address = '".$up['address']."' where id_pet = " . $up['id_pet'];
 
 if ($conn->query($sql)) {
     show_result("ok", "Location updated.", 200);
