@@ -25,6 +25,7 @@ $sql = "select * from pets";
 $result = $conn->query($sql);
 
 $address_ap = [];
+$address_found = [];
 
 while ($row = $result->fetch_assoc()) {
     $street = explode(",", $row['address'])[0];
@@ -34,6 +35,14 @@ while ($row = $result->fetch_assoc()) {
             $address_ap[$street] += 1;
         } else {
             $address_ap[$street] = 1;
+        }
+    }
+    else
+    {
+        if (isset($address_found[$street])) {
+            $address_found[$street] += 1;
+        } else {
+            $address_found[$street] = 1;
         }
     }
 
@@ -57,8 +66,35 @@ foreach ($address_ap as $key => $value) {
     }
 }
 
+$street_found = "";
+$max = 0;
+
+foreach ($address_found as $key => $value) {
+    if ($value > $max) {
+        $max = $value;
+        $street_found = $key;
+    }
+}
+
 $statistics['nr_found'] = $found;
 $statistics['nr_lost'] = $lost;
-$statistics['vuln_address'] = $street;
+if($street != "")
+{
+    $statistics['vuln_address'] = $street;
+}
+else
+{
+    $statistics['vuln_address'] = "Nu exista o adresa vulnerabila";
+}
+
+if($street_found != "")
+{
+    $statistics['fp_address'] = $street_found;
+}
+else
+{
+    $statistics['fp_address'] = "Nu exista o adresa la care s-au gasit animale";
+}
+
 
 show_result("ok", $statistics, 200);

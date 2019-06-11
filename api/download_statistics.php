@@ -6,7 +6,7 @@ header('Content-Type: application/json');
 
 $data = get_data();
 
-$params = array('nr_lost','nr_found','vuln_address','file_type');
+$params = array('nr_lost','nr_found','vuln_address','file_type', 'fp_address');
 
 if($data['method'] != 'POST')
 {
@@ -17,15 +17,15 @@ if($data['method'] != 'POST')
 $down = get_payload($data['body'], $params);
 if($down == 'error')
 {
-    close_conn($conn);
     exit();
 }
 
 $lost = "Numar animale pierdute: ".$down['nr_lost'];
 $found = "Numar animale gasite: ".$down['nr_found'];
-$address = "Locatia cea mai vulnerabila: ".$down['vuln_address'];
+$address = "Zona unde au fost pierdute cele mai multe animale: ".$down['vuln_address'];
+$address_fp = "Zona unde au fost gasite cele mai multe animale: ".$down['fp_address'];
 
-$stats = array($lost,$found,$address);
+$stats = array($lost,$found,$address,$address_fp);
 
 switch($down['file_type'])
 {

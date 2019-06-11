@@ -8,7 +8,7 @@ header('Content-Type: application/json');
 
 $data = get_data();
 
-$params = array('id_pet', 'latitude', 'longitude');
+$params = array('id_pet', 'latitude', 'longitude','address');
 
 if ($data['method'] != 'POST') {
     show_result("error", 'Wrong request method.', 400);
@@ -23,7 +23,7 @@ if ($up == 'error') {
     exit();
 }
 
-$sql = "update pets set latitude = " . $up['latitude'] . ", longitude = " . $up['longitude'] . " where id_pet = " . $up['id_pet'];
+$sql = "update pets set latitude = " . $up['latitude'] . ", longitude = " . $up['longitude'] . "and address = '".$up['address']."' where id_pet = " . $up['id_pet'];
 
 if ($conn->query($sql)) {
     show_result("ok", "Location updated.", 200);
