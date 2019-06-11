@@ -27,9 +27,4 @@ $response['aldoilea'] = $box['minlat'];
 $response['altreilea'] = $box['maxlon'];
 $response['alpatrulea'] = $box['maxlat'];
 
-show_result("ok",$response,200);
-
-
-
-
-?>
+show_result("ok", $response, 200);

@@ -36,9 +36,7 @@ while ($row = $result->fetch_assoc()) {
         } else {
             $address_ap[$street] = 1;
         }
-    }
-    else
-    {
+    } else {
         if (isset($address_found[$street])) {
             $address_found[$street] += 1;
         } else {
@@ -78,21 +76,15 @@ foreach ($address_found as $key => $value) {
 
 $statistics['nr_found'] = $found;
 $statistics['nr_lost'] = $lost;
-if($street != "")
-{
+if ($street != "") {
     $statistics['vuln_address'] = $street;
-}
-else
-{
+} else {
     $statistics['vuln_address'] = "Nu exista o adresa vulnerabila";
 }
 
-if($street_found != "")
-{
+if ($street_found != "") {
     $statistics['fp_address'] = $street_found;
-}
-else
-{
+} else {
     $statistics['fp_address'] = "Nu exista o adresa la care s-au gasit animale";
 }
 
