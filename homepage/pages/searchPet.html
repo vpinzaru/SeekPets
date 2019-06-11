@@ -130,9 +130,7 @@ document.getElementById('read').addEventListener('click',function(){
       if(jsonResp.data==='No notifications available.'){
       alert("No results found");
       corp.style.display="none";
-    
-    
-   }
+     }
    else{
       for(var i=0;i<jsonResp.data.length;i++){
       
@@ -212,7 +210,7 @@ document.getElementById('read').addEventListener('click',function(){
           card.appendChild(col2);
           corp.appendChild(card);
 
-       
+       corp.style.display="flex"
        }}
       
         

@@ -9,7 +9,8 @@
 body{
     margin:0px; 
     padding:0px;
-  
+    height:100%;
+   
     }
 
 #navbar{
@@ -25,21 +26,24 @@ body{
 header{
     width:100%;
     display:table;
-    background-image:linear-gradient(rgb(0, 0, 0),rgba(163, 17, 54, 0.842));
-    margin-bottom:20px;
+    background:#C4DBF6;
+    
+
     }
 
 #logo img{
     float:left; 
     height:100px;
-    width:auto;
-    padding:20px 0px;
+    width:200px;
+    
 }
 
 nav{
     width:auto;
     float:right;
-    margin-top:50px;
+    margin-top:35px;
+    font-family: 'Mystery Quest',cursive;
+    font-weight:bold;
 }
 nav ul{
     display:table;
@@ -52,8 +56,7 @@ nav ul li:last-child{
     padding-right:0px;
 }
 nav ul li a{
-    color:#eec1f0;
-    border-radius:24px;
+    color:#720a35;
     font-size:18px;
     padding: 10px 10px;
     display:inline-block; 
@@ -61,27 +64,27 @@ nav ul li a{
 }
 nav ul li a:hover{
     background-color:transparent;
-     color:#f076ea; 
+     color:#df6071;
      transition: all 0.5s ease 0s;
     }
 nav ul li a:hover i{
-    color:#28fdb6; 
+    color:#720a35;
     transition: all 0.5s ease 0s;
 }
 nav ul li a i{
     padding-right:10px; 
-    color:#85b3e2; 
+    color:#720a35;
     transition: all 0.5s ease 0s;
 }
 
 .toggle-menu{
      
     height:10px; 
-    color:white;
+    color:rgb(20, 2, 2);
     margin-bottom:4px;
     font-size:20px;
     margin-bottom:0px;
-   
+   float:right;
     top:5%;
   
 }
@@ -91,43 +94,22 @@ nav ul li a i{
 }
 .active
 {
-    border-radius:24px;
-    border:2px solid #1abec3;
-}
-
-
-
-footer{
     
-    display:table; 
-    padding-bottom:30px; 
-    width:100%; 
-    background-color: rgb(53, 189, 189);}
-.social{
-    
-    margin:0px auto; 
-    display:table;
-
-}
-.social li{
-    
-    float:left; 
-    padding:0px 10px;
-
-}
-.social li a{
-
-    color:#0a0214; 
-    transition: all 0.5s ease 0s;
-
-}
-.social li a:hover{
-    
-    color:rgb(107, 219, 172); 
-    transition: all 0.5s ease 0s;
-
+    border-top:2px solid #B23850;
 }
 
+
+
+
+
+
+
+
+#title{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:40px;
+
+}
 @media only screen and (max-width: 1440px) {
 #navbar{
     
@@ -152,16 +134,17 @@ header{
     position: absolute; 
     top: -9999px; 
     left: -9999px; 
-    background:none;
+    background:rgb(25, 31, 32);
+    float: right;
 
 }
 #toggle-1:focus{
     
-    background:none;
+    background:whitesmoke;
 }
 .toggle-menu {
     
-    float:right; 
+  
     padding:8px 0px; 
     display:inline-block; 
     cursor:pointer;
@@ -175,9 +158,9 @@ nav{
     position:absolute; 
     right:0px; 
     top:53px; 
-    background-color:transparent; 
+    background-color:#C4DBF6;
     padding:0px; 
-    z-index:99;}
+    z-index:2;}
 nav ul{
     width:auto;
 }
@@ -188,17 +171,17 @@ nav ul li{
     display:table;
 }
 nav ul li a{
-    color:rgb(10, 10, 10); 
+    color:#720a35;
     font-size:15px; 
     padding:10px 20px; 
     display:block; 
     border-bottom: 1px solid rgba(225,225,225,0.1); 
-    font-family:fantasy;
+   
 
 }
 nav ul li a i{
     
-    color:#4fd8eb; 
+    color:#720a35;
     padding-right:13px;
 
 }
@@ -230,26 +213,85 @@ nav{
 }
 }
 
-.main-content{
-	margin-left:25px;
-	tex-align:center;
-	padding: 12px;
+.wrapper{
+    width: 70%;
+    height: auto;
+   margin-left:15%;
+   margin-right:50%;
+    background-color: white;
+    display:flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
 }
-.main-content .stats{
-	display:flex;
-	flex-wrap:wrap;
-	flex-direction:row;
-	margin:20px 20px 20px 20px;
-	text-align:center;
-	
-}
-.main-content .stats h1{
-	font-family:cursive;
-	color: violet;
-	font-weight:bold;
-	font-size: 24px;
-}
-.main-content .stats button{
-	display:flex;
-	flex-direction:column;
-justify-content:space-between;}
+.sidebar button {
+    display: block;
+    background-color:whitesmoke;
+    color: #720a35;
+    font-family: 'Amaranth',cursive;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+   
+  }
+  
+  /* Change background color of buttons on hover */
+  .sidebar button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current "tab button" class */
+  .sidebar button.tablinks.active {
+    background-color: #C4DBF6;
+  }
+  .container{
+    margin:2%;
+    width:30%;
+    height:auto;
+    display:flex;
+    background-color: white;
+    flex-direction: column;
+    
+    }
+    .stats{
+        width:70%;
+        display:flex;
+        flex-direction: column;
+        font-size: 34px;
+        color:#720a35;
+        font-family: 'Mystery Quest', cursive;
+        font-weight: bold;
+        margin-top:40px;
+       margin-left:40px;
+
+    }
+    .buttons{
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        width:100%;
+    }
+    .text p{
+        margin-top:15px;
+    }
+   .buttons button{ border:0;
+    width:100px;
+    background: #C4DBF6;
+    display: block;
+   margin: 10px ;
+    height:40px;
+   
+    border: 2px solid #720a35;
+ 
+    outline: none;
+    color: black;
+    font-weight: bold;
+    border-radius:10px;
+    transition: 0.25s;
+    cursor: pointer;
+   }

@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <link rel="stylesheet" href="./css/profile_page.css" type="text/css">
-      
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" >
      
       <link href="https://fonts.googleapis.com/css?family=Mystery+Quest|Fredericka+the+Great|Flavors&display=swap" rel="stylesheet">
@@ -76,8 +76,8 @@
        var data={
           "id_user":id
        }
-       var obj= JSON.stringify(data)
-;       fetch("/api/get_ann",{
+       var obj= JSON.stringify(data);
+       fetch("/api/get_ann",{
           method:"POST",
           headers: {
              'Accept': "application/json"
@@ -111,22 +111,37 @@
           var pcontact= document.createElement('p');
           pcollar.className=('bold');
           pcollar.innerText="Collar : "+jsonResp.data[i].collar;
+          if(jsonResp.data[i].collar==='null'){
+             pcollar.style.display='none';
+          }
           pdetails.className=("bold");
           pdetails.innerText="Description : "+jsonResp.data[i].description;
           pcontact.className=('bold');
           pcontact.innerText= "Contact : " +jsonResp.data[i].contact;
           var map= document.createElement('iframe');
-          map.className=("map");
-          map.src=("https://www.openstreetmap.org/export/embed.html?bbox=27.56349563598633%2C47.15517092451596%2C27.599329948425297%2C47.16803910676896&amp%3Blayer=mapnik&amp%3Bmarker=47.16160540524534%2C27.58141279220581");
-          map.frameBorder='0';
-         
+          map.width="225";
+          map.height="150";
+         map.id="id"+i;
+        
           
           var status= document.createElement('div');
           status.className=('col3');
           var lostfound= document.createElement('button');
           lostfound.type="submit";
-         
-          
+          var button = document.createElement("div");
+                  button.className = ("col3");
+                  button.id = jsonResp.data[i].id_pet;
+         var  updatetext=document.createElement('input');
+       
+          updatetext.type='text';
+         updatetext.placeholder="Update location";
+         updatetext.id="area";
+          var  update=document.createElement('button');
+          update.type='text';
+         update.innerText="Update!";
+          update.id="blue";
+          button.appendChild(updatetext);
+         button.appendChild(update);
           if(jsonResp.data[i].status==='1'){
              lostfound.id="green"
              lostfound.innerText="Found";
@@ -138,6 +153,7 @@
           status.append(lostfound);
           var adresa= document.createElement('p');
           adresa.className=('bold');
+          adresa.id="address"+jsonResp.data[i].id_pet;
           adresa.innerText="Address : "+jsonResp.data[i].address;
           var reward= document.createElement('p');
           reward.className=('bold');
@@ -155,7 +171,8 @@
           col2.appendChild(pcontact);
           col2.appendChild(map);
           col2.append(status);
-       
+          col2.appendChild(button);
+         
           card.appendChild(col2);
           corp.appendChild(card);
 
@@ -164,7 +181,38 @@
        if(jsonResp.data==='No notifications available.'){
              corp.style.display="none";
           }
-   
+          for(var j=0;j<jsonResp.data.length;j++){
+        (function(closure){
+         let ii=j;
+         var el=document.getElementById('id'+ii);
+         console.log(el);
+         var data={
+             "latitude": jsonResp.data[ii].latitude,
+             "longitude":jsonResp.data[ii].longitude
+          }
+          var lat=jsonResp.data[ii].latitude;
+          var long=jsonResp.data[ii].longitude;
+        
+          var locate= JSON.stringify(data);
+          fetch("/api/get_bbox",{
+            method: 'post',
+            headers: {
+               "Accept":"application/json"
+            },
+            body: locate
+          }).then(resp=>resp.json())
+          .then(response=>{
+            
+          console.log(response);
+         
+         src=("https://www.openstreetmap.org/export/embed.html?bbox="+response.data.primul[0]+"%2C"+response.data.aldoilea[0]+"%2C"+response.data.altreilea[0]+"%2C"+response.data.alpatrulea[0]+"&marker="+lat+"%2C"+long+"&layers=ND");
+          setSRC(el,src);
+          })
+          function setSRC(el,src){
+             el.src=src;
+          }
+      })(j);
+         }
          });
          });
 
@@ -188,8 +236,45 @@
            window.location.href="home.html";
         })
          })
-     
+      
+         document.addEventListener('click', function (e) {
+         if (e.target && e.target.id == 'blue') {
+            var id = e.target.parentNode.getAttribute('id');
+            console.log(id);
+            var area=document.getElementById('area').value;
+            const url = "https://api.opencagedata.com/geocode/v1/json?q="+area+"&key=756a6e9ea1f44169814599241a777aac";
 
-    </script>
-   </body>
+         fetch( url)
+         .then((result) => result.json())
+
+          .then((jsonResp) => {
+
+ 
+      var address=jsonResp.results[0].formatted;
+      var lat=jsonResp.results[0].geometry.lat;
+     var long=jsonResp.results[0].geometry.lng;
+    var data = {
+               "id_pet": id,
+               "latitude":lat,
+               "longitude":long
+            }
+            var obj = JSON.stringify(data);
+            fetch('/api/update_location', {
+               method: "post",
+               headers: {
+                  "Accept": "application/json"
+               },
+               body: obj
+            }).then(resp => resp.json())
+               .then(respJson => {
+                  
+                  alert(respJson.data);
+               
+                  window.location.href ="notificari.html";
+               })
+         })
+      }});
+
+ </script>
+</body>
 </html>
