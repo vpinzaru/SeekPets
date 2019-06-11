@@ -369,6 +369,24 @@ nav ul li a i{
 	text-decoration:none;
 	
 }
+#blue{
+    width:160px;
+    margin:auto;
+     height:35px;
+    
+	background-color: rgb(31, 150, 150);
+    text-align: center;
+	border-radius:8px;
+
+	cursor:pointer;
+	color:white;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	
+	text-decoration:none;
+	
+}
 #delete{
     width:160px;
     margin:auto;

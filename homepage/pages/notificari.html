@@ -76,8 +76,8 @@
        var data={
           "id_user":id
        }
-       var obj= JSON.stringify(data)
-;       fetch("/api/get_ann",{
+       var obj= JSON.stringify(data);
+       fetch("/api/get_ann",{
           method:"POST",
           headers: {
              'Accept': "application/json"
@@ -111,6 +111,9 @@
           var pcontact= document.createElement('p');
           pcollar.className=('bold');
           pcollar.innerText="Collar : "+jsonResp.data[i].collar;
+          if(jsonResp.data[i].collar==='null'){
+             pcollar.style.display='none';
+          }
           pdetails.className=("bold");
           pdetails.innerText="Description : "+jsonResp.data[i].description;
           pcontact.className=('bold');
@@ -118,36 +121,27 @@
           var map= document.createElement('iframe');
           map.width="225";
           map.height="150";
-          var data={
-             "latitude": jsonResp.data[i].latitude,
-             "longitude":jsonResp.data[i].longitude
-          }
-          var lat=jsonResp.data[i].latitude;
-          var long=jsonResp.data[i].longitude;
-          var locate= JSON.stringify(data);
-          fetch("/api/get_bbox",{
-            method: 'post',
-            headers: {
-               "Accept":"application/json"
-            },
-            body: locate
-          }).then(resp=>resp.json())
-          .then(response=>{
-
-          
-         
-          map.src=("https://www.openstreetmap.org/export/embed.html?bbox="+response.data.primul[0]+"%2C6.90329331805479%2C79.85746264457703%2C6.908917042549519&marker=6.906105188659279%2C79.85339641571045&layers=ND");
-          })
-         var a=document.createElement('a');
-         a.href=('https://www.openstreetmap.org/?mlat=46.9573&amp;mlon=27.3738#map=11/46.9573/27.3738');
-        a.innerText="See map";
+         map.id="id"+i;
+        
           
           var status= document.createElement('div');
           status.className=('col3');
           var lostfound= document.createElement('button');
           lostfound.type="submit";
-         
-          
+          var button = document.createElement("div");
+                  button.className = ("col3");
+                  button.id = "p"+jsonResp.data[i].id_pet;
+         var  updatetext=document.createElement('input');
+       
+          updatetext.type='text';
+         updatetext.placeholder="Update location";
+         updatetext.id="area";
+          var  update=document.createElement('button');
+          update.type='text';
+         update.innerText="Update!";
+          update.id="blue";
+          button.appendChild(updatetext);
+         button.appendChild(update);
           if(jsonResp.data[i].status==='1'){
              lostfound.id="green"
              lostfound.innerText="Found";
@@ -159,6 +153,7 @@
           status.append(lostfound);
           var adresa= document.createElement('p');
           adresa.className=('bold');
+          adresa.id="address"+jsonResp.data[i].id_pet;
           adresa.innerText="Address : "+jsonResp.data[i].address;
           var reward= document.createElement('p');
           reward.className=('bold');
@@ -176,7 +171,8 @@
           col2.appendChild(pcontact);
           col2.appendChild(map);
           col2.append(status);
-          col2.append(a);
+          col2.appendChild(button);
+         
           card.appendChild(col2);
           corp.appendChild(card);
 
@@ -185,7 +181,38 @@
        if(jsonResp.data==='No notifications available.'){
              corp.style.display="none";
           }
-   
+          for(var j=0;j<jsonResp.data.length;j++){
+        (function(closure){
+         let ii=j;
+         var el=document.getElementById('id'+ii);
+         console.log(el);
+         var data={
+             "latitude": jsonResp.data[ii].latitude,
+             "longitude":jsonResp.data[ii].longitude
+          }
+          var lat=jsonResp.data[ii].latitude;
+          var long=jsonResp.data[ii].longitude;
+        
+          var locate= JSON.stringify(data);
+          fetch("/api/get_bbox",{
+            method: 'post',
+            headers: {
+               "Accept":"application/json"
+            },
+            body: locate
+          }).then(resp=>resp.json())
+          .then(response=>{
+            
+          console.log(response);
+         
+         src=("https://www.openstreetmap.org/export/embed.html?bbox="+response.data.primul[0]+"%2C"+response.data.aldoilea[0]+"%2C"+response.data.altreilea[0]+"%2C"+response.data.alpatrulea[0]+"&marker="+lat+"%2C"+long+"&layers=ND");
+          setSRC(el,src);
+          })
+          function setSRC(el,src){
+             el.src=src;
+          }
+      })(j);
+         }
          });
          });
 
@@ -209,8 +236,45 @@
            window.location.href="home.html";
         })
          })
-     
+      
+         document.addEventListener('click', function (e) {
+         if (e.target && e.target.id == 'blue') {
+            var id = e.target.parentNode.getAttribute('id');
+            console.log(id);
+            var area=document.getElementById('area').value;
+            const url = "https://api.opencagedata.com/geocode/v1/json?q="+area+"&key=756a6e9ea1f44169814599241a777aac";
 
-    </script>
-   </body>
+         fetch( url)
+         .then((result) => result.json())
+
+          .then((jsonResp) => {
+
+ 
+      var address=jsonResp.results[0].formatted;
+      var lat=jsonResp.results[0].geometry.lat;
+     var long=jsonResp.results[0].geometry.lng;
+    var data = {
+               "id_pet": id,
+               "latitude":lat,
+               "longitude":long
+            }
+            var obj = JSON.stringify(data);
+            fetch('/api/update_location', {
+               method: "post",
+               headers: {
+                  "Accept": "application/json"
+               },
+               body: obj
+            }).then(resp => resp.json())
+               .then(respJson => {
+                  
+                  alert(respJson.data);
+                  document.getElementById('address'+id).innerText=area;
+                  window.location.href ="notificari.html";
+               })
+         })
+      }});
+
+ </script>
+</body>
 </html>
