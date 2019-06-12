@@ -112,7 +112,9 @@
           pdetails.innerText="Description : "+jsonResp.data[i].description;
           pcontact.className=('bold');
           pcontact.innerText= "Contact : " +jsonResp.data[i].contact;
-        
+        if(jsonResp.data[i].collar==="null"){
+            pcollar.style.display="none";
+        }
           var map= document.createElement('iframe');
           map.className=("map");
           map.frameBorder='0';
