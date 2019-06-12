@@ -35,7 +35,7 @@
                     <li><a href="news.html" class="active"><i class="far fa-newspaper"></i>News</a></li>
                      <li><a href="profile_page.html" ><i class="fas fa-cogs"></i>Account</a></li>
 
-                    <li><a href="#" id="button"><i class="fas fa-user"></i>Log Out</a></li>
+                    <li><a href="#" id="logout"><i class="fas fa-user"></i>Log Out</a></li>
                 </ul>
             </nav>
         </section>
@@ -49,22 +49,22 @@
 </div>
 <!--START WRAPPER ARTICOLE LOST PETS-->
 <div class="wrapperLost">
-    
+       <div class="card2" id="sidenav">
+        <div class="container sidebar">
+                <button class="tablinks"><a   href="news.html" style="color:#730a35">Articles</a></button>
+                <button class="tablinks active"><a href="lostPets.html" style="color:#730a35">Lost Pets</a></button>
+                <button class="tablinks" ><a href="foundPets.html" style="color:#730a35">Found Pets</a></button>
+                <button class="tablinks" ><a href="searchPet.html" style="color:#730a35">Search Pet</a></button>
+                <button class="tablinks" ><a href="statistici.html" style="color:#730a35">Statistics</a></button>
+            </div>
+</div>
+
         <div class="row" id="cards">
             <div class="card2" id="ann">
            
         </div>
     </div>
-      <div class="card2" id="sidenav">
-                <div class="container sidebar">
-                        <button class="tablinks"><a   href="news.html" style="color:#730a35">Articles</a></button>
-                        <button class="tablinks active"><a href="lostPets.html" style="color:#730a35">Lost Pets</a></button>
-                        <button class="tablinks" ><a href="foundPets.html" style="color:#730a35">Found Pets</a></button>
-                        <button class="tablinks" >Search Pet</button>
-                        <button class="tablinks" >Statistics</button>
-                    </div>
-        </div>
-    
+      
 </div>
     <script>
         var corp=document.getElementById('ann');
@@ -122,7 +122,7 @@
        
           updatetext.type='text';
          updatetext.placeholder="Update location";
-         updatetext.id="area";
+         updatetext.id="area"+jsonResp.data[i].id_pet;
           var  update=document.createElement('button');
           update.type='text';
          update.innerText="Update!";
@@ -160,6 +160,7 @@
          var el=document.getElementById('id'+ii);
          console.log(el);
          var data={
+             
              "latitude": jsonResp.data[ii].latitude,
              "longitude":jsonResp.data[ii].longitude
           }
@@ -213,7 +214,8 @@
          if (e.target && e.target.id == 'blue') {
             var id = e.target.parentNode.getAttribute('id');
             console.log(id);
-            var area=document.getElementById('area').value;
+            var area=document.getElementById('area'+id).value;
+            console.log(area);
             const url = "https://api.opencagedata.com/geocode/v1/json?q="+area+"&key=756a6e9ea1f44169814599241a777aac";
 
          fetch( url)
@@ -228,7 +230,8 @@
     var data = {
                "id_pet": id,
                "latitude":lat,
-               "longitude":long
+               "longitude":long,
+               "address":area
             }
             var obj = JSON.stringify(data);
             fetch('/api/update_location', {
@@ -242,7 +245,7 @@
                   
                   alert(respJson.data);
                
-                  window.location.href ="notificari.html";
+                  window.location.href ="lostPets.html";
                })
          })
       }});

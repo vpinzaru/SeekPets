@@ -13,7 +13,7 @@
      <link 
      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
      rel="stylesheet"  type='text/css'>
-      <title>Pawtaie | Home</title>
+      <title>Pawtaie | Statistics</title>
    </head>
    <body>
          <header>
@@ -28,22 +28,29 @@
                    <input type="checkbox" id="toggle-1">
                    <nav>
                        <ul>
-                           <li><a href="../homepage/home.html"><i class="fas fa-home"></i>Home</a></li>
-                           <li><a href="#howitworks"><i class="fas fa-search"></i>Report a pet</a></li>
-                           <li><a href="#news" class="active"><i class="far fa-newspaper"></i>News</a></li>
+                           <li><a href="home.html"><i class="fas fa-home"></i>Home</a></li>
+                           <li><a href="report.html"><i class="fas fa-search"></i>Report a pet</a></li>
+                           <li><a href="news.html" class="active"><i class="far fa-newspaper"></i>News</a></li>
                            <li><a href="profile_page.html"><i class="fa fa-cogs"></i>Account</a></li>
-                           <li><a href="#" id="button"><i class="fas fa-user"></i>Log Out</a></li>
+                           <li><a href="#" id="logout"><i class="fas fa-user"></i>Log Out</a></li>
                        </ul>
                    </nav>
                </section>
            </header>
 	  <div class="wrapper">
+         <div class="container sidebar">
+               <button class="tablinks" >Articles</button>
+               <button class="tablinks" ><a href="lostPets.html" style="color:#730a35">Lost Pets</a></button>
+               <button class="tablinks" ><a href="foundPets.html" style="color: #730a35">Found Pets</a></button>
+               <button class="tablinks" ><a href="searchPet.html" style="color:#730a35">Search Pet</a></button>
+               <button class="tablinks active" ><a href="statistici.html" style="color:#730a35">Statistics</a></button>
+           </div>
       <div class="stats">
          <div class="text">
          <p id="animalef"></p>
-         <p id="animalep">Total number of lost animals:</p>
-         <p id="vuln">Most vulnerable zone :</p>
-         <p id="vulnf">Area where most pets were found:</p>
+         <p id="animalep"></p>
+         <p id="vuln"></p>
+         <p id="vulnf"></p>
          <p> Download: </p>
          </div>
       <div class="buttons">
@@ -53,13 +60,7 @@
             <button id="pdf" >PDF</button>
       </div>
       </div>
-      <div class="container sidebar">
-         <button class="tablinks" >Articles</button>
-         <button class="tablinks" ><a href="lostPets.html" style="color:#730a35">Lost Pets</a></button>
-         <button class="tablinks" ><a href="foundPets.html" style="color: #730a35">Found Pets</a></button>
-         <button class="tablinks" ><a href="searchPet.html" style="color:#730a35">Search Pet</a></button>
-         <button class="tablinks active" ><a href="statistici.html" style="color:#730a35">Statistics</a></button>
-     </div>
+      
      </div>
      <script>
         document.addEventListener('DOMContentLoaded',function(){
@@ -68,7 +69,109 @@
         .then(jsonResp=>{
          var animalef=  document.getElementById('animalef');
          animalef.innerText="Total number of found animals: "+"  "+ jsonResp.data.nr_found;
+         var animalep=  document.getElementById('animalep');
+         animalep.innerText="Total number of lost animals: "+"  "+ jsonResp.data.nr_lost;
+         var vuln=  document.getElementById('vuln');
+         vuln.innerText="Most vulnerable area : "+"  "+ jsonResp.data.vuln_address;
+         var vulnf=  document.getElementById('vulnf');
+         vulnf.innerText="Area where most pets were found : "+"  "+ jsonResp.data.fp_address;
+        document.getElementById('csv').addEventListener('click',function(){
+           var animalf= jsonResp.data.nr_found;
+           var animall= jsonResp.data.nr_lost;
+           var animalfa= jsonResp.data.fp_address;
+           var animalva= jsonResp.data.vuln_address;
+         var file="csv";
+         data={
+            "nr_lost":animall,
+            "nr_found":animalf,
+            "fp_address":animalfa,
+            "vuln_address": animalva,
+            "file_type":file
+         }
+         var obj=JSON.stringify(data);
+         fetch("/api/download_statistics",{
+            method:"post",
+            body:obj
+         })
+         .then(response=>response.text())
+         .then(responsehtml=>{
+            console.log(responsehtml)
+           
+            var blob=new Blob([responsehtml]);
+    var link=document.createElement('a');
+    link.href=window.URL.createObjectURL(blob);
+    link.download="stats.csv";
+    link.click();
+        
+        
+          
         })
+      })
+      document.getElementById('pdf').addEventListener('click',function(){
+           var animalf= jsonResp.data.nr_found;
+           var animall= jsonResp.data.nr_lost;
+           var animalfa= jsonResp.data.fp_address;
+           var animalva= jsonResp.data.vuln_address;
+         var file="pdf";
+         data={
+            "nr_lost":animall,
+            "nr_found":animalf,
+            "fp_address":animalfa,
+            "vuln_address": animalva,
+            "file_type":file
+         }
+         var obj=JSON.stringify(data);
+         fetch("/api/download_statistics",{
+            method:"post",
+            body:obj
+         })
+         .then(response=>response.blob())
+         .then(responsehtml=>{
+            console.log(responsehtml)
+           
+            var blob=new Blob([responsehtml]);
+    var link=document.createElement('a');
+    link.href=window.URL.createObjectURL(blob);
+    link.download="stats.pdf";
+    link.click();
+        
+        
+          
+        })
+      })
+      document.getElementById('html').addEventListener('click',function(){
+           var animalf= jsonResp.data.nr_found;
+           var animall= jsonResp.data.nr_lost;
+           var animalfa= jsonResp.data.fp_address;
+           var animalva= jsonResp.data.vuln_address;
+         var file="html";
+         data={
+            "nr_lost":animall,
+            "nr_found":animalf,
+            "fp_address":animalfa,
+            "vuln_address": animalva,
+            "file_type":file
+         }
+         var obj=JSON.stringify(data);
+         fetch("/api/download_statistics",{
+            method:"post",
+            body:obj
+         })
+         .then(response=>response.text())
+         .then(responsehtml=>{
+            console.log(responsehtml)
+           
+            var blob=new Blob([responsehtml]);
+    var link=document.createElement('a');
+    link.href=window.URL.createObjectURL(blob);
+    link.download="stats.html";
+    link.click();
+        
+        
+          
+        })
+      })
+      })
       })
      </script>
 </body>

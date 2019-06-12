@@ -388,3 +388,17 @@ flex-direction: column;
   height: 230px;
 
 }
+@media only screen and (max-width:700px){
+    .wrapper{
+        flex-direction: column;
+        width:90%;
+
+    }
+    .sidebar{
+        width:90%;
+    }
+    .article{
+width:90%;
+
+    }
+    }

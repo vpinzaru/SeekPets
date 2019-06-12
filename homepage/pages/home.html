@@ -17,21 +17,15 @@
 </head>
    <style>
    
-
-
-
-
 /*---------------------------------------------*/
 input {
 	outline: none;
 	border: none;
 }
-
 textarea {
   outline: none;
   border: none;
 }
-
 /*textarea:focus, input:focus {
   border-color: transparent ;
 }
@@ -40,40 +34,28 @@ input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; }
 input:focus::-moz-placeholder { color:transparent; }
 input:focus:-ms-input-placeholder { color:transparent; }
-
 textarea:focus::-webkit-input-placeholder { color:transparent; }
 textarea:focus:-moz-placeholder { color:transparent; }
 textarea:focus::-moz-placeholder { color:transparent; }
 textarea:focus:-ms-input-placeholder { color:transparent; }
-
 input::-webkit-input-placeholder { color: #999999; }
 input:-moz-placeholder { color: #999999; }
 input::-moz-placeholder { color: #999999; }
 input:-ms-input-placeholder { color: #999999; }
-
 textarea::-webkit-input-placeholder { color: #999999 }
 textarea:-moz-placeholder { color: transparent }
-
-
 /*---------------------------------------------*/
 button {
 	outline: none !important;
 	border: none;
 	background: transparent;
 }
-
 button:hover {
 	cursor: pointer;
 }
-
 iframe {
 	border: none !important;
 }
-
-
-
-
-
 /*//////////////////////////////////////////////////////////////////
 [ Contact 2 ]*/
 .bg-contact2 {
@@ -82,7 +64,6 @@ iframe {
   background-position: center center;
   background-size: cover;
 }
-
 .container-contact2 {
   width: 100%;  
   min-height: 100vh;
@@ -97,7 +78,6 @@ iframe {
  
   background:#fef9e7;
 }
-
 .wrap-contact2 {
   width: 600px;
   background: #fff;
@@ -105,15 +85,11 @@ iframe {
   overflow: hidden;
   padding: 72px 55px 90px 55px;
 }
-
-
 /*------------------------------------------------------------------
 [  ]*/
-
 .contact2-form {
   width: 100%;
 }
-
 .contact2-form-title {
   display: block;
   font-family: Poppins-Bold;
@@ -123,29 +99,22 @@ iframe {
   text-align: center;
   padding-bottom: 9px;
 }
-
-
-
 /*------------------------------------------------------------------
 [  ]*/
-
 .wrap-input2 {
   width: 100%;
   position: relative;
   border-bottom: 2px solid #adadad;
   margin-bottom: 20px;
 }
-
 .input2 {
   display: block;
   width: 100%;
-
   font-family: Poppins-Regular;
   font-size: 15px;
   color: #555555;
   line-height: 1.2;
 }
-
 .focus-input2 {
   position: absolute;
   display: block;
@@ -155,7 +124,6 @@ iframe {
   left: 0;
   pointer-events: none;
 }
-
 .focus-input2::before {
   content: "";
   display: block;
@@ -164,75 +132,61 @@ iframe {
   left: 0;
   width: 0;
   height: 2px;
-
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
-
   background: rgba(219,21,99,1);
   background: -webkit-linear-gradient(45deg, #d5007d, #e53935);
   background: -o-linear-gradient(45deg, #d5007d, #e53935);
   background: -moz-linear-gradient(45deg, #d5007d, #e53935);
   background: linear-gradient(45deg, #d5007d, #e53935);
 }
-
 .focus-input2::after {
-  content: attr(data-placeholder);
+  
   display: block;
   width: 100%;
   position: absolute;
   top: 0px;
   left: 0;
-
   font-family: Poppins-Regular;
   font-size: 13px;
   color: #999999;
   line-height: 1.2;
-
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 }
-
 /*---------------------------------------------*/
 input.input2 {
   height: 45px;
 }
-
 input.input2 + .focus-input2::after {
   top: 16px;
   left: 0;
 }
-
 textarea.input2 {
   min-height: 115px;
   padding-top: 13px;
   padding-bottom: 13px;
 }
-
 textarea.input2 + .focus-input2::after {
   top: 16px;
   left: 0;
 }
-
 .input2:focus + .focus-input2::after {
   top: -13px;
 }
-
 .input2:focus + .focus-input2::before {
   width: 100%;
 }
-
 .has-val.input2 + .focus-input2::after {
   top: -13px;
 }
-
 .has-val.input2 + .focus-input2::before {
   width: 100%;
 }
-
 /*------------------------------------------------------------------
 [ Button ]*/
 .container-contact2-form-btn {
@@ -245,7 +199,6 @@ textarea.input2 + .focus-input2::after {
   justify-content: center;
   padding-top: 13px;
 }
-
 .wrap-contact2-form-btn {
   display: block;
   position: relative;
@@ -255,7 +208,6 @@ textarea.input2 + .focus-input2::after {
   overflow: hidden;
   margin: 0 auto;
 }
-
 .contact2-form-bgbtn {
   position: absolute;
   z-index: -1;
@@ -268,13 +220,11 @@ textarea.input2 + .focus-input2::after {
   background: linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
   top: 0;
   left: -100%;
-
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 }
-
 .contact2-form-btn {
   display: -webkit-box;
   display: -webkit-flex;
@@ -286,40 +236,28 @@ textarea.input2 + .focus-input2::after {
   padding: 0 20px;
   min-width: 244px;
   height: 50px;
-
  
-
   font-family: Poppins-Medium;
   font-size: 16px;
   color: #fff;
   line-height: 1.2;
   
-
 }
-
 .wrap-contact2-form-btn:hover .contact2-form-bgbtn {
   left: 0;
 }
-
 /*------------------------------------------------------------------
 [ Responsive ]*/
-
 @media (max-width: 576px) {
   .wrap-contact2 {
     padding: 72px 15px 90px 15px;
   }
 }
-
-
-
 /*------------------------------------------------------------------
 [ Alert validate ]*/
-
 .validate-input {
   position: relative;
 }
-
-
   </style>
 
 
@@ -437,7 +375,7 @@ textarea.input2 + .focus-input2::after {
                   </div>
                   <div class="wrap-input100 validate-input">
                      <input class="input100" type="text" id="autocomplete" name="Adress" placeholder="Address">
-                     <span class="focus-input100" ></span>
+                   <span class="focus-input100" ></span>
                   </div>
                   
                   <div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -762,8 +700,6 @@ textarea.input2 + .focus-input2::after {
 
 		</footer>
 <script>
-
-
 </script>
       
        <script>
@@ -774,7 +710,6 @@ textarea.input2 + .focus-input2::after {
             if(respJson.data==="not logged"){
                document.getElementById('button').style.display="flex";
                document.getElementById('buttonlogged').style.display="none";
-
             }
             else{sessionStorage.setItem('accessToken',respJson.data);
             console.log(sessionStorage.getItem('accessToken'));
@@ -801,7 +736,6 @@ document.getElementById('button2').addEventListener("click", function() {
 document.querySelector('.bg-modal-reg').style.display = "flex";
 document.querySelector('.bg-modal').style.display = "none";
 });
-
 document.querySelector('.close2').addEventListener("click", function() {
 document.querySelector('.bg-modal-reg').style.display = "none";});
 document.querySelector('.bg-modal-succes').style.display="none";
@@ -839,7 +773,11 @@ document.querySelector('.bg-modal-succes').style.display="none";
          
 </script>
 <script>
+ 
  document.getElementById('reg').addEventListener('click',function(){
+  
+   
+  
     var firstname= document.getElementById('firstname').value;
     var lastname= document.getElementById('lastname').value;
     var password= document.getElementById('password').value;
@@ -850,15 +788,11 @@ document.querySelector('.bg-modal-succes').style.display="none";
   const url = "https://api.opencagedata.com/geocode/v1/json?q="+PLACENAME+"&key=756a6e9ea1f44169814599241a777aac";
   fetch( url)
    .then((result) => result.json())
-
    .then((jsonResp) => {
-
       console.log(jsonResp.results[0].formatted);
      var address=jsonResp.results[0].formatted;
      var lat=jsonResp.results[0].geometry.lat;
       var long=jsonResp.results[0].geometry.lng;
-
-
       var data={
                 "latitude": lat,
                 "longitude":long,
@@ -869,7 +803,6 @@ document.querySelector('.bg-modal-succes').style.display="none";
                "address": PLACENAME,
                "email":email,
                
-
             }
             var obj=JSON.stringify(data);
             console.log(obj);
@@ -897,8 +830,8 @@ document.querySelector('.bg-modal-succes').style.display="none";
            })
            
          });
- })
-       
+      })
+ 
          </script>
       
 </body>

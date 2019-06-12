@@ -230,6 +230,7 @@ nav{
     height:auto;
     font-weight: bold;
 }
+@media only screen and (min-width: 570px){
 .wrapperLost{
     width: 90%;
     height: auto;
@@ -240,7 +241,7 @@ nav{
     flex-direction: row;
     flex-wrap:nowrap;
 }
-
+}
 
 
 .sidebar{
@@ -377,4 +378,26 @@ margin-top:15px;
 }
 .col2{
   justify-content: center;
+}
+@media only screen and (max-width: 569px){
+  #title{
+    width:90%;
+    margin-right:5%;
+    margin-left:5%;
+    font-size:25px;
+  }
+  .wrapperLost{
+    width:90%;
+   flex-direction: column-reverse;
+  }
+  #sidenav{
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+  }
+  #cards{
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+  }
 }

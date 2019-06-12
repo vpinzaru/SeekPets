@@ -3,7 +3,7 @@
 
 <head>
    <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <link rel="stylesheet" href="./css/profile_page.css" type="text/css">
 
@@ -161,6 +161,9 @@
                   reward.className = ('bold');
                   reward.innerText = "Reward : " + jsonResp.data[i].reward;
                   button.appendChild(buttonel);
+                  if(jsonResp.data[i].collar==='null'){
+             pcollar.style.display='none';
+          }
                   col2.appendChild(ptitle);
                   col2.appendChild(pname);
                   col2.appendChild(pcollar);
