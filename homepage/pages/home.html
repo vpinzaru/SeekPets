@@ -143,7 +143,7 @@ iframe {
   background: linear-gradient(45deg, #d5007d, #e53935);
 }
 .focus-input2::after {
-  content: attr(data-placeholder);
+  
   display: block;
   width: 100%;
   position: absolute;
@@ -375,7 +375,7 @@ textarea.input2 + .focus-input2::after {
                   </div>
                   <div class="wrap-input100 validate-input">
                      <input class="input100" type="text" id="autocomplete" name="Adress" placeholder="Address">
-                     <span class="focus-input100" ></span>
+                   <span class="focus-input100" ></span>
                   </div>
                   
                   <div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -773,7 +773,11 @@ document.querySelector('.bg-modal-succes').style.display="none";
          
 </script>
 <script>
+ 
  document.getElementById('reg').addEventListener('click',function(){
+  
+   
+  
     var firstname= document.getElementById('firstname').value;
     var lastname= document.getElementById('lastname').value;
     var password= document.getElementById('password').value;
@@ -826,8 +830,8 @@ document.querySelector('.bg-modal-succes').style.display="none";
            })
            
          });
- })
-       
+      })
+ 
          </script>
       
 </body>
