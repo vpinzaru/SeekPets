@@ -197,7 +197,7 @@ nav ul li a i{
         top:47px;
     }
     }
-
+    
 .wrapper{
     width:90%;
     display:flex;
@@ -209,7 +209,7 @@ nav ul li a i{
     z-index:30;
    
     margin-top:50px;
-}
+       }
 .wrapper-sidenav{
     width:30%;
     background-color:rgba(115, 119, 118, 0.836);
@@ -428,4 +428,24 @@ iframe{
     margin-right:0;
     width:150px;
     height:150px;
+}
+@media only screen and (max-width: 570px){
+    .wrapper{
+        flex-direction: column;
+        display:flex;
+    }
+    .wrapper-sidenav{
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+    }
+    .continut{
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+    }
+    #titlu{
+        font-size:30px;
+    }
+
 }

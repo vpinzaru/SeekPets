@@ -304,7 +304,7 @@ input[type=text] {
     width:150px;
     background: #C4DBF6;
     display: block;
-    margin-left:200px;
+    
 
     text-align: center;
     border: 2px solid #720a35;
@@ -411,4 +411,28 @@ margin-top:15px;
 }
 .col2{
   justify-content: center;
+}
+
+@media only screen and (max-width:570px){
+  .wrapper{
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+   flex-direction: column;
+  }
+  .container{
+    width:100%;
+  }
+  input[type=text] {
+    width:100%;
+}
+.submit input[type = "button"]{
+  margin-left:25%;
+}
+}
+
+@media only screen and(min-width: 700px){
+  .submit input[type = "button"]{
+    margin-left:25%;
+  }
 }

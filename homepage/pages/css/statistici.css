@@ -264,7 +264,7 @@ nav{
         flex-direction: column;
         font-size: 34px;
         color:#720a35;
-        font-family: 'Mystery Quest', cursive;
+        font-family:  Arial, Helvetica, sans-serif;
         font-weight: bold;
         margin-top:40px;
        margin-left:40px;
@@ -295,3 +295,24 @@ nav{
     transition: 0.25s;
     cursor: pointer;
    }
+   @media only screen and (max-width: 570px){
+    .wrapper{
+        flex-direction: column;
+        display:flex;
+    }
+    .wrapper-sidenav{
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+    }
+    .continut{
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+    }
+    .container{
+        width:90%;
+        margin-left: 5%;
+        margin-right:5%;
+    }
+}

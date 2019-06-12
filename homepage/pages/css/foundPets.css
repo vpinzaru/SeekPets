@@ -231,10 +231,10 @@ nav{
     font-weight: bold;
 }
 .wrapperLost{
-    width: 85%;
+    width: 90%;
     height: auto;
-    margin-left:15%;
-    margin-right:20%;
+    margin-left:5%;
+    margin-right:5%;
     background-color: white;
     display:flex;
     flex-direction: row;
@@ -330,6 +330,7 @@ nav{
       display:flex;
       flex-direction: row;
       flex-wrap: wrap;
+      justify-content: center;
   }
   .bold{
     font-weight: bold;
@@ -348,4 +349,26 @@ nav{
   }
   .col2{
     justify-content: center;
+  }
+  @media only screen and (max-width: 569px){
+    #title{
+      width:90%;
+      margin-right:5%;
+      margin-left:5%;
+      font-size:25px;
+    }
+    .wrapperLost{
+      width:90%;
+     flex-direction: column;
+    }
+    #sidenav{
+      width:90%;
+      margin-left:5%;
+      margin-right:5%;
+    }
+    #cards{
+      width:90%;
+      margin-left:5%;
+      margin-right:5%;
+    }
   }
