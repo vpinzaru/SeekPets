@@ -295,3 +295,24 @@ nav{
     transition: 0.25s;
     cursor: pointer;
    }
+   @media only screen and (max-width: 570px){
+    .wrapper{
+        flex-direction: column;
+        display:flex;
+    }
+    .wrapper-sidenav{
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+    }
+    .continut{
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+    }
+    .container{
+        width:90%;
+        margin-left: 5%;
+        margin-right:5%;
+    }
+}

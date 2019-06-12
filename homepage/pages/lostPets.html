@@ -49,22 +49,22 @@
 </div>
 <!--START WRAPPER ARTICOLE LOST PETS-->
 <div class="wrapperLost">
-    
+       <div class="card2" id="sidenav">
+        <div class="container sidebar">
+                <button class="tablinks"><a   href="news.html" style="color:#730a35">Articles</a></button>
+                <button class="tablinks active"><a href="lostPets.html" style="color:#730a35">Lost Pets</a></button>
+                <button class="tablinks" ><a href="foundPets.html" style="color:#730a35">Found Pets</a></button>
+                <button class="tablinks" ><a href="searchPet.html" style="color:#730a35">Search Pet</a></button>
+                <button class="tablinks" ><a href="statistici.html" style="color:#730a35">Statistics</a></button>
+            </div>
+</div>
+
         <div class="row" id="cards">
             <div class="card2" id="ann">
            
         </div>
     </div>
-      <div class="card2" id="sidenav">
-                <div class="container sidebar">
-                        <button class="tablinks"><a   href="news.html" style="color:#730a35">Articles</a></button>
-                        <button class="tablinks active"><a href="lostPets.html" style="color:#730a35">Lost Pets</a></button>
-                        <button class="tablinks" ><a href="foundPets.html" style="color:#730a35">Found Pets</a></button>
-                        <button class="tablinks" >Search Pet</button>
-                        <button class="tablinks" >Statistics</button>
-                    </div>
-        </div>
-    
+      
 </div>
     <script>
         var corp=document.getElementById('ann');
@@ -122,7 +122,7 @@
        
           updatetext.type='text';
          updatetext.placeholder="Update location";
-         updatetext.id="area";
+         updatetext.id="area"+jsonResp.data[i].id_pet;
           var  update=document.createElement('button');
           update.type='text';
          update.innerText="Update!";
@@ -214,7 +214,8 @@
          if (e.target && e.target.id == 'blue') {
             var id = e.target.parentNode.getAttribute('id');
             console.log(id);
-            var area=document.getElementById('area').value;
+            var area=document.getElementById('area'+id).value;
+            console.log(area);
             const url = "https://api.opencagedata.com/geocode/v1/json?q="+area+"&key=756a6e9ea1f44169814599241a777aac";
 
          fetch( url)

@@ -13,7 +13,7 @@
      <link 
      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
      rel="stylesheet"  type='text/css'>
-      <title>Pawtaie | Home</title>
+      <title>Pawtaie | Statistics</title>
    </head>
    <body>
          <header>
@@ -28,16 +28,23 @@
                    <input type="checkbox" id="toggle-1">
                    <nav>
                        <ul>
-                           <li><a href="../homepage/home.html"><i class="fas fa-home"></i>Home</a></li>
-                           <li><a href="#howitworks"><i class="fas fa-search"></i>Report a pet</a></li>
-                           <li><a href="#news" class="active"><i class="far fa-newspaper"></i>News</a></li>
+                           <li><a href="home.html"><i class="fas fa-home"></i>Home</a></li>
+                           <li><a href="report.html"><i class="fas fa-search"></i>Report a pet</a></li>
+                           <li><a href="news.html" class="active"><i class="far fa-newspaper"></i>News</a></li>
                            <li><a href="profile_page.html"><i class="fa fa-cogs"></i>Account</a></li>
-                           <li><a href="#" id="button"><i class="fas fa-user"></i>Log Out</a></li>
+                           <li><a href="#" id="logout"><i class="fas fa-user"></i>Log Out</a></li>
                        </ul>
                    </nav>
                </section>
            </header>
 	  <div class="wrapper">
+         <div class="container sidebar">
+               <button class="tablinks" >Articles</button>
+               <button class="tablinks" ><a href="lostPets.html" style="color:#730a35">Lost Pets</a></button>
+               <button class="tablinks" ><a href="foundPets.html" style="color: #730a35">Found Pets</a></button>
+               <button class="tablinks" ><a href="searchPet.html" style="color:#730a35">Search Pet</a></button>
+               <button class="tablinks active" ><a href="statistici.html" style="color:#730a35">Statistics</a></button>
+           </div>
       <div class="stats">
          <div class="text">
          <p id="animalef"></p>
@@ -53,13 +60,7 @@
             <button id="pdf" >PDF</button>
       </div>
       </div>
-      <div class="container sidebar">
-         <button class="tablinks" >Articles</button>
-         <button class="tablinks" ><a href="lostPets.html" style="color:#730a35">Lost Pets</a></button>
-         <button class="tablinks" ><a href="foundPets.html" style="color: #730a35">Found Pets</a></button>
-         <button class="tablinks" ><a href="searchPet.html" style="color:#730a35">Search Pet</a></button>
-         <button class="tablinks active" ><a href="statistici.html" style="color:#730a35">Statistics</a></button>
-     </div>
+      
      </div>
      <script>
         document.addEventListener('DOMContentLoaded',function(){

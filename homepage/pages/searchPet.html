@@ -35,7 +35,7 @@
                     <li><a href="news.html"><i class="fas fa-newspaper"></i>News</a></li>
                     <li><a href="profile_page.html" ><i class="fas fa-cogs"></i>Account</a></li>
                     
-                    <li><a href="#" id="button"><i class="fas fa-user"></i>Log Out</a></li>
+                    <li><a href="#" id="logout"><i class="fas fa-user"></i>Log Out</a></li>
                 </ul>
             </nav>
         </section>
@@ -43,7 +43,13 @@
    
  <div class="wrapper">
  
-  
+    <div class="container sidebar">
+        <button class="tablinks">Articles</button>
+        <button class="tablinks"><a href="lostPets.html" style="color:#730a35">Lost Pets</a></button>
+        <button class="tablinks"><a href="foundPets.html" style="color: #730a35">Found Pets</a></button>
+        <button class="tablinks active" ><a href="searchPet.html" style="color:#730a35">Search Pet</a></button>
+        <button class="tablinks"><a href="statistici.html" style="color:#730a35">Statistics</a></button>
+    </div>
  <form id="details">
      
         <div class="row1">
@@ -66,13 +72,7 @@
 
 
 
- <div class="container sidebar">
-            <button class="tablinks">Articles</button>
-            <button class="tablinks"><a href="lostPets.html" style="color:#730a35">Lost Pets</a></button>
-            <button class="tablinks"><a href="foundPets.html" style="color: #730a35">Found Pets</a></button>
-            <button class="tablinks active" ><a href="searchPet.html" style="color:#730a35">Search Pet</a></button>
-            <button class="tablinks">Statistics</button>
-        </div>
+ 
    
  </div>
  <div class="wrapper-ann" id="ann">
@@ -164,14 +164,11 @@ document.getElementById('read').addEventListener('click',function(){
           pcontact.innerText= "Contact : " +jsonResp.data[i].contact;
           var map= document.createElement('iframe');
           map.className=("map");
-          map.src=("https://www.openstreetmap.org/export/embed.html?bbox=27.56349563598633%2C47.15517092451596%2C27.599329948425297%2C47.16803910676896&amp%3Blayer=mapnik&amp%3Bmarker=47.16160540524534%2C27.58141279220581");
           map.frameBorder='0';
+          map.id="id"+i;
           var button= document.createElement("div");
           button.className=("col3");
-          var buttonel=document.createElement('button');
-          buttonel.type="submit";
-          buttonel.id="seen";
-          buttonel.innerText="Delete post";
+          
           var status= document.createElement('div');
           status.className=('col3');
           var lostfound= document.createElement('button');
@@ -193,7 +190,7 @@ document.getElementById('read').addEventListener('click',function(){
           var reward= document.createElement('p');
           reward.className=('bold');
           reward.innerText="Reward : "+jsonResp.data[i].reward;
-            button.appendChild(buttonel);
+          
           col2.appendChild(ptitle);
           col2.appendChild(pname);
           col2.appendChild(pcollar);
@@ -211,12 +208,65 @@ document.getElementById('read').addEventListener('click',function(){
           corp.appendChild(card);
 
        corp.style.display="flex"
-       }}
+       }
+       for(var j=0;j<jsonResp.data.length;j++){
+        (function(closure){
+         let ii=j;
+         var el=document.getElementById('id'+ii);
+         console.log(el);
+         var data={
+             
+             "latitude": jsonResp.data[ii].latitude,
+             "longitude":jsonResp.data[ii].longitude
+          }
+          var lat=jsonResp.data[ii].latitude;
+          var long=jsonResp.data[ii].longitude;
+        
+          var locate= JSON.stringify(data);
+          fetch("/api/get_bbox",{
+            method: 'post',
+            headers: {
+               "Accept":"application/json"
+            },
+            body: locate
+          }).then(resp=>resp.json())
+          .then(response=>{
+            
+          console.log(response);
+         
+         src=("https://www.openstreetmap.org/export/embed.html?bbox="+response.data.primul[0]+"%2C"+response.data.aldoilea[0]+"%2C"+response.data.altreilea[0]+"%2C"+response.data.alpatrulea[0]+"&marker="+lat+"%2C"+long+"&layers=ND");
+          setSRC(el,src);
+          })
+          function setSRC(el,src){
+             el.src=src;
+          }
+      })(j);
+         }
+      }
       
         
     
     })
 })});
+var logg= document.getElementById('logout').addEventListener('click',function(){
+    var id=sessionStorage.getItem('accessToken');
+    var data={
+       "id_user":id
+    }
+    var obj= JSON.stringify(data);
+     fetch('/api/logout',{
+        method:"post",
+        headers: {
+           "Accept":"application/json"
+        },
+        body: obj
+     })
+        .then(resp=>resp.json())
+        .then(jsonResp=>{
+           sessionStorage.clear();
+           window.location.href="home.html";
+        })
+         })
 </script>
 
  </body>

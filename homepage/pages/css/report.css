@@ -373,7 +373,7 @@ nav{
   }
 
   .registerForm input[type = "text"]:focus, #inputDetalii2:focus,#inputDetalii1:focus,  .registerForm input[type = "tel"]:focus{
-    width: 380px;
+    width: 70%;
     border-color: white;
   }
 
@@ -428,4 +428,19 @@ nav{
        margin-top:17px;
        font-weight:bold;
   } 
-  
+  #output{
+    position:absolute;
+    width:140px;
+    height:110px;
+  }
+  @media only screen and (max-width:500px){
+      .main1{
+          width:85%;
+          margin-left:7.5%;
+          margin-right:7.5%;
+      }
+      #output{
+          width:70px;
+          height:60px;
+      }
+  }
